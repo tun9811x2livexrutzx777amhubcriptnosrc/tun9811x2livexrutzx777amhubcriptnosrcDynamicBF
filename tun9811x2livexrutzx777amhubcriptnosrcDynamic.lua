@@ -4475,7 +4475,7 @@ spawn(function()
                         if v34.Name == "Reborn Skeleton" or v34.Name == "Living Zombie" or v34.Name == "Demonic Soul" or v34.Name == "Posessed Mummy" then
                             HealthMin = v34.Humanoid.MaxHealth * _G['Kill At'] / 100
                             repeat
-                                wait()
+                                task.wait()
                                 if v34.Humanoid.Health <= HealthMin then
                                     AutoHaki()
                                     EquipWeaponFruit()
@@ -4538,7 +4538,7 @@ spawn(function()
                         if v34.Name == "Reborn Skeleton" or v34.Name == "Living Zombie" or v34.Name == "Demonic Soul" or v34.Name == "Posessed Mummy" then
                             HealthMin = v34.Humanoid.MaxHealth * _G['Kill At'] / 100
                             repeat
-                                wait()
+                                task.wait()
                                 if v34.Humanoid.Health <= HealthMin then
                                     AutoHaki()
                                     EquipWeaponGun()
