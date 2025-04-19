@@ -13859,6 +13859,27 @@ spawn(function()
         end
     end
 end)
+spawn(function()
+    while wait() do
+        if _G['Fast Attack'] then
+            pcall(function()
+                for i,v in pairs(game.workspace.Characters:GetChildren()) do
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 50 then
+                            local args = {
+                                [1] = "TAP",
+                                [2] = v.HumanoidRootPart.Position,
+                                [3] = v.HumanoidRootPart.Position
+                            }
+                            
+                            game:GetService("Players").LocalPlayer.Character.Humanoid:FindFirstChild(""):InvokeServer(unpack(args))
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
 --[[]
 local Toggle = Tabs.FarmSettings:AddToggle("FastAttack", {
 Title = "Fast Attack",
