@@ -13863,7 +13863,7 @@ spawn(function()
     while wait() do
         if _G['Fast Attack'] then
             pcall(function()
-                for i,v in pairs(game.workspace.Characters:GetChildren()) do
+                for i,v in pairs(game.workspace.Enemies:GetChildren()) do
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 50 then
                             local args = {
