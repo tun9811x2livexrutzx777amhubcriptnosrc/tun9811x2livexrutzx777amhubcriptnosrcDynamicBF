@@ -5487,7 +5487,7 @@ spawn(function()
                     elseif workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0 then
                         if not workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
                         repeat
-                            TP(CFrame.new(-16212.8848, 155.212158, 1461.02649, -0.996105969, -3.17251256e-08, -0.0881640837, -3.24321618e-08, 1, 6.58707e-09, 0.0881640837, 9.42077172e-09, -0.996105969))
+                            TP(CFrame.new(-16212.0068, 155.212143, 1470.34521, -0.66659236, -1.15334888e-08, -0.745422423, -6.46348823e-08, 1, 4.232718e-08, 0.745422423, 7.6395267e-08, -0.66659236))
                             game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
                             if _G['Skill Z'] then useSkill("Z") end
@@ -5517,7 +5517,7 @@ spawn(function()
                             if _G['Skill V'] then useSkill("V") end
                             if _G['Skill F'] then useSkill("F") end
                             wait(2)
-                            TP(CFrame.new(-16308.5156, 153.912766, 1459.53296, -0.966704786, 2.50890171e-08, -0.255894274, 4.87431038e-08, 1, -8.60948361e-08, 0.255894274, -9.57013739e-08, -0.966704786))
+                            TP(CFrame.new(-16251.0049, 155.212173, 1467.11316, -0.999910951, -6.50513101e-08, 0.0133428834, -6.43756053e-08, 1, 5.10711189e-08, -0.0133428834, 5.02076141e-08, -0.999910951))
                             game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
                             if _G['Skill Z'] then useSkill("Z") end
@@ -5547,7 +5547,7 @@ spawn(function()
                             if _G['Skill V'] then useSkill("V") end
                             if _G['Skill F'] then useSkill("F") end
                             wait(2)
-                            TP(CFrame.new(-16307.3213, 153.695526, 1332.10437, 0.555220366, 6.61452688e-08, 0.831703305, -1.65490519e-08, 1, -6.84822297e-08, -0.831703305, 2.42588261e-08, 0.555220366))
+                            TP(CFrame.new(-16288.084, 155.212158, 1470.14441, -0.925380409, 6.52596341e-08, 0.379039675, 4.50244535e-08, 1, -6.22491214e-08, -0.379039675, -4.05380653e-08, -0.925380409))
                             game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
                             if _G['Skill Z'] then useSkill("Z") end
@@ -5577,7 +5577,127 @@ spawn(function()
                             if _G['Skill V'] then useSkill("V") end
                             if _G['Skill F'] then useSkill("F") end
                             wait(2)
-                            TP(CFrame.new(-16211.7178, 153.36969, 1329.59119, 0.149956942, -8.28285422e-08, -0.988692522, -3.37517641e-08, 1, -8.88950282e-08, 0.988692522, 4.67005457e-08, 0.149956942))
+                            TP(CFrame.new(-16334.6846, 155.212143, 1455.61646, -0.659618318, 3.86496879e-09, 0.751600742, -3.66699848e-09, 1, -8.3605407e-09, -0.751600742, -8.27088442e-09, -0.659618318))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            wait(2)
+                            TP(CFrame.new(-16334.0273, 155.212158, 1322.12671, 0.992453635, 7.38745376e-09, -0.12262053, -5.55953861e-09, 1, 1.52492365e-08, 0.12262053, -1.44524464e-08, 0.992453635))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            wait(2)
+                            TP(CFrame.new(-16292.7031, 155.212173, 1321.85107, 0.976865053, -5.6229027e-10, -0.213856563, 1.35211553e-09, 1, 3.54697627e-09, 0.213856563, -3.75407616e-09, 0.976865053))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            wait(2)
+                            TP(CFrame.new(-16252.6611, 155.212158, 1316.16296, -0.106582999, 1.53650319e-08, -0.994303823, 5.11667553e-09, 1, 1.49045807e-08, 0.994303823, -3.49895535e-09, -0.106582999))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            wait(2)
+                            TP(CFrame.new(-16215.2607, 155.212158, 1319.12964, 0.663878798, -5.98061831e-08, -0.747840166, 3.21805445e-08, 1, -5.1404303e-08, 0.747840166, 1.00603241e-08, 0.663878798))
                             game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
                             if _G['Skill Z'] then useSkill("Z") end
