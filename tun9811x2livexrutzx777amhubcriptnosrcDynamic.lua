@@ -5475,8 +5475,7 @@ spawn(function()
                 else
                     if workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 1 then
                         for i,v in pairs(workspace.Enemies:GetChildren()) do
-                            if v.Humanoid.Health > 0 then
-                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500 then
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500 then
                                 repeat
                                     wait()
                                     EquipWeapon(_G['Select Weapon'])
@@ -5485,7 +5484,6 @@ spawn(function()
                                 until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0
                             end
                         end
-                    end
                     elseif workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0 then
                         if not workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
                         repeat
