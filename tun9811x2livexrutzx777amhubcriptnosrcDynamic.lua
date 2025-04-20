@@ -2871,6 +2871,34 @@ function useSkill(key)
     wait(0.1)
     game:service("VirtualInputManager"):SendKeyEvent(false, key, false, game)
 end
+function useitem(key)
+    game:service("VirtualInputManager"):SendKeyEvent(true, key, false, game)
+    game:service("VirtualInputManager"):SendKeyEvent(false, key, false, game)
+end
+function EEPP()
+    for i,v in ipairs({"One"}) do
+        useitem(v)
+    end
+    wait(0.8)
+        for i,v2 in ipairs({"Two"}) do
+        useitem(v2)
+    end
+    wait(0.8)
+    for i,v3 in ipairs({"Three"})do
+        useitem(v3)
+    end
+    wait(0.8)
+    for i,v4 in ipairs({"Four"}) do
+        useitem(v4)
+    end
+end
+function EPDDKEJ()
+    for i,v in ipairs({"Z","X","C","V","F"}) do
+    if _G["Skill " .. v] then
+        useSkill(v)
+        end
+    end
+end
 function TelePPlayer(P)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
 end
@@ -5505,14 +5533,33 @@ spawn(function()
                         end
                     elseif workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0 then
                         if not workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
-                        repeat
-                            task.wait()
-                            performAction(CFrame.new(-16212.0068, 155.212143, 1470.34521, -0.66659236, 0, -0.745422423, 0, 1, 0, 0.745422423, 0, -0.66659236))
-                            performAction(CFrame.new(-16251.0049, 155.212173, 1467.11316, -0.999910951, 0, 0.0133428834, 0, 1, 0, -0.0133428834, 0, -0.999910951))
-                            performAction(CFrame.new(-16288.084, 155.212158, 1470.14441, -0.925380409, 0, 0.379039675, 0, 1, 0, -0.379039675, 0, -0.925380409))
-                            performAction(CFrame.new(-16334.6846, 155.212143, 1455.61646, -0.659618318, 0, 0.751600742, 0, 1, 0, -0.751600742, 0, -0.659618318))
-                            performAction(CFrame.new(-16334.0273, 155.212158, 1322.12671, 0.992453635, 0, -0.12262053, 0, 1, 0, 0.12262053, 0, 0.992453635))
-                        until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Enemies:FindFirstChild("Tyrant of the Skies")
+                            repeat
+                                task.wait()
+                                TP(CFrame.new(-16212.0068, 155.212143, 1470.34521, -0.66659236, -1.15334888e-08, -0.745422423, -6.46348823e-08, 1, 4.232718e-08, 0.745422423, 7.6395267e-08, -0.66659236))
+                                EEPP()
+                                EPDDKEJ()
+                                TP(CFrame.new(-16251.0049, 155.212173, 1467.11316, -0.999910951, -6.50513101e-08, 0.0133428834, -6.43756053e-08, 1, 5.10711189e-08, -0.0133428834, 5.02076141e-08, -0.999910951))
+                                EEPP()
+                                EPDDKEJ()
+                                TP(CFrame.new(-16288.084, 155.212158, 1470.14441, -0.925380409, 6.52596341e-08, 0.379039675, 4.50244535e-08, 1, -6.22491214e-08, -0.379039675, -4.05380653e-08, -0.925380409))
+                                EEPP()
+                                EPDDKEJ()
+                                TP(CFrame.new(-16334.6846, 155.212143, 1455.61646, -0.659618318, 3.86496879e-09, 0.751600742, -3.66699848e-09, 1, -8.3605407e-09, -0.751600742, -8.27088442e-09, -0.659618318))
+                                EEPP()
+                                EPDDKEJ()
+                                TP(CFrame.new(-16334.0273, 155.212158, 1322.12671, 0.992453635, 7.38745376e-09, -0.12262053, -5.55953861e-09, 1, 1.52492365e-08, 0.12262053, -1.44524464e-08, 0.992453635))
+                                EEPP()
+                                EPDDKEJ()
+                                TP(CFrame.new(-16292.7031, 155.212173, 1321.85107, 0.976865053, -5.6229027e-10, -0.213856563, 1.35211553e-09, 1, 3.54697627e-09, 0.213856563, -3.75407616e-09, 0.976865053))
+                                EEPP()
+                                EPDDKEJ()
+                                TP(CFrame.new(-16252.6611, 155.212158, 1316.16296, -0.106582999, 1.53650319e-08, -0.994303823, 5.11667553e-09, 1, 1.49045807e-08, 0.994303823, -3.49895535e-09, -0.106582999))
+                                EEPP()
+                                EPDDKEJ()
+                                TP(CFrame.new(-16215.2607, 155.212158, 1319.12964, 0.663878798, -5.98061831e-08, -0.747840166, 3.21805445e-08, 1, -5.1404303e-08, 0.747840166, 1.00603241e-08, 0.663878798))
+                                EEPP()
+                                EPDDKEJ()
+                            until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Enemies:FindFirstChild("Tyrant of the Skies")
                             for i,v in pairs(workspace.Enemies:GetChildren()) do
                                 if v.Name == "Tyrant of the Skies" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
                                     repeat
@@ -11151,196 +11198,47 @@ spawn(function()
     while wait() do
         if getgenv().Config["Auto Dojo Quest"] then
             pcall(function()
-                local cframequestdojo = CFrame.new(5864, 1208, 873)
+                local posquest = CFrame.new(5864, 1208, 873)
+                local cfmonster = CFrame.new(-16966, 241, 1643)
                 if CheckBelt("Dojo Belt (White)") == false and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                    TP(cframequestdojo)
-                    if (cframequestdojo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
-                        local args = {
-                            [1] = {
-                                ["NPC"] = "Dojo Trainer",
-                                ["Command"] = "RequestQuest"
-                            }
-                        }
-                        game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net")
-                            :WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                        local cfmonster = CFrame.new(-16966, 241, 1643)
-                        TP(cfmonster)
-                        local killCount = 0
-                        while killCount < 30 do
-                            for _, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                if v.Name == "Skull Slayer" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                                    local humanoid = v.Humanoid
-                                    local rootPart = v.HumanoidRootPart
-                                    if humanoid.Health > 0 then
-                                        repeat
-                                            task.wait()
-                                            AutoHaki()
-                                            EquipWeapon(_G['Select Weapon'])
-                                            rootPart.CanCollide = false
-                                            BringMob(rootPart.CFrame)
-                                            humanoid.WalkSpeed = 0
-                                            TP(rootPart.CFrame * Pos)
-                                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math
-                                            .huge)
-                                        until humanoid.Health <= 0 or not getgenv().Config["Auto Dojo Quest"]
-                                        killCount = killCount + 1
-                                        if killCount >= 30 then break end
-                                    end
-                                end
-                            end
-                        end
-                        if CheckBelt("Dojo Belt (White)") == false and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                            TP(cframequestdojo)
-                            if (cframequestdojo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
-                                local args = {
-                                    [1] = {
-                                        ["NPC"] = "Dojo Trainer",
-                                        ["Command"] = "ClaimQuest"
-                                    }
-                                }
-                                game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net")
-                                    :WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                                wait(0.1)
-                                local args = {
-                                    [1] = {
-                                        ["NPC"] = "Dojo Trainer",
-                                        ["Command"] = "RequestQuest"
-                                    }
-                                }
-                                game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net")
-                                    :WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                            end
-                            if CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                                TP(cframequestdojo)
-                                if (cframequestdojo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
-                                    local args = {
-                                        [1] = {
-                                            ["NPC"] = "Dojo Trainer",
-                                            ["Command"] = "ClaimQuest"
-                                        }
-                                    }
-                                    game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net")
-                                        :WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                                    wait(0.1)
-                                    local args = {
-                                        [1] = {
-                                            ["NPC"] = "Dojo Trainer",
-                                            ["Command"] = "RequestQuest"
-                                        }
-                                    }
-                                    game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net")
-                                        :WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                                end
-                                TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999))
-                                wait(1)
-                                local args = { "BuyBoat", "PirateGrandBrigade" }
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                                local cfTerrorshark = CFrame.new(-99999999, 10.964, -324.484)
-                                TP(cfTerrorshark)
-                                local killCountTerrorshark = 0
-                                while killCountTerrorshark < 1 do
-                                    for _, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                        if v.Name == "Terrorshark" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                                            local enemyHumanoid = v.Humanoid
-                                            local rootPart = v.HumanoidRootPart
-                                            if enemyHumanoid.Health > 0 then
-                                                repeat
-                                                    task.wait()
-                                                    AutoHaki()
-                                                    EquipWeapon(_G['Select Weapon'])
-                                                    rootPart.CanCollide = false
-                                                    enemyHumanoid.WalkSpeed = 0
-                                                    TP(rootPart.CFrame * Pos)
-                                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
-                                                        math.huge)
-                                                until enemyHumanoid.Health <= 0 or not getgenv().Config["Auto Dojo Quest"]
-                                                killCountTerrorshark = killCountTerrorshark + 1
-                                                if killCountTerrorshark >= 1 then break end
-                                            end
-                                        end
-                                    end
-                                end
-                                if CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                                    TP(cframequestdojo)
-                                    if (cframequestdojo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
-                                        local args = {
-                                            [1] = {
-                                                ["NPC"] = "Dojo Trainer",
-                                                ["Command"] = "ClaimQuest"
-                                            }
-                                        }
-                                        game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild(
-                                        "Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                                        wait(0.1)
-                                        local args = {
-                                            [1] = {
-                                                ["NPC"] = "Dojo Trainer",
-                                                ["Command"] = "RequestQuest"
-                                            }
-                                        }
-                                        game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild(
-                                        "Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                                    end
-                                    if CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
-                                        "requestEntrance",
-                                            Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
-                                        wait(0.1)
-                                        local finalPosition = CFrame.new(-12591.0586, 337.540649, -7556.75684)
-                                        TP(finalPosition)
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
---[[]
-spawn(function()
-while wait() do
-    if _G['Auto Dojo Quest'] then
-        pcall(function()
-            local cframequestdojo = CFrame.new(5864, 1208, 873)
-            if CheckBelt("Dojo Belt (White)") == false and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-            TP(cframequestdojo)
-            if (cframequestdojo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
+                repeat
+                    wait()
+                    TP(posquest)
+                until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                 local args = {
                     [1] = {
                         ["NPC"] = "Dojo Trainer",
                         ["Command"] = "RequestQuest"
                     }
                 }
-                game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                local cfmonster = CFrame.new(-16966, 241, 1643)
+                game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))   
                 TP(cfmonster)
                 local killCount = 0
-                while killCount < 30 do
-                    for _, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if v.Name == "Skull Slayer" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                            local humanoid = v.Humanoid
-                            local rootPart = v.HumanoidRootPart
-                            if humanoid.Health > 0 then
-                                repeat
-                                    task.wait()
-                                    AutoHaki()
-                                    EquipWeapon(_G['Select Weapon'])
-                                    rootPart.CanCollide = false
-                                    BringMob(rootPart.CFrame)
-                                    humanoid.WalkSpeed = 0
-                                    TP(rootPart.CFrame * Pos)
-                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until humanoid.Health <= 0 or not _G['Auto Dojo Quest']
-                                killCount = killCount + 1
-                                if killCount >= 30 then break end
+                    while killCount < 30 do
+                        for _, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Skull Slayer" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+                                local humanoid = v.Humanoid
+                                local rootPart = v.HumanoidRootPart
+                                if humanoid.Health > 0 then
+                                    repeat
+                                        task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G['Select Weapon'])
+                                        rootPart.CanCollide = false
+                                        BringMob(rootPart.CFrame)
+                                        humanoid.WalkSpeed = 0
+                                        TP(rootPart.CFrame * Pos)
+                                    until humanoid.Health <= 0 or not _G['Auto Dojo Quest'] or killCount >= 30
+                                    killCount = killCount + 1
+                                    if killCount >= 30 then break end
+                                end
                             end
                         end
-                    end
-                end
-                TP(cframequestdojo)
-                if (cframequestdojo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
+                    end 
+                    repeat
+                        wait()
+                        TP(posquest)
+                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     local args = {
                         [1] = {
                             ["NPC"] = "Dojo Trainer",
@@ -11356,38 +11254,44 @@ while wait() do
                         }
                     }
                     game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
-                end
-            elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999))
-                wait(1)
-                local args = {"BuyBoat", "PirateGrandBrigade"}
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                local cfTerrorshark = CFrame.new(-99999999, 10.964, -324.484)
-                TP(cfTerrorshark)
-                local killCountTerrorshark = 0
-                while killCountTerrorshark < 1 do
-                    for _, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if v.Name == "Terrorshark" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                            local enemyHumanoid = v.Humanoid
-                            local rootPart = v.HumanoidRootPart
-                            if enemyHumanoid.Health > 0 then
-                                repeat
-                                    task.wait()
-                                    AutoHaki()
-                                    EquipWeapon(_G['Select Weapon'])
-                                    rootPart.CanCollide = false
-                                    enemyHumanoid.WalkSpeed = 0
-                                    TP(rootPart.CFrame * Pos)
-                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until enemyHumanoid.Health <= 0 or not _G['Auto Dojo Quest']
-                                killCountTerrorshark = killCountTerrorshark + 1
-                                if killCountTerrorshark >= 1 then break end
+                elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
+                    local killCountTerrorshark = 0
+                    while killCountTerrorshark < 30 do
+                        if not workspace.Enemies:FindFirstChild("Terrorshark") then
+                            if not game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
+                                buyb = TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08,
+                                    -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08,
+                                    -0.997757435))
+                                if (CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08, -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08, -0.997757435).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                                    if buyb then buyb:Stop() end
+                                    local args = {
+                                        [1] = "BuyBoat",
+                                        [2] = "PirateGrandBrigade"
+                                    }
+                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                                end
+                            elseif game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
+                                if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                                    TPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0, 1, 0))
+                                else
+                                    for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
+                                        if v.Name == "PirateGrandBrigade" then
+                                            repeat
+                                                wait()
+                                                PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
+                                            until CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark >= 1
+                                            killCountTerrorshark = killCountTerrorshark + 1
+                                            if killCountTerrorshark >= 1 then break end
+                                        end
+                                    end
+                                end
                             end
                         end
                     end
-                end
-                TP(cframequestdojo)
-                if (cframequestdojo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
+                    repeat
+                        wait()
+                        TP(posquest)
+                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     local args = {
                         [1] = {
                             ["NPC"] = "Dojo Trainer",
@@ -11403,19 +11307,16 @@ while wait() do
                         }
                     }
                     game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
+                elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+                    wait(0.1)
+                    local finalPosition = CFrame.new(-12591.0586, 337.540649, -7556.75684)
+                    TP(finalPosition)
                 end
-            elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
-                wait(0.1)
-                local finalPosition = CFrame.new(-12591.0586, 337.540649, -7556.75684)
-                TP(finalPosition)
-            end
+            end)
         end
-        end)
     end
-end
 end)
---]]
 Tabs.VolcanoEvents:AddToggle("Auto Craft Volcanic Magnet", {
     Title = "Auto Craft Volcanic Magnet",
     Description = "",
