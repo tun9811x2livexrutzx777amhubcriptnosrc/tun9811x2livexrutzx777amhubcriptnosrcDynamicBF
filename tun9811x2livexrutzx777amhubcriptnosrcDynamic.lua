@@ -3616,7 +3616,8 @@ local function isAutoEnabled()
         "Auto Collect Berry", "Auto Godhuman Full", "Auto Electric Claw", "Auto Sharkman Karate", "Auto Twin Hooks",
         "Auto Soul Guitar", "Auto Kill Players", "Auto Complete Trail", "Auto Farm Chest [ Tweem ]", "Auto Farm Chest [ TP ] ( Risk )",
         "Auto Observation V2", "Auto Dough King V2", "Auto Farm Order Boss","Auto Farm Mastery Fruit [Bone]",
-        "Auto Farm Mastery Gun [Bone]","Auto Farm Mastery Fruit [Cake Prince]","Auto Farm Mastery Gun [Cake Prince]"
+        "Auto Farm Mastery Gun [Bone]","Auto Farm Mastery Fruit [Cake Prince]","Auto Farm Mastery Gun [Cake Prince]",
+        "Auto Tyrant of the Skies"
     }
     for _, key in ipairs(keys_G) do
         if getgenv().Config[key] then return true end
@@ -5451,6 +5452,187 @@ spawn(function()
                 end
             end)
         end
+    end
+end)
+Tabs.General:AddSection("Tyrant of the Skies")
+Tabs.General:AddToggle("Auto Tyrant of the Skies", {
+    Title = "Auto Tyrant of the Skies",
+    Description = "",
+    Default = getgenv().Config["Auto Tyrant of the Skies"] or false,
+    Callback = function(Value)
+        getgenv().Config["Auto Tyrant of the Skies"] = Value
+        Update_Setting(getgenv()['MyName'])
+        _St(getgenv().Config["Auto Tyrant of the Skies"])
+    end
+})
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if getgenv().Config["Auto Tyrant of the Skies"] then
+                local pos = CFrame.new(-16209.4434, 155.212173, 1394.25403, 0.0604604445, 3.11304014e-08, 0.998170614, -1.85925462e-08, 1, -3.00612832e-08, -0.998170614, -1.67410139e-08, 0.0604604445)
+                if (pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 100 then
+                    TP(pos)
+                else
+                    if workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 1 then
+                        for i,v in pairs(workspace.Enemies:GetChildren()) do
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500 then
+                                repeat
+                                    wait()
+                                    EquipWeapon(_G['Select Weapon'])
+                                    TP(v.HumanoidRootPart.CFrame * Pos)
+                                    BringMob(v.HumanoidRootPart.CFrame)
+                                until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0
+                            end
+                        end
+                    elseif workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0 then
+                        if not workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
+                        repeat
+                            TP(CFrame.new(-16212.8848, 155.212158, 1461.02649, -0.996105969, -3.17251256e-08, -0.0881640837, -3.24321618e-08, 1, 6.58707e-09, 0.0881640837, 9.42077172e-09, -0.996105969))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            wait(2)
+                            TP(CFrame.new(-16308.5156, 153.912766, 1459.53296, -0.966704786, 2.50890171e-08, -0.255894274, 4.87431038e-08, 1, -8.60948361e-08, 0.255894274, -9.57013739e-08, -0.966704786))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            wait(2)
+                            TP(CFrame.new(-16307.3213, 153.695526, 1332.10437, 0.555220366, 6.61452688e-08, 0.831703305, -1.65490519e-08, 1, -6.84822297e-08, -0.831703305, 2.42588261e-08, 0.555220366))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            wait(2)
+                            TP(CFrame.new(-16211.7178, 153.36969, 1329.59119, 0.149956942, -8.28285422e-08, -0.988692522, -3.37517641e-08, 1, -8.88950282e-08, 0.988692522, 4.67005457e-08, 0.149956942))
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if _G['Skill Z'] then useSkill("Z") end
+                            if _G['Skill X'] then useSkill("X") end
+                            if _G['Skill C'] then useSkill("C") end
+                            if _G['Skill V'] then useSkill("V") end
+                            if _G['Skill F'] then useSkill("F") end
+                        until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Enemies:FindFirstChild("Tyrant of the Skies")
+                            for i,v in pairs(workspace.Enemies:GetChildren()) do
+                                if v.Name == "Tyrant of the Skies" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
+                                    repeat
+                                        wait()
+                                        EquipWeapon(_G['Select Weapon'])
+                                        TP(v.HumanoidRootPart.CFrame * Pos)
+                                        BringMob(v.HumanoidRootPart.CFrame)
+                                    until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0
+                                end
+                            end
+                        elseif workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
+                            for i,v in pairs(workspace.Enemies:GetChildren()) do
+                                if v.Name == "Tyrant of the Skies" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
+                                    repeat
+                                        wait()
+                                        EquipWeapon(_G['Select Weapon'])
+                                        TP(v.HumanoidRootPart.CFrame * Pos)
+                                        BringMob(v.HumanoidRootPart.CFrame)
+                                    until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end)
     end
 end)
 Tabs.General:AddSection("Observations")
