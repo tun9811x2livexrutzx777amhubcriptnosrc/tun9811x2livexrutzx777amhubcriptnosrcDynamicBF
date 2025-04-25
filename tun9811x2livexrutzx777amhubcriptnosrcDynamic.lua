@@ -3372,7 +3372,6 @@ function Tween1(K1)
         end
     end
 end
---[[]
 function TP(Pos)
     local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance <= 45 then
@@ -3397,8 +3396,7 @@ function TP(Pos)
     end
     tween:Play()
 end
---]]
-function TP(Pos)
+--[[function TP(Pos)
     local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance <= 100 then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
@@ -3442,7 +3440,7 @@ function TP(Pos)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
     end
     tween:Play()
-end
+end--]]
 function TPTPP(Pos)
     local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance <= 100 then
@@ -3663,7 +3661,7 @@ local function isAutoEnabled()
         "Auto Soul Guitar", "Auto Kill Players", "Auto Complete Trail", "Auto Farm Chest [ Tweem ]", "Auto Farm Chest [ TP ] ( Risk )",
         "Auto Observation V2", "Auto Dough King V2", "Auto Farm Order Boss","Auto Farm Mastery Fruit [Bone]",
         "Auto Farm Mastery Gun [Bone]","Auto Farm Mastery Fruit [Cake Prince]","Auto Farm Mastery Gun [Cake Prince]",
-        "Auto Tyrant of the Skies"
+        "Auto Tyrant of the Skies","Enabled Farm Fast",
     }
     for _, key in ipairs(keys_G) do
         if getgenv().Config[key] then return true end
@@ -4015,8 +4013,8 @@ spawn(function()
                                             AutoHaki()
                                             v5.Humanoid.WalkSpeed = 0
                                             TP(v5.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(v5.HumanoidRootPart.CFrame)
-                                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            --BringMob(v5.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                         until not getgenv().Config["Auto Farm Level"] or v5.Humanoid.Health <= 0 or not v5.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
@@ -4044,6 +4042,98 @@ spawn(function()
                                 CFrame.new(15, 10, 2))
                         end
                     end
+                end
+            end)
+        end
+    end
+end)
+Tabs.General:AddToggle("Enabled Farm Fast", {
+    Title = "Enabled Farm Fast",
+    Description = "",
+    Default = getgenv().Config["Enabled Farm Fast"] or false,
+    Callback = function(L_1_valuer4)
+        getgenv().Config["Enabled Farm Fast"] = L_1_valuer4
+        Update_Setting(getgenv()['MyName'])
+        _St(getgenv().Config["Enabled Farm Fast"])
+    end
+})
+spawn(function()
+    while wait() do
+        if getgenv().Config["Auto Farm Level"] and getgenv().Config["Enabled Farm Fast"] then
+            pcall(function()
+                if game:GetService("Players").LocalPlayer.Data.Level.Value < 10 then
+                local v3 = (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text)
+                if not string.find(v3, NameMon) then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                end
+                if (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == false then
+                    CheckQuest()
+                    if (BypassTP) then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude >= (1500) then
+                            BTP(CFrameQuest)
+                        else
+                            TP(CFrameQuest)
+                        end
+                    else
+                        TP(CFrameQuest)
+                    end
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= (20) then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest,
+                            LevelQuest)
+                    end
+                elseif (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == true then
+                    CheckQuest()
+                    v2 = false
+                    if (workspace.Enemies:FindFirstChild(Mon)) then
+                        for v4, v5 in pairs(workspace.Enemies:GetChildren()) do
+                            if (v5:FindFirstChild("HumanoidRootPart") and v5:FindFirstChild("Humanoid") and v5.Humanoid.Health > (0)) then
+                                if (v5.Name == Mon) then
+                                    if (string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon)) then
+                                        repeat
+                                            wait()
+                                            EquipWeapon(_G['Select Weapon'])
+                                            AutoHaki()
+                                            v5.Humanoid.WalkSpeed = 0
+                                            TP(v5.HumanoidRootPart.CFrame * Pos)
+                                            BringMob(v5.HumanoidRootPart.CFrame)
+                                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        until not getgenv().Config["Auto Farm Level"] or v5.Humanoid.Health <= 0 or not v5.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    else
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
+                                            "AbandonQuest")
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        CheckMon()
+                        if not v2 then
+                            v2 = true
+                            for _, v6 in ipairs({ CFrameMon1, CFrameMon2, CFrameMon3, CFrameMon4 }) do
+                                if (workspace.Enemies:FindFirstChild(Mon)) then
+                                    v2 = false
+                                    break
+                                end
+                                TP(v6)
+                                wait(0.65)
+                            end
+                            v2 = false
+                        end
+                        if (game:GetService("ReplicatedStorage"):FindFirstChild(Mon)) then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame *
+                                CFrame.new(15, 10, 2))
+
+                            end
+                        end
+                    end
+                elseif game:GetService("Players").LocalPlayer.Data.Level.Value >= 10 and game:GetService("Players").LocalPlayer.Data.Level.Value < 75 then
+                    local posffarmfffast = CFrame.new()
+                    if (posffarmfffast.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 1500  then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",
+                        Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+                    else
+                    end
+                else
                 end
             end)
         end
@@ -5023,75 +5113,140 @@ Tabs.General:AddToggle("Auto Third Sea", {
     end
 })
 spawn(function()
-    while wait() do
+    while task.wait() do
         if getgenv().Config["Auto Third Sea"] then
             pcall(function()
-                local player = game:GetService("Players").LocalPlayer
-                local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
-                local level = player.Data.Level.Value
-                if level >= 1500 and L_4442272183_ then
-                    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ZQuestProgress", "Check") == 0 then
-                        local questPos = CFrame.new(-1926.322, 12.820, 1738.309)
-                        TP(questPos)
-                        if (questPos.Position - humanoidRootPart.Position).Magnitude <= 10 then
-                            wait(1.5)
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ZQuestProgress",
-                                "Begin")
+                if game.Players.LocalPlayer.Data.Level.Value >= 1500 then
+                    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 3 then
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetUnlockables").FlamingoAccess == nil then
+                            if game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("ZQuestProgress", "Check") == nil then
+                                if game.Workspace.Enemies:FindFirstChild("Don Swan") then
+                                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                                        if v.Name == "Don Swan" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                            repeat game:GetService("RunService").Heartbeat:wait()
+                                                EquipWeapon(_G['Select Weapon'])
+                                                TP(v.HumanoidRootPart.CFrame * Pos)
+                                            until not v.Parent or v.Humanoid.Health <= 0 or not getgenv().Config["Auto Third Sea"]
+                                        end
+                                    end
+                                else
+                                    TP(CFrame.new(2288.802, 15.1870775, 863.034607))
+                                end
+                            elseif game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("ZQuestProgress", "Check") == 1 then
+                                if game.Workspace.Enemies:FindFirstChild("rip_indra") then
+                                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                                        if v.Name == "rip_indra" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                            repeat game:GetService("RunService").Heartbeat:wait()
+                                                EquipWeapon(_G['Select Weapon'])
+                                                TP(v.HumanoidRootPart.CFrame * Pos)
+                                            until not v.Parent or v.Humanoid.Health <= 0 or not getgenv().Config["Auto Third Sea"]
+                                        end
+                                    end
+                                else
+                                    TP(CFrame.new(-26952.2891, 21.5294781, 329.351562, -0.453972578, 0, -0.891015649, 0, 1, 0, 0.891015649, 0, -0.453972578))
+                                end
+                            end
+                            TabelDevilFruitStore = {}
+                            TabelDevilFruitOpen = {}
+                            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryFruits")) do
+                                for i1,v1 in pairs(v) do
+                                    if i1 == "Name" then
+                                        table.insert(TabelDevilFruitStore,v1)
+                                    end
+                                end
+                            end
+                            for i,v in next,game.ReplicatedStorage:WaitForChild("Remotes").CommF_:InvokeServer("GetFruits") do
+                                if v.Price >= 1000000 then
+                                    table.insert(TabelDevilFruitOpen,v.Name)
+                                end
+                            end
+                            for i,DevilFruitOpenDoor in pairs(TabelDevilFruitOpen) do
+                                for i1,DevilFruitStore in pairs(TabelDevilFruitStore) do
+                                    if DevilFruitOpenDoor == DevilFruitStore and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetUnlockables").FlamingoAccess == nil then
+                                        if not game.Players.LocalPlayer.Backpack:FindFirstChild(DevilFruitStore) then
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadFruit",DevilFruitStore)
+                                        else
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TalkTrevor","1")
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TalkTrevor","2")
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TalkTrevor","3")
+                                        end
+                                    end
+                                end
+                            end
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TalkTrevor","1")
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TalkTrevor","2")
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TalkTrevor","3")
+                        elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetUnlockables").FlamingoAccess == true then
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
                         end
-                        wait(1.8)
-                        _G['Auto Third Sea Mode'] = true
-                    end
-                else
-                    if L_4442272183_ then
-                        _G['Auto Third Sea Mode'] = false
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
-                    end
-                end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if _G['Auto Third Sea Mode'] and L_4442272183_ then
-            pcall(function()
-                local enemies = workspace.Enemies
-                if enemies:FindFirstChild("rip_indra") then
-                    for _, enemy in pairs(enemies:GetChildren()) do
-                        if enemy.Name == "rip_indra" and enemy:FindFirstChild("Humanoid") and enemy:FindFirstChild("HumanoidRootPart") then
-                            if enemy.Humanoid.Health > 0 then
-                                repeat
-                                    task.wait()
-                                    AutoHaki()
-                                    EquipWeapon(_G['Select Weapon'])
-                                    enemy.HumanoidRootPart.CanCollide = false
-                                    enemy.Humanoid.WalkSpeed = 0
-                                    TP(enemy.HumanoidRootPart.CFrame * Pos)
-                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not _G['Auto Third Sea Mode'] or not enemy.Parent or enemy.Humanoid.Health <= 0
+                    elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 0 then
+                        if string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Swan Pirates") and string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "50") and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then 
+                            if game:GetService("Workspace").Enemies:FindFirstChild("Swan Pirate") then
+                                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                    if v.Name == "Swan Pirate" then
+                                        repeat game:GetService("RunService").Heartbeat:wait()
+                                            EquipWeapon(_G['Select Weapon'])
+                                            TP(v.HumanoidRootPart.CFrame * Pos)
+                                        until not v.Parent or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().Config["Auto Third Sea"]
+                                    end
+                                end
+                            else
+                                if ByPassTP then
+                                    BTP(CFrame.new(1057.92761, 137.614319, 1242.08069))
+                                else
+                                    TP(CFrame.new(1057.92761, 137.614319, 1242.08069))
+                                end
+                            end
+                        else
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","BartiloQuest",1)
+                        end
+                    elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 1 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo")
+                        if game.Workspace.Enemies:FindFirstChild("Jeremy") then
+                            for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    if v.Name == "Jeremy" then
+                                        repeat game:GetService("RunService").Heartbeat:wait()
+                                            EquipWeapon(_G['Select Weapon'])
+                                            TP(v.HumanoidRootPart.CFrame * Pos)
+                                        until not v.Parent or v.Humanoid.Health <= 0 or not getgenv().Config["Auto Third Sea"]
+                                    end
+                                end
+                            end
+                        else
+                            if ByPassTP then
+                                BTP(CFrame.new(2099.88159, 448.931, 648.997375))
+                            else
+                                TPv(CFrame.new(2099.88159, 448.931, 648.997375))
                             end
                         end
+                    elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 2 then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameThird.Position).Magnitude > 1500 then
+                            if ByPassTP then
+                                BTP(CFrame.new(-1836.1412353515625, 10.458294868469238, 1692.491943359375))
+                            else
+                                TP(CFrame.new(-1836.1412353515625, 10.458294868469238, 1692.491943359375))
+                            end
+                        else
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1850.49329, 13.1789551, 1750.89685)
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1858.87305, 19.3777466, 1712.01807)
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1803.94324, 16.5789185, 1750.89685)
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1858.55835, 16.8604317, 1724.79541)
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1869.54224, 15.987854, 1681.00659)
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1800.0979, 16.4978027, 1684.52368)
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1819.26343, 14.795166, 1717.90625)
+                            wait(1)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1813.51843, 14.8604736, 1724.79541)
+                        end
                     end
-                else
-                    local position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-                    local targetPos = CFrame.new(1347.712, 37.375, -1325.649)
-                    if BypassTP and (position - targetPos.Position).Magnitude > 1500 then
-                        TP(targetPos)
-                    else
-                        TP(targetPos)
-                    end
-                    TP(targetPos)
                 end
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if not getgenv().Config["Auto Third Sea"] then
-            pcall(function()
-                _G['Auto Third Sea Mode'] = false
             end)
         end
     end
@@ -5198,7 +5353,7 @@ spawn(function()
                 for i, v in pairs(workspace.Map:GetDescendants()) do
                     if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
                         repeat wait()
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",v.CFrame)
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",v.Position)
                         until not getgenv().Config["Auto Farm Chest [ TP ] ( Risk )"] or not v.Parent or (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude == 0
                         wait(0.25)
                     end
@@ -11198,7 +11353,7 @@ local isAttackingGolem2 = false
 local function attackLavaGolem2()
     if isSealingLava2 then return end 
     local golems = {}
-    for _, enemy in pairs(game.workspace.Enemies:GetChildren()) do
+    for _, enemy in pairs(workspace.Enemies:GetChildren()) do
         if enemy.Name == "Lava Golem" and enemy:FindFirstChild("HumanoidRootPart") and enemy.Humanoid.Health > 0 then
             table.insert(golems, enemy)
         end
@@ -12634,6 +12789,8 @@ spawn(function()
                 for i,v in  pairs(game.workspace:GetChildren()) do
                     if v.Name == "DinoBone" then
                     TP(v.CFrame)
+                    else
+                        break
                     end
                 end
             end)
@@ -13332,9 +13489,9 @@ spawn(function()
     while wait() do
         if getgenv().Config["Teleport to Fruit"] then
             pcall(function()
-                for i, v in pairs(game.workspace:GetDescendants()) do
-                    if string.find(v.Name, "Fruit") and v:FindFirstChild("Fruit") and v:FindFirstChild("RootPart") then
-                        TP(v.RootPart.CFrame)
+                for i, v in pairs(workspace:GetChildren()) do
+                    if v:IsA("Tool") then
+                        TP(v.Handle.CFrame)
                     end
                 end
             end)
@@ -14734,7 +14891,7 @@ function BringMob(pos)
             end
         end
     end)
-end
+end-]]
 -- แบบดึงมอนมาหาเรา
 function BringMob(pos)
     local BlacklistMob = {
@@ -14775,9 +14932,8 @@ function BringMob(pos)
         end
     end)
 end
---]]
 -- แบบดึงมอนหามอน
-function BringMob(pos)
+--[[function BringMob(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
         "The Gorilla King", "Bobby", "Yeti", "Vice Admiral", "Warden", "Chief Warden",
@@ -14822,7 +14978,7 @@ function BringMob(pos)
             end
         end
     end)
-end
+end--]]
 function BringMobFast(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
@@ -15087,29 +15243,22 @@ spawn(function()
                     GetWeaponData13.Cooldown = -999999999999999999999999999999999999999999999999999999999999999
                 end
             end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if not _G['Gun No Cooldown'] then
-            pcall(function()
-                GetWeaponData.Cooldown = 0.4
-                GetWeaponData1.Cooldown = 1.8
-                GetWeaponData2.Cooldown = 2.7
-                GetWeaponData3.Cooldown = 2
-                GetWeaponData4.Cooldown = 2.6
-                GetWeaponData4.ShootInterval = 1
-                GetWeaponData5.Cooldown = 3.5
-                GetWeaponData6.Cooldown = 1.6
-                GetWeaponData7.Cooldown = 2.3
-                GetWeaponData8.Cooldown = 0.4
-                GetWeaponData9.Cooldown = 3.5
-                GetWeaponData10.Cooldown = 0.45
-                GetWeaponData11.Cooldown = 1
-                GetWeaponData12.Cooldown = 0.08
-                GetWeaponData13.Cooldown = 1.5
-            end)
+        else
+            GetWeaponData.Cooldown = 0.4
+            GetWeaponData1.Cooldown = 1.8
+            GetWeaponData2.Cooldown = 2.7
+            GetWeaponData3.Cooldown = 2
+            GetWeaponData4.Cooldown = 2.6
+            GetWeaponData4.ShootInterval = 1
+            GetWeaponData5.Cooldown = 3.5
+            GetWeaponData6.Cooldown = 1.6
+            GetWeaponData7.Cooldown = 2.3
+            GetWeaponData8.Cooldown = 0.4
+            GetWeaponData9.Cooldown = 3.5
+            GetWeaponData10.Cooldown = 0.45
+            GetWeaponData11.Cooldown = 1
+            GetWeaponData12.Cooldown = 0.08
+            GetWeaponData13.Cooldown = 1.5
         end
     end
 end)
@@ -15149,7 +15298,7 @@ spawn(function()
     while wait() do
         if _G['Auto Set Spawn Point'] then
             pcall(function()
-                (game:GetService("ReplicatedStorage")).Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
             end)
         end
     end
