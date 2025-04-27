@@ -269,7 +269,7 @@ local function getPlayers()
 end
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 getgenv().Config = {
-    Save_Member = true,
+    Save_Member = true
 }
 _G.Check_Save_Setting = "CheckSaveSetting"
 getgenv()['JsonEncode'] = function(msg)
@@ -279,26 +279,35 @@ getgenv()['JsonDecode'] = function(msg)
     return game:GetService("HttpService"):JSONDecode(msg)
 end
 getgenv()['Check_Setting'] = function(Name)
-    if not _G.Dis and not isfolder('Dynamic Hub Blox Fruit') then
-        makefolder('Dynamic Hub Blox Fruit')
-    end
-    if not _G.Dis and not isfile('Dynamic Hub Blox Fruit/' .. Name .. '.json') then
-        writefile('Dynamic Hub Blox Fruit/' .. Name .. '.json', JsonEncode(getgenv().Config))
+    if not _G.Dis then
+        if not isfolder('Dynamic Hub') then
+            makefolder('Dynamic Hub')
+        end
+        if not isfolder('Dynamic Hub/Blox Fruit') then
+            makefolder('Dynamic Hub/Blox Fruit')
+        end
+        if not isfile('Dynamic Hub/Blox Fruit/'..Name..'.json') then
+            writefile('Dynamic Hub/Blox Fruit/'..Name..'.json', JsonEncode(getgenv().Config))
+        end
     end
 end
 getgenv()['Get_Setting'] = function(Name)
-    if not _G.Dis and isfolder('Dynamic Hub Blox Fruit') and isfile('Dynamic Hub Blox Fruit/' .. Name .. '.json') then
-        getgenv().Config = JsonDecode(readfile('Dynamic Hub Blox Fruit/' .. Name .. '.json'))
-        return getgenv().Config
-    elseif not _G.Dis then
-        Check_Setting(Name)
+    if not _G.Dis then
+        if isfolder('Dynamic Hub') and isfile('Dynamic Hub/Blox Fruit/'..Name..'.json') then
+            getgenv().Config = JsonDecode(readfile('Dynamic Hub/Blox Fruit/'..Name..'.json'))
+            return getgenv().Config
+        else
+            Check_Setting(Name)
+        end
     end
 end
 getgenv()['Update_Setting'] = function(Name)
-    if not _G.Dis and isfolder('Dynamic Hub Blox Fruit') and isfile('Dynamic Hub Blox Fruit/' .. Name .. '.json') then
-        writefile('Dynamic Hub Blox Fruit/' .. Name .. '.json', JsonEncode(getgenv().Config))
-    elseif not _G.Dis then
-        Check_Setting(Name)
+    if not _G.Dis then
+        if isfolder('Dynamic Hub') and isfile('Dynamic Hub/Blox Fruit/'..Name..'.json') then
+            writefile('Dynamic Hub/Blox Fruit/'..Name..'.json', JsonEncode(getgenv().Config))
+        else
+            Check_Setting(Name)
+        end
     end
 end
 Check_Setting(_G.Check_Save_Setting)
@@ -3700,7 +3709,7 @@ spawn(function()
 end)
 RunService.Stepped:Connect(function()
     if isAutoEnabled() then
-        for _, v in pairs(Players.LocalPlayer.Character:GetDescendants()) do
+        for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
             if v:IsA("BasePart") then
                 v.CanCollide = false
             end
@@ -3734,6 +3743,38 @@ spawn(function()
             end)
         end
     end
+end)
+spawn(function()
+    pcall(function()
+        game:GetService("RunService").Stepped:Connect(function()
+            if getgenv().Config["Auto Farm Sea Events"] or getgenv().Config["Auto Find Mirage Island"] or getgenv().Config["Auto Find Kitsune Island"] or getgenv().Config["Auto Find Prehistoric Island"] then
+                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
+                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
+                    for _, v in pairs(BoatsTarget:GetDescendants()) do
+                        if v:IsA("BasePart") then
+                            v.CanCollide = false
+                        end
+                    end
+                end
+            end
+        end)
+    end)
+end)
+spawn(function()
+    pcall(function()
+        game:GetService("RunService").Stepped:Connect(function()
+            if not getgenv().Config["Auto Farm Sea Events"] or getgenv().Config["Auto Find Mirage Island"] or getgenv().Config["Auto Find Kitsune Island"] or getgenv().Config["Auto Find Prehistoric Island"] then
+                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
+                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
+                    for _, v in pairs(BoatsTarget:GetDescendants()) do
+                        if v:IsA("BasePart") then
+                            v.CanCollide = true
+                        end
+                    end
+                end
+            end
+        end)
+    end)
 end)
 -- No _G.
 spawn(function()
@@ -4095,8 +4136,8 @@ spawn(function()
                                             AutoHaki()
                                             v5.Humanoid.WalkSpeed = 0
                                             TP(v5.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(v5.HumanoidRootPart.CFrame)
-                                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            --BringMob(v5.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                         until not getgenv().Config["Auto Farm Level"] or v5.Humanoid.Health <= 0 or not v5.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
@@ -4159,8 +4200,8 @@ spawn(function()
                             wait()
                             EquipWeapon(_G['Select Weapon'])
                             TP(v13.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))
-                            BringMob(v13.HumanoidRootPart.CFrame)
+                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))
+                            --BringMob(v13.HumanoidRootPart.CFrame)
                         until not getgenv().Config["Auto Farm [Nearest Mob]"] or not v13.Parent or v13.Humanoid.Health <= 0
                     end
                 end
@@ -4431,9 +4472,9 @@ spawn(function()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit
                                                     .Value)
                                                 PosMonMasteryFruit = v.HumanoidRootPart.Position
-                                                BringMob(v.HumanoidRootPart.CFrame)
+                                                --BringMob(v.HumanoidRootPart.CFrame)
                                                 TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                                --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                                 _G['Enabled Aimbot Mastery'] = true
                                                 _G['UseSkill'] = true
                                             else
@@ -4441,9 +4482,9 @@ spawn(function()
                                                 _G['UseSkill'] = false
                                                 AutoHaki()
                                                 EquipWeapon(_G['Select Weapon'])
-                                                BringMob(v.HumanoidRootPart.CFrame)
+                                                --BringMob(v.HumanoidRootPart.CFrame)
                                                 TP(v.HumanoidRootPart.CFrame * Pos)
-                                                --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                                 PosMonMasteryFruit = v.HumanoidRootPart.Position
                                             end
                                         until not getgenv().Config["Auto Farm Mastery Fruit [Level]"] or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -4531,8 +4572,8 @@ spawn(function()
                                                 EquipWeaponGun()
                                                 PosMonMasteryGun = v.HumanoidRootPart.Position
                                                 TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                                BringMob(v.HumanoidRootPart.CFrame)
-                                                --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                --BringMob(v.HumanoidRootPart.CFrame)
+                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                                 _G['Enabled Aimbot Mastery Gun'] = true
                                                 _G['UseSkill'] = true
                                                 local args = {
@@ -4549,8 +4590,8 @@ spawn(function()
                                                 EquipWeapon(_G['Select Weapon'])
                                                 TP(v.HumanoidRootPart.CFrame * Pos)
                                                 PosMonMasteryGun = v.HumanoidRootPart.Position
-                                                BringMob(v.HumanoidRootPart.CFrame)
-                                                --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                --BringMob(v.HumanoidRootPart.CFrame)
+                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                             end
                                         until not getgenv().Config["Auto Farm Mastery Gun [Level]"] or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
@@ -4618,8 +4659,8 @@ spawn(function()
                                     EquipWeaponFruit()
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
                                     TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                    BringMob(v34.HumanoidRootPart.CFrame)
-                                    --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    --BringMob(v34.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                     _G['Enabled Aimbot Mastery Gun'] = true
                                     _G['UseSkill'] = true
                                 else
@@ -4629,8 +4670,8 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v34.HumanoidRootPart.CFrame * Pos)
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
-                                    BringMob(v34.HumanoidRootPart.CFrame)
-                                    --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    --BringMob(v34.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                 end
                             until not getgenv().Config["Auto Farm Mastery Fruit [Bone]"] or not v34.Parent or v34.Humanoid.Health <= 0 or not Workspace.Enemies:FindFirstChild(v34.Name)
                         end
@@ -4681,8 +4722,8 @@ spawn(function()
                                     EquipWeaponGun()
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
                                     TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                    BringMob(v34.HumanoidRootPart.CFrame)
-                                    --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    --BringMob(v34.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                     _G['Enabled Aimbot Mastery Gun'] = true
                                     _G['UseSkill'] = true
                                 else
@@ -4692,8 +4733,8 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v34.HumanoidRootPart.CFrame * Pos)
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
-                                    BringMob(v34.HumanoidRootPart.CFrame)
-                                    --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    --BringMob(v34.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
                                 end
                             until not getgenv().Config["Auto Farm Mastery Gun [Bone]"] or not v34.Parent or v34.Humanoid.Health <= 0 or not Workspace.Enemies:FindFirstChild(v34.Name)
                         end
@@ -4740,8 +4781,8 @@ spawn(function()
                                         EquipWeaponFruit()
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
                                         TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                        BringMob(v29.HumanoidRootPart.CFrame)
-                                        --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        --BringMob(v34.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                         _G['Enabled Aimbot Mastery Gun'] = true
                                         _G['UseSkill'] = true
                                     else
@@ -4775,8 +4816,8 @@ spawn(function()
                                             EquipWeaponFruit()
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
                                             TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                            BringMob(v31.HumanoidRootPart.CFrame)
-                                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                           --BringMob(v34.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                             _G['Enabled Aimbot Mastery Gun'] = true
                                             _G['UseSkill'] = true
                                         else
@@ -4786,8 +4827,8 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             TP(v31.HumanoidRootPart.CFrame * Pos)
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
-                                            BringMob(v31.HumanoidRootPart.CFrame)
-                                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            --BringMob(v34.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
                                         end
                                     until not getgenv().Config["Auto Farm Mastery Fruit [Cake Prince]"] or not v31.Parent or v31.Humanoid.Health <= 0
                                 end
@@ -4831,8 +4872,8 @@ spawn(function()
                                         EquipWeaponGun()
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
                                         TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                        BringMob(v29.HumanoidRootPart.CFrame)
-                                        --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        --BringMob(v34.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
                                         _G['Enabled Aimbot Mastery Gun'] = true
                                         _G['UseSkill'] = true
                                     else
@@ -4842,8 +4883,8 @@ spawn(function()
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v29.HumanoidRootPart.CFrame * Pos)
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
-                                        BringMob(v29.HumanoidRootPart.CFrame)
-                                        --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        --BringMob(v34.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                     end
                                 until not getgenv().Config["Auto Farm Mastery Fruit [Cake Prince]"] or not v29.Parent or v29.Humanoid.Health <= 0
                             end
@@ -4866,8 +4907,8 @@ spawn(function()
                                             EquipWeaponGun()
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
                                             TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                            BringMob(v31.HumanoidRootPart.CFrame)
-                                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            --BringMob(v34.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
                                             _G['Enabled Aimbot Mastery Gun'] = true
                                             _G['UseSkill'] = true
                                         else
@@ -4877,8 +4918,8 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             TP(v31.HumanoidRootPart.CFrame * Pos)
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
-                                            BringMob(v31.HumanoidRootPart.CFrame)
-                                            --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            --BringMob(v34.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))      
                                         end
                                     until not getgenv().Config["Auto Farm Mastery Gun [Cake Prince]"] or not v31.Parent or v31.Humanoid.Health <= 0
                                 end
@@ -5217,7 +5258,7 @@ spawn(function()
                             if ByPassTP then
                                 BTP(CFrame.new(2099.88159, 448.931, 648.997375))
                             else
-                                TPv(CFrame.new(2099.88159, 448.931, 648.997375))
+                                TP(CFrame.new(2099.88159, 448.931, 648.997375))
                             end
                         end
                     elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 2 then
@@ -5298,8 +5339,8 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v26.HumanoidRootPart.CFrame * Pos)
-                                    BringMob(v26.HumanoidRootPart.CFrame)
-                                   -- BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    --BringMob(v26.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                 until v26.Humanoid.Health <= 0 or not v26.Parent or not getgenv().Config["Auto Castle Pirate Raid"]
                             end
                         end
@@ -5431,10 +5472,10 @@ spawn(function()
                                 if (v31.Name == "Cookie Crafter" or v31.Name == "Cake Guard" or v31.Name == "Baking Staff" or v31.Name == "Head Baker") and v31:FindFirstChild("HumanoidRootPart") and v31:FindFirstChild("Humanoid") and v31.Humanoid.Health > (0) then
                                     repeat
                                         wait()
-                                        BringMob(v31.HumanoidRootPart.CFrame)
+                                        --BringMob(v31.HumanoidRootPart.CFrame)
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v31.HumanoidRootPart.CFrame * Pos)
-                                        --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                     until not getgenv().Config["Auto Farm Cake Prince"] or not v31.Parent or v31.Humanoid.Health <= 0
                                 end
                             end
@@ -5523,8 +5564,8 @@ spawn(function()
                                 AutoHaki()
                                 EquipWeapon(_G['Select Weapon'])
                                 TP(v34.HumanoidRootPart.CFrame * Pos) 
-                                BringMob(v34.HumanoidRootPart.CFrame)
-                                --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))
+                                --BringMob(v34.HumanoidRootPart.CFrame)
+                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))
                             until not getgenv().Config["Auto Farm Bone"] or not v34.Parent or v34.Humanoid.Health <= 0 or not game.Workspace.Enemies:FindFirstChild(v34.Name)
                         end
                     end
@@ -5666,6 +5707,48 @@ Tabs.General:AddToggle("Auto Tyrant of the Skies", {
         _St(getgenv().Config["Auto Tyrant of the Skies"])
     end
 })
+local VIM = game:service("VirtualInputManager")
+local HRP = Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+function useAllSkills()
+    for _, key in ipairs({"Z"}) do
+        if _G["Skill " .. key] then
+            useSkill(key)
+        end
+    end
+    for _, key in ipairs({"X",}) do
+        if _G["Skill " .. key] then
+            useSkill(key)
+        end
+    end
+    for _, key in ipairs({"C",}) do
+        if _G["Skill " .. key] then
+            useSkill(key)
+        end
+    end
+    for _, key in ipairs({"V"}) do
+        if _G["Skill " .. key] then
+            useSkill(key)
+        end
+    end
+    for _, key in ipairs({"F"}) do
+        if _G["Skill " .. key] then
+            useSkill(key)
+        end
+    end
+end
+function pressAllWeapons()
+    useAllSkills()
+end
+local positions = {
+    CFrame.new(-16212.0068, 155.212143, 1470.34521, -0.66659236, -1.15e-08, -0.745422423, -6.46e-08, 1, 4.23e-08, 0.745422423, 7.63e-08, -0.66659236),
+    CFrame.new(-16251.0049, 155.212173, 1467.11316, -0.999910951, -6.5e-08, 0.0133428834, -6.43e-08, 1, 5.1e-08, -0.0133428834, 5.02e-08, -0.999910951),
+    CFrame.new(-16288.084, 155.212158, 1470.14441, -0.925380409, 6.5e-08, 0.379039675, 4.5e-08, 1, -6.22e-08, -0.379039675, -4.05e-08, -0.925380409),
+    CFrame.new(-16334.6846, 155.212143, 1455.61646, -0.659618318, 3.86e-09, 0.751600742, -3.66e-09, 1, -8.36e-09, -0.751600742, -8.27e-09, -0.659618318),
+    CFrame.new(-16334.0273, 155.212158, 1322.12671, 0.992453635, 7.38745376e-09, -0.12262053, -5.55953861e-09, 1, 1.52492365e-08, 0.12262053, -1.44524464e-08, 0.992453635),
+    CFrame.new(-16292.7031, 155.212173, 1321.85107, 0.976865053, -5.6229027e-10, -0.213856563, 1.35211553e-09, 1, 3.54697627e-09, 0.213856563, -3.75407616e-09, 0.976865053),
+    CFrame.new(-16252.6611, 155.212158, 1316.16296, -0.106582999, 1.53650319e-08, -0.994303823, 5.11667553e-09, 1, 1.49045807e-08, 0.994303823, -3.49895535e-09, -0.106582999),
+    CFrame.new(-16215.2607, 155.212158, 1319.12964, 0.663878798, -5.98061831e-08, -0.747840166, 3.21805445e-08, 1, -5.1404303e-08, 0.747840166, 1.00603241e-08, 0.663878798)
+}
 spawn(function()
     while task.wait() do
         pcall(function()
@@ -5681,46 +5764,27 @@ spawn(function()
                                     wait()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
-                                    BringMob(v.HumanoidRootPart.CFrame)
-                                until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0 or workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0
                             end
                         end
                     elseif workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0 then
                         if not workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
-                            repeat
-                                task.wait()
-                                TP(CFrame.new(-16212.0068, 155.212143, 1470.34521, -0.66659236, -1.15334888e-08, -0.745422423, -6.46348823e-08, 1, 4.232718e-08, 0.745422423, 7.6395267e-08, -0.66659236))
-                                EEPP()
-                                EPDDKEJ()
-                                TP(CFrame.new(-16251.0049, 155.212173, 1467.11316, -0.999910951, -6.50513101e-08, 0.0133428834, -6.43756053e-08, 1, 5.10711189e-08, -0.0133428834, 5.02076141e-08, -0.999910951))
-                                EEPP()
-                                EPDDKEJ()
-                                TP(CFrame.new(-16288.084, 155.212158, 1470.14441, -0.925380409, 6.52596341e-08, 0.379039675, 4.50244535e-08, 1, -6.22491214e-08, -0.379039675, -4.05380653e-08, -0.925380409))
-                                EEPP()
-                                EPDDKEJ()
-                                TP(CFrame.new(-16334.6846, 155.212143, 1455.61646, -0.659618318, 3.86496879e-09, 0.751600742, -3.66699848e-09, 1, -8.3605407e-09, -0.751600742, -8.27088442e-09, -0.659618318))
-                                EEPP()
-                                EPDDKEJ()
-                                TP(CFrame.new(-16334.0273, 155.212158, 1322.12671, 0.992453635, 7.38745376e-09, -0.12262053, -5.55953861e-09, 1, 1.52492365e-08, 0.12262053, -1.44524464e-08, 0.992453635))
-                                EEPP()
-                                EPDDKEJ()
-                                TP(CFrame.new(-16292.7031, 155.212173, 1321.85107, 0.976865053, -5.6229027e-10, -0.213856563, 1.35211553e-09, 1, 3.54697627e-09, 0.213856563, -3.75407616e-09, 0.976865053))
-                                EEPP()
-                                EPDDKEJ()
-                                TP(CFrame.new(-16252.6611, 155.212158, 1316.16296, -0.106582999, 1.53650319e-08, -0.994303823, 5.11667553e-09, 1, 1.49045807e-08, 0.994303823, -3.49895535e-09, -0.106582999))
-                                EEPP()
-                                EPDDKEJ()
-                                TP(CFrame.new(-16215.2607, 155.212158, 1319.12964, 0.663878798, -5.98061831e-08, -0.747840166, 3.21805445e-08, 1, -5.1404303e-08, 0.747840166, 1.00603241e-08, 0.663878798))
-                                EEPP()
-                                EPDDKEJ()
-                            until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Enemies:FindFirstChild("Tyrant of the Skies")
+                            for i, v in ipairs(positions) do
+                                repeat
+                                    task.wait()
+                                    TP(v)
+                                    EEPP()
+                                    pressAllWeapons()
+                                until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Enemies:FindFirstChild("Tyrant of the Skies") or (pos.Position - HRP.Position).Magnitude <= 20
+                            end
                             for i,v in pairs(workspace.Enemies:GetChildren()) do
                                 if v.Name == "Tyrant of the Skies" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
                                     repeat
                                         wait()
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v.HumanoidRootPart.CFrame * Pos)
-                                        BringMob(v.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                     until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0
                                 end
                             end
@@ -5731,7 +5795,7 @@ spawn(function()
                                         wait()
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v.HumanoidRootPart.CFrame * Pos)
-                                        BringMob(v.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                     until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0
                                 end
                             end
@@ -5780,9 +5844,9 @@ spawn(function()
     end
 end)
 spawn(function()
-    pcall(function()
         while wait() do
             if getgenv().Config["Auto Farm Observation Esp"] and L_2753915549_ then
+                pcall(function()
                 local screenGui = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
                 local imageLabel = screenGui:FindFirstChild("ImageLabel")
                 if imageLabel then
@@ -5800,14 +5864,14 @@ spawn(function()
                     local posfosep = CFrame.new(5849.021, 86.7085648, 4832.98877, -0.307219446, -7.56955885e-08, 0.951638699, -4.26994085e-08, 1, 6.57576251e-08, -0.951638699, -2.04323882e-08, -0.307219446)
                     TP(posfosep)
                 end
-            end
+            end)
         end
-    end)
+    end
 end)
 spawn(function()
-    pcall(function()
         while wait() do
             if getgenv().Config["Auto Farm Observation Esp"] and L_4442272183_ then
+                pcall(function()
                 local screenGui = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
                 local imageLabel = screenGui:FindFirstChild("ImageLabel")
                 if imageLabel then
@@ -5825,14 +5889,14 @@ spawn(function()
                     TP(CFrame.new(5459.74316, 85.4110641, -6833.91943, -0.116157748, -6.96834457e-09, -0.99323076,
                         1.17716212e-07, 1, -2.07826769e-08, 0.99323076, -1.19333436e-07, -0.116157748))
                 end
-            end
+            end)
         end
-    end)
+    end
 end)
 spawn(function()
-    pcall(function()
         while wait() do
             if getgenv().Config["Auto Farm Observation Esp"] and L_7449423635_ then
+                pcall(function()
                 local screenGui = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
                 local imageLabel = screenGui:FindFirstChild("ImageLabel")
                 if imageLabel then
@@ -5857,9 +5921,9 @@ spawn(function()
                         TP(posfosep)
                     end
                 end
-            end
+            end)
         end
-    end)
+    end
 end)
 Tabs.General:AddToggle("Auto Farm Observation Exp Hop", {
     Title = "Auto Farm Observation Exp Hop",
@@ -6049,38 +6113,6 @@ spawn(function()
                 end
             end
         end
-    end)
-end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if getgenv().Config["Auto Farm Sea Beasts"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = false
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if not getgenv().Config["Auto Farm Sea Beasts"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = true
-                        end
-                    end
-                end
-            end
-        end)
     end)
 end)
 spawn(function()
@@ -6664,7 +6696,7 @@ spawn(function()
                                	 	EquipWeapon(_G['Select Weapon'])
                               		v.HumanoidRootPart.CanCollide = false
                                 	v.Head.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                 	TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -6680,7 +6712,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Head.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -6703,7 +6735,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Head.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -6719,7 +6751,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Head.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -6830,7 +6862,7 @@ spawn(function()
                 if (game:GetService("Workspace").Map.Jungle.Final.Part.Transparency) == (0) then
                     if (game:GetService("Workspace").Map.Jungle.QuestPlates.Door.Transparency) == (0) then
                         if (CFrame.new(-1612.55884, 36.9774132, 148.719543, 0.37091279, 3.0717151e-09, -0.928667724, 3.97099491e-08, 1, 1.91679348e-08, 0.928667724, -4.39869794e-08, 0.37091279).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= (100) then
-                            v40 = 0
+                            local v40 = 0
                             if (v40 == (0)) then
                                 wait(0.1)
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService(
@@ -6990,7 +7022,7 @@ spawn(function()
                         end
                     end
                 else
-                _paps = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+               local _paps = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
                     if (_paps - CFrame.new(-7748.0185546875, 5606.80615234375, -2305.898681640625).Position).Magnitude > 1500 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",
                         Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
@@ -7286,7 +7318,7 @@ spawn(function()
                             EquipWeapon(_G['Select Weapon'])
                             AutoHaki()
                             target.HumanoidRootPart.CanCollide = false
-                            BringMob(target.HumanoidRootPart.CFrame)
+                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                             TP(target.HumanoidRootPart.CFrame * Pos)
                         until backpack:FindFirstChild("Hidden Key") or not getgenv().Config["Auto Rengoku"] or not target.Parent or target.Humanoid.Health <= 0
                     else
@@ -7323,7 +7355,7 @@ spawn(function()
                                         EquipWeapon(_G['Select Weapon'])
                                         AutoHaki()
                                         v.HumanoidRootPart.CanCollide = false
-                                        BringMob(v.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                         TP(v.HumanoidRootPart.CFrame * Pos)
                                     until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") or not getgenv().Config["Auto Rengoku"] or not v.Parent or v.Humanoid.Health <= 0
                                 end
@@ -7988,7 +8020,7 @@ spawn(function()
                                 EquipWeaponSword()
                                 TP(v.HumanoidRootPart.CFrame * Pos)
                                 v.HumanoidRootPart.CanCollide = false
-                                BringMob(v.HumanoidRootPart.CFrame)
+                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                             end
                         until not getgenv().Config["Auto Quest Yama"] or not Auto_Quest_Yama_2 or (not v.Parent) or v.Humanoid.Health <= 0 or (not v:FindFirstChild("HazeESP"))
                     else
@@ -8024,7 +8056,7 @@ spawn(function()
                                             wait()
                                             EquipWeaponSword()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(v.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                             v.HumanoidRootPart.CanCollide = false
                                         until v.Humanoid.Health <= 0 or (not v.Parent) or not Auto_Quest_Yama_3
                                     end
@@ -8142,7 +8174,7 @@ spawn(function()
                                     EquipWeaponSword()
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                 until v.Humanoid.Health <= 0 or (not v.Parent) or not Auto_Quest_Tushita_2
                             end
                         end
@@ -8168,7 +8200,7 @@ spawn(function()
                                         EquipWeaponSword()
                                         TP(v.HumanoidRootPart.CFrame * Pos)
                                         v.HumanoidRootPart.CanCollide = false
-                                        BringMob(v.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     until not getgenv().Config["Auto Quest Tushita"] or not Auto_Quest_Tushita_3 or (game:GetService("Workspace")).Map:FindFirstChild("HeavenlyDimension")
                                 end
                             end
@@ -8188,7 +8220,7 @@ spawn(function()
                                             EquipWeaponSword()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
                                             v.HumanoidRootPart.CanCollide = false
-                                            BringMob(v.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                         until v.Humanoid.Health <= 0 or (not v.Parent) or not Auto_Quest_Tushita_3
                                     end
                                 end
@@ -8384,7 +8416,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             AutoHaki()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(v.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                             v.HumanoidRootPart.CanCollide = false
                                         end)
                                     until getgenv().Config["Auto Musketeer Hat"] == false or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8412,7 +8444,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             AutoHaki()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(v.HumanoidRootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                             v.HumanoidRootPart.CanCollide = false
                                             sethiddenproperty(game:GetService("Players").LocalPlayer,
                                                 "SimulationRadius", math.huge)
@@ -8468,7 +8500,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8487,7 +8519,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8506,7 +8538,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8525,7 +8557,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8544,7 +8576,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -9297,7 +9329,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Leather or Scrap Metal"] or not v.Parent or humanoid.Health <= 0
@@ -9340,7 +9372,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Leather or Scrap Metal"] or not v.Parent or humanoid.Health <= 0
@@ -9384,7 +9416,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Leather or Scrap Metal"] or not v.Parent or humanoid.Health <= 0
@@ -9442,7 +9474,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Fiah Tail"] or not v.Parent or humanoid.Health <= 0
@@ -9487,7 +9519,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Fiah Tail"] or not v.Parent or humanoid.Health <= 0
@@ -9539,7 +9571,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Magma Ore"] or not v.Parent or humanoid.Health <= 0
@@ -9582,7 +9614,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Magma Ore"] or not v.Parent or humanoid.Health <= 0
@@ -9636,7 +9668,7 @@ spawn(function()
                                     rootPart.CanCollide = false
                                     BringMob(rootPart.CFrame)
                                     humanoid.WalkSpeed = 0
-                                    TP(rootPart.CFrame * Pos)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Angel Wings"] or not v.Parent or humanoid.Health <= 0
                             end
@@ -9686,7 +9718,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9738,7 +9770,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9790,7 +9822,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9843,7 +9875,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9896,7 +9928,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(rootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -10012,38 +10044,6 @@ spawn(function()
             end
         end)
     end
-end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if getgenv().Config["Auto Find Mirage Island"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = false
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if not getgenv().Config["Auto Find Mirage Island"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = true
-                        end
-                    end
-                end
-            end
-        end)
-    end)
 end)
 Tabs.MirageandRace:AddToggle("Teleport to Mirage Island", {
     Title = "Teleport to Mirage Island",
@@ -10608,38 +10608,6 @@ spawn(function()
         end
     end)
 end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if getgenv().Config["Auto Farm Sea Events"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = false
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if not getgenv().Config["Auto Farm Sea Events"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = true
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end)
 Tabs.Events:AddToggle("Auto Kill Piranha", {
     Title = "Auto Kill Piranha",
     Description = "",
@@ -10667,7 +10635,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
@@ -10705,7 +10673,7 @@ spawn(function()
                                 EquipWeapon(_G['Select Weapon'])
                                 rootPart.CanCollide = false
                                 humanoid.WalkSpeed = 0
-                                BringMob(v.HumanoidRootPart.CFrame)
+                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                 TP(rootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
@@ -10747,10 +10715,10 @@ spawn(function()
                                     rootPart.CanCollide = false
                                     enemyHumanoid.WalkSpeed = 0
                                     if humanoid.Health <= 4000 then
-                                        BringMob(v.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                         TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                     elseif humanoid.Health >= 8000 then
-                                        BringMob(v.HumanoidRootPart.CFrame)
+                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                         TP(rootPart.CFrame * Pos)
                                     end
                                     sethiddenproperty(player, "SimulationRadius", math.huge)
@@ -10789,7 +10757,7 @@ spawn(function()
                                 EquipWeapon(_G['Select Weapon'])
                                 rootPart.CanCollide = false
                                 humanoid.WalkSpeed = 0
-                                BringMob(v.HumanoidRootPart.CFrame)
+                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                 TP(rootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
@@ -11262,7 +11230,7 @@ spawn(function()
                                                     obj.HumanoidRootPart.CanCollide = false
                                                     humanoid.WalkSpeed = 0
                                                     TP(obj.HumanoidRootPart.CFrame * Pos)
-                                                    BringMob(obj.HumanoidRootPart.CFrame)
+                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
                                                         math.huge)
                                                 until not getgenv().Config["Auto Dragon Hunter"] or not obj.Parent or humanoid.Health <= 0
@@ -11427,6 +11395,9 @@ spawn(function()
                 local cfmonster = CFrame.new(-16966, 241, 1643)
                 local posquestckeck = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0, 0.308980465, 0, 0.951068401)
                 if CheckBelt("Dojo Belt (White)") == false and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
+                if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                end
                 repeat
                     wait(0.1)
                     TP(posquest)
@@ -11453,18 +11424,21 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     v.Humanoid.WalkSpeed = 0
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                 until v.Humanoid.Health <= 0 or not _G['Auto Dojo Quest'] or killCount2 >= 30
-                            end
-                            if v.Humanoid.Health <= 0 then
-                            killCount2 = killCount2 + 1
+                                if v.Humanoid.Health <= 0 then
+                                    killCount2 = killCount2 + 1
+                                end
                             end
                             if killCount2 >= 30 then break end
                         end
                     end
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                        end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11487,6 +11461,9 @@ spawn(function()
                     game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11555,10 +11532,10 @@ spawn(function()
                                                 rootPart.CanCollide = false
                                                 enemyHumanoid.WalkSpeed = 0
                                                 if humanoid.Health <= 4000 then
-                                                    BringMob(v.HumanoidRootPart.CFrame)
+                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                                     TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                                 elseif humanoid.Health >= 8000 then
-                                                    BringMob(v.HumanoidRootPart.CFrame)
+                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
@@ -11574,6 +11551,9 @@ spawn(function()
                         end
                     end
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11597,6 +11577,9 @@ spawn(function()
                     wait(0.1)
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11624,6 +11607,9 @@ spawn(function()
                     TP(finalPosition)
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11672,6 +11658,9 @@ spawn(function()
                         end
                     end
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11696,6 +11685,9 @@ spawn(function()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11766,6 +11758,9 @@ spawn(function()
                     end
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11834,10 +11829,10 @@ spawn(function()
                                                 rootPart.CanCollide = false
                                                 enemyHumanoid.WalkSpeed = 0
                                                 if humanoid.Health <= 4000 then
-                                                    BringMob(v.HumanoidRootPart.CFrame)
+                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                                     TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                                 elseif humanoid.Health >= 8000 then
-                                                    BringMob(v.HumanoidRootPart.CFrame)
+                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
@@ -11853,6 +11848,9 @@ spawn(function()
                         end
                     end
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -11876,6 +11874,9 @@ spawn(function()
                     wait(0.1)
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                    end
                     repeat
                         wait(0.1)
                         TP(posquest)
@@ -12017,7 +12018,7 @@ spawn(function()
         if getgenv().Config["Auto Craft Volcanic Magnet"] then
             pcall(function()
                 if GetMaterial("Volcanic Magnet") <= 10 then
-                    if GetMaterial("Blaze Ember") < 15 and GetMaterial("Scrap Metal") < 10 then
+                    if GetMaterial("Blaze Ember") < 15 and GetMaterial("Scrap Metal") <= 10 then
                         getgenv().Config["Auto Dragon HunterMagnet"] = true
                     elseif GetMaterial("Scrap Metal") < 10 and GetMaterial("Blaze Ember") >= 15 then
                         local enemies = workspace.Enemies
@@ -12033,7 +12034,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             rootPart.CanCollide = false
                                             humanoid.WalkSpeed = 0
-                                            BringMob(rootPart.CFrame)
+                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                             TP(rootPart.CFrame * Pos)
                                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                         until not getgenv().Config["Auto Craft Volcanic Magnet"] or not v.Parent or humanoid.Health <= 0
@@ -12064,6 +12065,8 @@ spawn(function()
                     end
                 end
             end)
+        else
+            getgenv().Config["Auto Dragon HunterMagnet"] = false
         end
     end
 end)
@@ -12124,7 +12127,7 @@ spawn(function()
                                                     obj.HumanoidRootPart.CanCollide = false
                                                     humanoid.WalkSpeed = 0
                                                     TP(obj.HumanoidRootPart.CFrame * Pos)
-                                                    BringMob(obj.HumanoidRootPart.CFrame)
+                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
                                                         math.huge)
                                                 until not getgenv().Config["Auto Dragon HunterMagnet"] or not obj.Parent or humanoid.Health <= 0
@@ -12196,15 +12199,6 @@ spawn(function()
                         end
                     end
                 end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while task.wait() do
-        if not getgenv().Config["Auto Craft Volcanic Magnet"] then
-            pcall(function()
-                getgenv().Config["Auto Dragon HunterMagnet"] = false
             end)
         end
     end
@@ -12374,38 +12368,6 @@ spawn(function()
             end
         end)
     end
-end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if getgenv().Config["Auto Find Prehistoric Island"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = false
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end)
-spawn(function()
-    pcall(function()
-        game:GetService("RunService").Stepped:Connect(function()
-            if not getgenv().Config["Auto Find Prehistoric Island"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = true
-                        end
-                    end
-                end
-            end
-        end)
-    end)
 end)
 Tabs.VolcanoEvents:AddToggle("Teleport to Prehistoric Island", {
     Title = "Teleport to Prehistoric Island",
@@ -13845,7 +13807,7 @@ spawn(function()
                                 repeat
                                     wait()
                                     EquipWeapon(_G['Select Weapon'])
-                                    BringMob(v.HumanoidRootPart.CFrame)
+                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
                                     v.HumanoidRootPart.CanCollide = false
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                 until not getgenv().Config["Auto Dungeon"] or not v.Parent or v.Humanoid.Health <= 0
@@ -14828,7 +14790,7 @@ if L_7449423635_ then
     _G['BringMode'] = 325
 end
 
---[[]
+
 local TweenService = game:GetService("TweenService")
 -- แบบบินมอน
 function BringMob(pos)
@@ -14874,8 +14836,8 @@ function BringMob(pos)
                         local goal = {CFrame = CFrame.new(pos.Position)}
                         local tween = TweenService:Create(v.HumanoidRootPart, tweenInfo, goal)
                         tween:Play()
-                        task.spawn(function()
-                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do
+                        spawn(function()
+                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do wait()
                                 local randomX = math.random(-360, 360)
                                 local randomY = math.random(-360, 360)
                                 local randomZ = math.random(-360, 360)
@@ -14883,7 +14845,7 @@ function BringMob(pos)
                                 local rotateGoal = {Orientation = Vector3.new(randomX, randomY, randomZ)}
                                 local rotateTween = TweenService:Create(v.HumanoidRootPart, rotateInfo, rotateGoal)
                                 rotateTween:Play()
-                                task.wait()
+                                wait()
                             end
                         end)
                     end
@@ -14891,9 +14853,9 @@ function BringMob(pos)
             end
         end
     end)
-end-]]
+end
 -- แบบดึงมอนมาหาเรา
-function BringMob(pos)
+--[[function BringMob(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
         "The Gorilla King", "Bobby", "Yeti", "Vice Admiral", "Warden", "Chief Warden",
@@ -14916,14 +14878,14 @@ function BringMob(pos)
                         if sethiddenproperty then
                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                         end
-                        task.spawn(function()
-                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do
+                        spawn(function()
+                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do wait()
                                 local randomX = math.rad(math.random(-360, 360))
                                 local randomY = math.rad(math.random(-360, 360))
                                 local randomZ = math.rad(math.random(-360, 360))
                                 v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.Angles(randomX, randomY, randomZ)
                                 --v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(10), math.rad(10), math.rad(10))
-                                task.wait()
+                                wait()
                             end
                         end)
                     end
