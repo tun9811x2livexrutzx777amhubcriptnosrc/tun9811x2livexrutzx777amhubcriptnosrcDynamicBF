@@ -11314,6 +11314,11 @@ Tabs.VolcanoEvents:AddToggle("Auto Dojo Quest", {
         getgenv().Config["Auto Dojo Quest"] = Value
         Update_Setting(getgenv()['MyName'])
         _St(getgenv().Config["Auto Dojo Quest"])
+        if not Value then
+            StopBoatsTween()
+        else
+            _G.StopTweenBoat = false
+        end
     end
 })
 local isSealingLava2 = false
