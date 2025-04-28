@@ -11429,6 +11429,7 @@ spawn(function()
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                 until v.Humanoid.Health <= 0 or not _G['Auto Dojo Quest'] or killCount2 >= 30
                                 if v.Humanoid.Health <= 0 then
+                                    repeat task.wait() until not v.Parent
                                     killCount2 = killCount2 + 1
                                 end
                             end
@@ -11541,7 +11542,8 @@ spawn(function()
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
                                             until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
                                             if enemyHumanoid.Health <= 0 then
-                                            killCountTerrorshark = killCountTerrorshark + 1
+                                                repeat task.wait() until not v.Parent
+                                                killCountTerrorshark = killCountTerrorshark + 1
                                             end
                                             if killCountTerrorshark >= 1 then break end
                                         end
@@ -11838,7 +11840,8 @@ spawn(function()
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
                                             until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
                                             if enemyHumanoid.Health <= 0 then
-                                            killCountTerrorshark2 = killCountTerrorshark2 + 1
+                                                repeat task.wait() until not v.Parent
+                                                killCountTerrorshark2 = killCountTerrorshark2 + 1
                                             end
                                             if killCountTerrorshark2 >= 1 then break end
                                         end
