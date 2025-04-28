@@ -3383,9 +3383,7 @@ function Tween1(K1)
 end
 function TP(Pos)
     local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-    if Distance <= 45 then
-        Pos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-    elseif Distance <= 100 then
+    if Distance <= 100 then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
     end
     local tweenInfo = TweenInfo.new(Distance / L_3c2, Enum.EasingStyle.Linear)
@@ -14802,7 +14800,7 @@ end
 
 local TweenService = game:GetService("TweenService")
 -- แบบบินมอน
-function BringMob(pos)
+--[[function BringMob(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
         "The Gorilla King", "Bobby", "Yeti", "Vice Admiral", "Warden", "Chief Warden",
@@ -14862,9 +14860,9 @@ function BringMob(pos)
             end
         end
     end)
-end
+end--]]
 -- แบบดึงมอนมาหาเรา
---[[function BringMob(pos)
+function BringMob(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
         "The Gorilla King", "Bobby", "Yeti", "Vice Admiral", "Warden", "Chief Warden",
@@ -14881,20 +14879,22 @@ end
                     local p = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
                     local m = v.HumanoidRootPart.Position
                     if (m - p).Magnitude <= 200 then
-                        v.HumanoidRootPart.CFrame = pos
-                        v.HumanoidRootPart.Size = Vector3.new(3,3,3)
-                        v.Humanoid.WalkSpeed = 999999
+                        v.HumanoidRootPart.CFrame = poss
+                        v.HumanoidRootPart.Size = Vector3.new(2,2,1)
+                        v.Head.CanCollide = false
+                        v.HumanoidRootPart.CanCollide = false
+                        v.Humanoid.WalkSpeed = 0
                         if sethiddenproperty then
                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                         end
                         spawn(function()
-                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do wait()
+                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do wait(0.1)
                                 local randomX = math.rad(math.random(-360, 360))
                                 local randomY = math.rad(math.random(-360, 360))
                                 local randomZ = math.rad(math.random(-360, 360))
                                 v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.Angles(randomX, randomY, randomZ)
                                 --v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(10), math.rad(10), math.rad(10))
-                                wait()
+                                wait(0.1)
                             end
                         end)
                     end
