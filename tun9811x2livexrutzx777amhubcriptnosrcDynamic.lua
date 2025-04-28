@@ -14892,7 +14892,7 @@ function BringMob(pos)
                                 local randomX = math.rad(math.random(-360, 360))
                                 local randomY = math.rad(math.random(-360, 360))
                                 local randomZ = math.rad(math.random(-360, 360))
-                                v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.Angles(randomX, randomY, randomZ)
+                                v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
                                 --v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(10), math.rad(10), math.rad(10))
                                 wait(0.1)
                             end
