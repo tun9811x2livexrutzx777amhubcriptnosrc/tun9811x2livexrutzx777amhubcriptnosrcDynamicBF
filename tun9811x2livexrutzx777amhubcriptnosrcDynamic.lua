@@ -11515,7 +11515,7 @@ spawn(function()
                                             repeat
                                                 wait()
                                                 PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                            until CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark >= 1 or workspace.Enemies:FindFirstChild("Terrorshark")
+                                            until not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark >= 1 or workspace.Enemies:FindFirstChild("Terrorshark")
                                         end
                                     end
                                 end
