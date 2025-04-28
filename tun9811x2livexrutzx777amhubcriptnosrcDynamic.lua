@@ -4052,8 +4052,7 @@ spawn(function()
                                             AutoHaki()
                                             v5.Humanoid.WalkSpeed = 0
                                             TP(v5.HumanoidRootPart.CFrame * Pos)
-                                            --BringMob(v5.HumanoidRootPart.CFrame)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            BringMob(v5.HumanoidRootPart.CFrame)
                                         until not getgenv().Config["Auto Farm Level"] or v5.Humanoid.Health <= 0 or not v5.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
@@ -4134,8 +4133,7 @@ spawn(function()
                                             AutoHaki()
                                             v5.Humanoid.WalkSpeed = 0
                                             TP(v5.HumanoidRootPart.CFrame * Pos)
-                                            --BringMob(v5.HumanoidRootPart.CFrame)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            BringMob(v5.HumanoidRootPart.CFrame) 
                                         until not getgenv().Config["Auto Farm Level"] or v5.Humanoid.Health <= 0 or not v5.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
@@ -4198,8 +4196,7 @@ spawn(function()
                             wait()
                             EquipWeapon(_G['Select Weapon'])
                             TP(v13.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))
-                            --BringMob(v13.HumanoidRootPart.CFrame)
+                            BringMob(v13.HumanoidRootPart.CFrame)
                         until not getgenv().Config["Auto Farm [Nearest Mob]"] or not v13.Parent or v13.Humanoid.Health <= 0
                     end
                 end
@@ -4470,9 +4467,8 @@ spawn(function()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit
                                                     .Value)
                                                 PosMonMasteryFruit = v.HumanoidRootPart.Position
-                                                --BringMob(v.HumanoidRootPart.CFrame)
-                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                BringMob(v.HumanoidRootPart.CFrame)
+                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0)) 
                                                 _G['Enabled Aimbot Mastery'] = true
                                                 _G['UseSkill'] = true
                                             else
@@ -4480,9 +4476,8 @@ spawn(function()
                                                 _G['UseSkill'] = false
                                                 AutoHaki()
                                                 EquipWeapon(_G['Select Weapon'])
-                                                --BringMob(v.HumanoidRootPart.CFrame)
+                                                BringMob(v.HumanoidRootPart.CFrame)
                                                 TP(v.HumanoidRootPart.CFrame * Pos)
-                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
                                                 PosMonMasteryFruit = v.HumanoidRootPart.Position
                                             end
                                         until not getgenv().Config["Auto Farm Mastery Fruit [Level]"] or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -4570,8 +4565,7 @@ spawn(function()
                                                 EquipWeaponGun()
                                                 PosMonMasteryGun = v.HumanoidRootPart.Position
                                                 TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                                --BringMob(v.HumanoidRootPart.CFrame)
-                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                BringMob(v.HumanoidRootPart.CFrame)
                                                 _G['Enabled Aimbot Mastery Gun'] = true
                                                 _G['UseSkill'] = true
                                                 local args = {
@@ -4588,8 +4582,7 @@ spawn(function()
                                                 EquipWeapon(_G['Select Weapon'])
                                                 TP(v.HumanoidRootPart.CFrame * Pos)
                                                 PosMonMasteryGun = v.HumanoidRootPart.Position
-                                                --BringMob(v.HumanoidRootPart.CFrame)
-                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                BringMob(v.HumanoidRootPart.CFrame)  
                                             end
                                         until not getgenv().Config["Auto Farm Mastery Gun [Level]"] or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
@@ -4657,8 +4650,7 @@ spawn(function()
                                     EquipWeaponFruit()
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
                                     TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                    --BringMob(v34.HumanoidRootPart.CFrame)
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    BringMob(v34.HumanoidRootPart.CFrame) 
                                     _G['Enabled Aimbot Mastery Gun'] = true
                                     _G['UseSkill'] = true
                                 else
@@ -4668,8 +4660,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v34.HumanoidRootPart.CFrame * Pos)
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
-                                    --BringMob(v34.HumanoidRootPart.CFrame)
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    BringMob(v34.HumanoidRootPart.CFrame)
                                 end
                             until not getgenv().Config["Auto Farm Mastery Fruit [Bone]"] or not v34.Parent or v34.Humanoid.Health <= 0 or not Workspace.Enemies:FindFirstChild(v34.Name)
                         end
@@ -4720,8 +4711,7 @@ spawn(function()
                                     EquipWeaponGun()
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
                                     TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                    --BringMob(v34.HumanoidRootPart.CFrame)
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    BringMob(v34.HumanoidRootPart.CFrame) 
                                     _G['Enabled Aimbot Mastery Gun'] = true
                                     _G['UseSkill'] = true
                                 else
@@ -4731,8 +4721,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v34.HumanoidRootPart.CFrame * Pos)
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
-                                    --BringMob(v34.HumanoidRootPart.CFrame)
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
+                                    BringMob(v34.HumanoidRootPart.CFrame)
                                 end
                             until not getgenv().Config["Auto Farm Mastery Gun [Bone]"] or not v34.Parent or v34.Humanoid.Health <= 0 or not Workspace.Enemies:FindFirstChild(v34.Name)
                         end
@@ -4779,8 +4768,7 @@ spawn(function()
                                         EquipWeaponFruit()
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
                                         TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                        --BringMob(v34.HumanoidRootPart.CFrame)
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        BringMob(v34.HumanoidRootPart.CFrame)
                                         _G['Enabled Aimbot Mastery Gun'] = true
                                         _G['UseSkill'] = true
                                     else
@@ -4790,8 +4778,7 @@ spawn(function()
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v29.HumanoidRootPart.CFrame * Pos)
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
-                                        BringMob(v29.HumanoidRootPart.CFrame)
-                                        --BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        BringMob(v29.HumanoidRootPart.CFrame)  
                                     end
                                 until not getgenv().Config["Auto Farm Mastery Fruit [Cake Prince]"] or not v29.Parent or v29.Humanoid.Health <= 0
                             end
@@ -4814,8 +4801,7 @@ spawn(function()
                                             EquipWeaponFruit()
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
                                             TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                           --BringMob(v34.HumanoidRootPart.CFrame)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                            BringMob(v34.HumanoidRootPart.CFrame)
                                             _G['Enabled Aimbot Mastery Gun'] = true
                                             _G['UseSkill'] = true
                                         else
@@ -4825,8 +4811,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             TP(v31.HumanoidRootPart.CFrame * Pos)
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
-                                            --BringMob(v34.HumanoidRootPart.CFrame)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
+                                            BringMob(v34.HumanoidRootPart.CFrame)
                                         end
                                     until not getgenv().Config["Auto Farm Mastery Fruit [Cake Prince]"] or not v31.Parent or v31.Humanoid.Health <= 0
                                 end
@@ -4870,8 +4855,7 @@ spawn(function()
                                         EquipWeaponGun()
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
                                         TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
-                                        --BringMob(v34.HumanoidRootPart.CFrame)
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
+                                        BringMob(v29.HumanoidRootPart.CFrame) 
                                         _G['Enabled Aimbot Mastery Gun'] = true
                                         _G['UseSkill'] = true
                                     else
@@ -4881,8 +4865,7 @@ spawn(function()
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v29.HumanoidRootPart.CFrame * Pos)
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
-                                        --BringMob(v34.HumanoidRootPart.CFrame)
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        BringMob(v29.HumanoidRootPart.CFrame) 
                                     end
                                 until not getgenv().Config["Auto Farm Mastery Fruit [Cake Prince]"] or not v29.Parent or v29.Humanoid.Health <= 0
                             end
@@ -4906,7 +4889,7 @@ spawn(function()
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
                                             TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
                                             --BringMob(v34.HumanoidRootPart.CFrame)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))    
+                                            BringMob(v31.HumanoidRootPart.CFrame) 
                                             _G['Enabled Aimbot Mastery Gun'] = true
                                             _G['UseSkill'] = true
                                         else
@@ -4917,7 +4900,7 @@ spawn(function()
                                             TP(v31.HumanoidRootPart.CFrame * Pos)
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
                                             --BringMob(v34.HumanoidRootPart.CFrame)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))      
+                                            BringMob(v31.HumanoidRootPart.CFrame) 
                                         end
                                     until not getgenv().Config["Auto Farm Mastery Gun [Cake Prince]"] or not v31.Parent or v31.Humanoid.Health <= 0
                                 end
@@ -5337,8 +5320,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v26.HumanoidRootPart.CFrame * Pos)
-                                    --BringMob(v26.HumanoidRootPart.CFrame)
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    BringMob(v26.HumanoidRootPart.CFrame) 
                                 until v26.Humanoid.Health <= 0 or not v26.Parent or not getgenv().Config["Auto Castle Pirate Raid"]
                             end
                         end
@@ -5473,7 +5455,7 @@ spawn(function()
                                         --BringMob(v31.HumanoidRootPart.CFrame)
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v31.HumanoidRootPart.CFrame * Pos)
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        BringMob(v31.HumanoidRootPart.CFrame) 
                                     until not getgenv().Config["Auto Farm Cake Prince"] or not v31.Parent or v31.Humanoid.Health <= 0
                                 end
                             end
@@ -5563,7 +5545,7 @@ spawn(function()
                                 EquipWeapon(_G['Select Weapon'])
                                 TP(v34.HumanoidRootPart.CFrame * Pos) 
                                 --BringMob(v34.HumanoidRootPart.CFrame)
-                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))
+                                BringMob(v34.HumanoidRootPart.CFrame) 
                             until not getgenv().Config["Auto Farm Bone"] or not v34.Parent or v34.Humanoid.Health <= 0 or not game.Workspace.Enemies:FindFirstChild(v34.Name)
                         end
                     end
@@ -5762,7 +5744,7 @@ spawn(function()
                                     wait()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    BringMob(v.HumanoidRootPart.CFrame)  
                                 until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0 or workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0
                             end
                         end
@@ -5782,7 +5764,7 @@ spawn(function()
                                         wait()
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v.HumanoidRootPart.CFrame * Pos)
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        BringMob(v.HumanoidRootPart.CFrame)   
                                     until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0
                                 end
                             end
@@ -5793,7 +5775,7 @@ spawn(function()
                                         wait()
                                         EquipWeapon(_G['Select Weapon'])
                                         TP(v.HumanoidRootPart.CFrame * Pos)
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                        BringMob(v.HumanoidRootPart.CFrame) 
                                     until not getgenv().Config["Auto Tyrant of the Skies"] or v.Humanoid.Health <= 0
                                 end
                             end
@@ -6025,7 +6007,7 @@ spawn(function()
                                 if string.find(v.Name, "Ship") then
                                     v.HumanoidRootPart.CanCollide = false
                                     --BringMob(v.HumanoidRootPart.CFrame)
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                 else
                                     TP(CFrame.new(911.35827636719, 125.95812988281, 33159.5390625))
                                 end
@@ -6228,7 +6210,7 @@ spawn(function()
                                                 task.wait()
                                                 AutoHaki()
                                                 EquipWeapon(_G['Select Weapon'])
-                                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0))   
+                                                BringMob(v.HumanoidRootPart.CFrame) 
                                                 v.HumanoidRootPart.CanCollide = false
                                             until
                                                 backpack:FindFirstChild("Flower 3") or
@@ -6694,7 +6676,7 @@ spawn(function()
                                	 	EquipWeapon(_G['Select Weapon'])
                               		v.HumanoidRootPart.CanCollide = false
                                 	v.Head.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                 	TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -6710,7 +6692,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Head.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -6733,7 +6715,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Head.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -6749,7 +6731,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Head.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                             		until not getgenv().Config["Auto Godhuman Full"] or not v.Parent or v.Humanoid.Health <= 0
                         		end
@@ -7316,7 +7298,7 @@ spawn(function()
                             EquipWeapon(_G['Select Weapon'])
                             AutoHaki()
                             target.HumanoidRootPart.CanCollide = false
-                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                            BringMob(target.HumanoidRootPart.CFrame) 
                             TP(target.HumanoidRootPart.CFrame * Pos)
                         until backpack:FindFirstChild("Hidden Key") or not getgenv().Config["Auto Rengoku"] or not target.Parent or target.Humanoid.Health <= 0
                     else
@@ -7353,7 +7335,7 @@ spawn(function()
                                         EquipWeapon(_G['Select Weapon'])
                                         AutoHaki()
                                         v.HumanoidRootPart.CanCollide = false
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                        BringMob(v.HumanoidRootPart.CFrame) 
                                         TP(v.HumanoidRootPart.CFrame * Pos)
                                     until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") or not getgenv().Config["Auto Rengoku"] or not v.Parent or v.Humanoid.Health <= 0
                                 end
@@ -8018,7 +8000,7 @@ spawn(function()
                                 EquipWeaponSword()
                                 TP(v.HumanoidRootPart.CFrame * Pos)
                                 v.HumanoidRootPart.CanCollide = false
-                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                BringMob(v.HumanoidRootPart.CFrame) 
                             end
                         until not getgenv().Config["Auto Quest Yama"] or not Auto_Quest_Yama_2 or (not v.Parent) or v.Humanoid.Health <= 0 or (not v:FindFirstChild("HazeESP"))
                     else
@@ -8054,7 +8036,7 @@ spawn(function()
                                             wait()
                                             EquipWeaponSword()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                            BringMob(v.HumanoidRootPart.CFrame) 
                                             v.HumanoidRootPart.CanCollide = false
                                         until v.Humanoid.Health <= 0 or (not v.Parent) or not Auto_Quest_Yama_3
                                     end
@@ -8172,7 +8154,7 @@ spawn(function()
                                     EquipWeaponSword()
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                 until v.Humanoid.Health <= 0 or (not v.Parent) or not Auto_Quest_Tushita_2
                             end
                         end
@@ -8198,7 +8180,7 @@ spawn(function()
                                         EquipWeaponSword()
                                         TP(v.HumanoidRootPart.CFrame * Pos)
                                         v.HumanoidRootPart.CanCollide = false
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                        BringMob(v.HumanoidRootPart.CFrame) 
                                     until not getgenv().Config["Auto Quest Tushita"] or not Auto_Quest_Tushita_3 or (game:GetService("Workspace")).Map:FindFirstChild("HeavenlyDimension")
                                 end
                             end
@@ -8218,7 +8200,7 @@ spawn(function()
                                             EquipWeaponSword()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
                                             v.HumanoidRootPart.CanCollide = false
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                            BringMob(v.HumanoidRootPart.CFrame) 
                                         until v.Humanoid.Health <= 0 or (not v.Parent) or not Auto_Quest_Tushita_3
                                     end
                                 end
@@ -8414,7 +8396,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             AutoHaki()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                            BringMob(v.HumanoidRootPart.CFrame) 
                                             v.HumanoidRootPart.CanCollide = false
                                         end)
                                     until getgenv().Config["Auto Musketeer Hat"] == false or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8442,7 +8424,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             AutoHaki()
                                             TP(v.HumanoidRootPart.CFrame * Pos)
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                            BringMob(v.HumanoidRootPart.CFrame) 
                                             v.HumanoidRootPart.CanCollide = false
                                             sethiddenproperty(game:GetService("Players").LocalPlayer,
                                                 "SimulationRadius", math.huge)
@@ -8498,7 +8480,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8517,7 +8499,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8536,7 +8518,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8555,7 +8537,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -8574,7 +8556,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -9327,7 +9309,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Leather or Scrap Metal"] or not v.Parent or humanoid.Health <= 0
@@ -9370,7 +9352,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Leather or Scrap Metal"] or not v.Parent or humanoid.Health <= 0
@@ -9414,7 +9396,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Leather or Scrap Metal"] or not v.Parent or humanoid.Health <= 0
@@ -9472,7 +9454,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Fiah Tail"] or not v.Parent or humanoid.Health <= 0
@@ -9517,7 +9499,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Fiah Tail"] or not v.Parent or humanoid.Health <= 0
@@ -9569,7 +9551,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Magma Ore"] or not v.Parent or humanoid.Health <= 0
@@ -9612,7 +9594,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Magma Ore"] or not v.Parent or humanoid.Health <= 0
@@ -9666,7 +9648,7 @@ spawn(function()
                                     rootPart.CanCollide = false
                                     BringMob(rootPart.CFrame)
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Angel Wings"] or not v.Parent or humanoid.Health <= 0
                             end
@@ -9716,7 +9698,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9768,7 +9750,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9820,7 +9802,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9873,7 +9855,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -9926,7 +9908,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -10633,7 +10615,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
@@ -10671,7 +10653,7 @@ spawn(function()
                                 EquipWeapon(_G['Select Weapon'])
                                 rootPart.CanCollide = false
                                 humanoid.WalkSpeed = 0
-                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                BringMob(rootPart.CFrame) 
                                 TP(rootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
@@ -10713,10 +10695,10 @@ spawn(function()
                                     rootPart.CanCollide = false
                                     enemyHumanoid.WalkSpeed = 0
                                     if humanoid.Health <= 4000 then
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                        BringMob(rootPart.CFrame) 
                                         TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                     elseif humanoid.Health >= 8000 then
-                                        BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                        BringMob(rootPart.CFrame) 
                                         TP(rootPart.CFrame * Pos)
                                     end
                                     sethiddenproperty(player, "SimulationRadius", math.huge)
@@ -10755,7 +10737,7 @@ spawn(function()
                                 EquipWeapon(_G['Select Weapon'])
                                 rootPart.CanCollide = false
                                 humanoid.WalkSpeed = 0
-                                BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                BringMob(rootPart.CFrame) 
                                 TP(rootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
@@ -11228,7 +11210,7 @@ spawn(function()
                                                     obj.HumanoidRootPart.CanCollide = false
                                                     humanoid.WalkSpeed = 0
                                                     TP(obj.HumanoidRootPart.CFrame * Pos)
-                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                                    BringMob(v.HumanoidRootPart.CFrame) 
                                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
                                                         math.huge)
                                                 until not getgenv().Config["Auto Dragon Hunter"] or not obj.Parent or humanoid.Health <= 0
@@ -11427,7 +11409,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     v.Humanoid.WalkSpeed = 0
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                 until v.Humanoid.Health <= 0 or not _G['Auto Dojo Quest'] or killCount2 >= 30
@@ -11537,10 +11519,10 @@ spawn(function()
                                                 rootPart.CanCollide = false
                                                 enemyHumanoid.WalkSpeed = 0
                                                 if humanoid.Health <= 4000 then
-                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                                    BringMob(rootPart.CFrame) 
                                                     TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                                 elseif humanoid.Health >= 8000 then
-                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                                    BringMob(rootPart.CFrame) 
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
@@ -11835,10 +11817,10 @@ spawn(function()
                                                 rootPart.CanCollide = false
                                                 enemyHumanoid.WalkSpeed = 0
                                                 if humanoid.Health <= 4000 then
-                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                                    BringMob(rootPart.CFrame) 
                                                     TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                                 elseif humanoid.Health >= 8000 then
-                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                                    BringMob(rootPart.CFrame) 
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
@@ -12041,7 +12023,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             rootPart.CanCollide = false
                                             humanoid.WalkSpeed = 0
-                                            BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                            BringMob(rootPart.CFrame) 
                                             TP(rootPart.CFrame * Pos)
                                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                         until not getgenv().Config["Auto Craft Volcanic Magnet"] or not v.Parent or humanoid.Health <= 0
@@ -12134,7 +12116,7 @@ spawn(function()
                                                     obj.HumanoidRootPart.CanCollide = false
                                                     humanoid.WalkSpeed = 0
                                                     TP(obj.HumanoidRootPart.CFrame * Pos)
-                                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                                    BringMob(obj.HumanoidRootPart.CFrame) 
                                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
                                                         math.huge)
                                                 until not getgenv().Config["Auto Dragon HunterMagnet"] or not obj.Parent or humanoid.Health <= 0
@@ -13814,7 +13796,7 @@ spawn(function()
                                 repeat
                                     wait()
                                     EquipWeapon(_G['Select Weapon'])
-                                    BringMob(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-PosY,0)) 
+                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     v.HumanoidRootPart.CanCollide = false
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                 until not getgenv().Config["Auto Dungeon"] or not v.Parent or v.Humanoid.Health <= 0
@@ -14862,7 +14844,7 @@ local TweenService = game:GetService("TweenService")
     end)
 end--]]
 -- แบบดึงมอนมาหาเรา
-function BringMob(pos)
+--[[function BringMob(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
         "The Gorilla King", "Bobby", "Yeti", "Vice Admiral", "Warden", "Chief Warden",
@@ -14888,13 +14870,13 @@ function BringMob(pos)
                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                         end
                         spawn(function()
-                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do wait(0.1)
+                            while v and v.Parent and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 do wait(0.3)
                                 local randomX = math.rad(math.random(-360, 360))
                                 local randomY = math.rad(math.random(-360, 360))
                                 local randomZ = math.rad(math.random(-360, 360))
-                                v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                                v.HumanoidRootPart.CFrame = pos
                                 --v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(10), math.rad(10), math.rad(10))
-                                wait(0.1)
+                                wait(0.3)
                             end
                         end)
                     end
@@ -14902,9 +14884,9 @@ function BringMob(pos)
             end
         end
     end)
-end
+end--]]
 -- แบบดึงมอนหามอน
---[[function BringMob(pos)
+function BringMob(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
         "The Gorilla King", "Bobby", "Yeti", "Vice Admiral", "Warden", "Chief Warden",
@@ -14949,7 +14931,7 @@ end
             end
         end
     end)
-end--]]
+end
 function BringMobFast(pos)
     local BlacklistMob = {
         "rip_indra", "Ice Admiral", "Saber Expert", "The Saw", "Greybeard", "Mob Leader",
