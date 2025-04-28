@@ -5752,11 +5752,11 @@ spawn(function()
                         if not workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
                             for i, v in ipairs(positions) do
                                 repeat
-                                    task.wait()
                                     TP(v)
                                     EEPP()
                                     pressAllWeapons()
-                                until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Enemies:FindFirstChild("Tyrant of the Skies") or (pos.Position - HRP.Position).Magnitude <= 20
+                                    task.wait()
+                                until not getgenv().Config["Auto Tyrant of the Skies"] or workspace.Enemies:FindFirstChild("Tyrant of the Skies") or (v.Position - HRP.Position).Magnitude <= 20
                             end
                             for i,v in pairs(workspace.Enemies:GetChildren()) do
                                 if v.Name == "Tyrant of the Skies" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
