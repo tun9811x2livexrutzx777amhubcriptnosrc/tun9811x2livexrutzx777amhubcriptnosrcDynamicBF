@@ -14823,7 +14823,7 @@ function BringMob(pos)
                         v.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
                         v.Head.CanCollide = false
                         v.HumanoidRootPart.CanCollide = false
-                        v.Humanoid.WalkSpeed = 999999
+                        v.Humanoid.WalkSpeed = 0
                         if sethiddenproperty then
                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                         end
