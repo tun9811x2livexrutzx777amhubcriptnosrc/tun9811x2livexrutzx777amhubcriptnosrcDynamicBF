@@ -6147,7 +6147,7 @@ spawn(function()
                 local humanoid = character and character:FindFirstChild("Humanoid")
                 for _, v in pairs(enemies:GetChildren()) do
                     if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
-                    if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumnaoidRootPart.Position).Magnitde <= 575 then
+                    if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumnaoidRootPart.Position).Magnitude <= 575 then
                         game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                         game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
                         if _G['Skill Z'] then useSkill("Z") end
@@ -10810,7 +10810,7 @@ spawn(function()
                 local humanoid = character and character:FindFirstChild("Humanoid")
                 for _, v in pairs(enemies:GetChildren()) do
                     if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
-                    if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumnaoidRootPart.Position).Magnitde <= 575 then
+                    if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumnaoidRootPart.Position).Magnitude <= 575 then
                         game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                         game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
                         if _G['Skill Z'] then useSkill("Z") end
@@ -11395,7 +11395,7 @@ spawn(function()
                 local cfmonster = CFrame.new(-16966, 241, 1643)
                 local posquestckeck = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0, 0.308980465, 0, 0.951068401)
                 if CheckBelt("Dojo Belt (White)") == false and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
-                if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                 end
                 repeat
@@ -11436,7 +11436,7 @@ spawn(function()
                         end
                     end
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                         end
                     repeat
@@ -11461,7 +11461,7 @@ spawn(function()
                     game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11551,7 +11551,7 @@ spawn(function()
                         end
                     end
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11577,7 +11577,7 @@ spawn(function()
                     wait(0.1)
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11607,7 +11607,7 @@ spawn(function()
                     TP(finalPosition)
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11658,7 +11658,7 @@ spawn(function()
                         end
                     end
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11685,7 +11685,7 @@ spawn(function()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11758,7 +11758,7 @@ spawn(function()
                     end
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11848,7 +11848,7 @@ spawn(function()
                         end
                     end
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
@@ -11874,7 +11874,7 @@ spawn(function()
                     wait(0.1)
                 elseif CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == false then
                     wait(0.1)
-                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitde > 1000 then
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                     end
                     repeat
