@@ -3747,7 +3747,7 @@ end)
 spawn(function()
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
-            if getgenv().Config["Auto Farm Sea Events"] or getgenv().Config["Auto Find Mirage Island"] or getgenv().Config["Auto Find Kitsune Island"] or getgenv().Config["Auto Find Prehistoric Island"] then
+            if getgenv().Config["Auto Farm Sea Events"] or getgenv().Config["Auto Find Mirage Island"] or getgenv().Config["Auto Find Kitsune Island"] or getgenv().Config["Auto Find Prehistoric Island"] or getgenv().Config["Auto Dojo Quest"] then
                 if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                     local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
                     for _, v in pairs(BoatsTarget:GetDescendants()) do
@@ -3763,7 +3763,7 @@ end)
 spawn(function()
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
-            if not getgenv().Config["Auto Farm Sea Events"] or getgenv().Config["Auto Find Mirage Island"] or getgenv().Config["Auto Find Kitsune Island"] or getgenv().Config["Auto Find Prehistoric Island"] then
+            if not getgenv().Config["Auto Farm Sea Events"] or getgenv().Config["Auto Find Mirage Island"] or getgenv().Config["Auto Find Kitsune Island"] or getgenv().Config["Auto Find Prehistoric Island"] or getgenv().Config["Auto Dojo Quest"] then
                 if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                     local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
                     for _, v in pairs(BoatsTarget:GetDescendants()) do
