@@ -11516,6 +11516,7 @@ spawn(function()
                                                 wait()
                                                 PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
                                             until not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark >= 1 or workspace.Enemies:FindFirstChild("Terrorshark")
+                                            game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                         end
                                     end
                                 end
