@@ -11508,7 +11508,7 @@ spawn(function()
                                 end
                             elseif game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                    TPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0, 1, 0))
+                                    TPTPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0, 1, 0))
                                 else
                                     for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                                         if v.Name == "PirateGrandBrigade" then
@@ -11652,7 +11652,7 @@ spawn(function()
                         end
                     elseif game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                         if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                            TPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0, 1, 0))
+                            TPTPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0, 1, 0))
                         else
                             for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                                 if v.Name == "PirateGrandBrigade" then
@@ -11806,7 +11806,7 @@ spawn(function()
                                 end
                             elseif game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                    TPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0, 1, 0))
+                                    TPTPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0, 1, 0))
                                 else
                                     for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                                         if v.Name == "PirateGrandBrigade" then
@@ -11921,7 +11921,7 @@ spawn(function()
                             end
                         elseif game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                TPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame *
+                                TPTPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame *
                                     CFrame.new(0, 1, 0))
                             else
                                 for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
