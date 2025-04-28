@@ -14879,7 +14879,7 @@ function BringMob(pos)
                     local p = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
                     local m = v.HumanoidRootPart.Position
                     if (m - p).Magnitude <= 200 then
-                        v.HumanoidRootPart.CFrame = poss
+                        v.HumanoidRootPart.CFrame = pos
                         v.HumanoidRootPart.Size = Vector3.new(2,2,1)
                         v.Head.CanCollide = false
                         v.HumanoidRootPart.CanCollide = false
