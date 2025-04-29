@@ -5757,6 +5757,13 @@ spawn(function()
                             for i, v in ipairs(positions) do
                                 repeat
                                     TP(v)
+                                    TP(v)
+                                    TP(v)
+                                    TP(v)
+                                    TP(v)
+                                    TP(v)
+                                    TP(v)
+                                    TP(v)
                                     EEPP()
                                     pressAllWeapons()
                                     task.wait()
