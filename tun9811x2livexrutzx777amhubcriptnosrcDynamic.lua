@@ -5695,21 +5695,25 @@ function useAllSkills()
             useSkill(key)
         end
     end
+    wait(0.1)
     for _, key in ipairs({"X",}) do
         if _G["Skill " .. key] then
             useSkill(key)
         end
     end
+    wait(0.1)
     for _, key in ipairs({"C",}) do
         if _G["Skill " .. key] then
             useSkill(key)
         end
     end
+    wait(0.1)
     for _, key in ipairs({"V"}) do
         if _G["Skill " .. key] then
             useSkill(key)
         end
     end
+    wait(0.1)
     for _, key in ipairs({"F"}) do
         if _G["Skill " .. key] then
             useSkill(key)
