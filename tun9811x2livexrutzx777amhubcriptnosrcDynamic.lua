@@ -5744,6 +5744,7 @@ spawn(function()
                     if workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 1 then
                         for i,v in pairs(workspace.Enemies:GetChildren()) do
                             if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500 then
+                                _G['UseSkill'] = false
                                 repeat
                                     wait()
                                     EquipWeapon(_G['Select Weapon'])
@@ -5755,6 +5756,7 @@ spawn(function()
                     elseif workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 0 and workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 0 then
                         if not workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
                             for i, v in ipairs(positions) do
+                                _G['UseSkill'] = true
                                 repeat
                                     TP(v)
                                     TP(v)
@@ -5771,6 +5773,7 @@ spawn(function()
                             end
                             for i,v in pairs(workspace.Enemies:GetChildren()) do
                                 if v.Name == "Tyrant of the Skies" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
+                                    _G['UseSkill'] = false
                                     repeat
                                         wait()
                                         EquipWeapon(_G['Select Weapon'])
@@ -5782,6 +5785,7 @@ spawn(function()
                         elseif workspace.Enemies:FindFirstChild("Tyrant of the Skies") then
                             for i,v in pairs(workspace.Enemies:GetChildren()) do
                                 if v.Name == "Tyrant of the Skies" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
+                                    _G['UseSkill'] = false
                                     repeat
                                         wait()
                                         EquipWeapon(_G['Select Weapon'])
