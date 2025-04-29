@@ -5734,7 +5734,7 @@ spawn(function()
         pcall(function()
             if getgenv().Config["Auto Tyrant of the Skies"] then
                 local pos = CFrame.new(-16209.4434, 155.212173, 1394.25403, 0.0604604445, 3.11304014e-08, 0.998170614, -1.85925462e-08, 1, -3.00612832e-08, -0.998170614, -1.67410139e-08, 0.0604604445)
-                if (pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 100 then
+                if (pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
                     TP(pos)
                 else
                     if workspace.Map.TikiOutpost.IslandModel.Eye1.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye2.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye3.Transparency == 1 or workspace.Map.TikiOutpost.IslandModel.Eye4.Transparency == 1 then
