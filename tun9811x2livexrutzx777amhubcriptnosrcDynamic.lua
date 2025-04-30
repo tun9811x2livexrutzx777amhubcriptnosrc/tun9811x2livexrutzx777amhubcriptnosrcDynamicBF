@@ -13858,44 +13858,33 @@ SelectWeapon:OnChanged(function(Value)
     Update_Setting(getgenv()['MyName'])
 end)
 task.spawn(function()
-    while wait() do
+    while task.wait() do
         pcall(function()
-            if _G['Select Weapon'] == "Melee" then
-                for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ToolTip == "Melee" then
-                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                            _G['Select Weapon'] = v.Name
-                        end
-                    end
-                end
-            elseif _G['Select Weapon'] == "Sword" then
-                for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ToolTip == "Sword" then
-                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                            _G['Select Weapon'] = v.Name
-                        end
-                    end
-                end
-            elseif _G['Select Weapon'] == "Gun" then
-                for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ToolTip == "Gun" then
-                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                            _G['Select Weapon'] = v.Name
-                        end
-                    end
-                end
-            elseif _G['Select Weapon'] == "Fruit" then
-                for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ToolTip == "Blox Fruit" then
-                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                            _G['Select Weapon'] = v.Name
-                        end
+            local player = game.Players.LocalPlayer
+            local backpack = player.Backpack
+            local char = player.Character
+            local weaponType = _G['Select Weapon']
+            local targetToolTip = nil
+            if weaponType == "Melee" then
+                targetToolTip = "Melee"
+            elseif weaponType == "Sword" then
+                targetToolTip = "Sword"
+            elseif weaponType == "Gun" then
+                targetToolTip = "Gun"
+            elseif weaponType == "Fruit" then
+                targetToolTip = "Blox Fruit"
+            end
+            if targetToolTip then
+                for _, tool in pairs(backpack:GetChildren()) do
+                    if tool:IsA("Tool") and tool.ToolTip == targetToolTip then
+                        _G['Select Weapon'] = tool.Name
                     end
                 end
             end
         end)
     end
 end)
+
 local GunNoCooldown = Tabs.FarmSettings:AddDropdown("GunNoCooldown", {
     Title = "Gun No Cooldown Mode",
     Description = "",
