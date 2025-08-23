@@ -1,95 +1,4 @@
-local executor = identifyexecutor()
--- PC
-if executor == "Wave" or executor == "AWP" or executor == "Synapse Z" or executor == "Seriality" or executor == "Argon" or executor == "Atlantis" or executor == "Xeno" or executor == "Solara" or executor == "Velocity" or executor == "Seliware" or executor == "Swift"
--- Mobile
-or executor == "Fluxus" or executor == "Delta" or executor == "Arceus X" or executor == "Codex" or executor == "Cryptic" or executor == "Krnl"
-then
 print("Executor "..identifyexecutor())
-local webh =
-"https://discord.com/api/webhooks/1348879379186585710/HL6nj5UQrxSgDUzsgWHWhoGUbZCdb5Oj7dMZvrhI8XuBUY53-ImRh9LSylqR_zA7QZT6"
-local httpService = game:GetService('HttpService')
-local marketplaceService = game:GetService("MarketplaceService")
-local notified = false
-task.spawn(function()
-    while true do
-        if game.PrivateServerId == nil or game.PrivateServerId == "" then
-            local playerCount = #game.Players:GetPlayers()
-            if playerCount < 5 and not notified then
-                local jobId = game.JobId
-                local success, serverTime = pcall(function()
-                    return game:GetService("Lighting"):GetMinutesAfterMidnight()
-                end)
-                local hours, minutes = 0, 0
-                if success then
-                    hours = math.floor(serverTime / 60)
-                    minutes = math.floor(serverTime % 60)
-                else
-                end
-                local formattedTime = string.format("%02d:%02d", hours, minutes)
-                local placeId = game.PlaceId
-                local placeInfo = { Name = "Unknown" }
-                local success, info = pcall(function()
-                    return marketplaceService:GetProductInfo(placeId)
-                end)
-                if success then
-                    placeInfo = info
-                else
-                end
-                local data = {
-                    ["embeds"] = {
-                        {
-                            ["title"] = "Low Server",
-                            ["fields"] = {
-                                { ["name"] = "Players :",     ["value"] = string.format("```yaml\n%d/12\n```", playerCount),                                                                            ["inline"] = false },
-                                { ["name"] = "Server Time :", ["value"] = string.format("```fix\n%s\n```", formattedTime),                                                                              ["inline"] = false },
-                                { ["name"] = "Job-Id :",      ["value"] = string.format("```yaml\n%s\n```", jobId),                                                                                     ["inline"] = false },
-                                { ["name"] = "game Name :",   ["value"] = string.format("```yaml\n%s\n```", placeInfo.Name),                                                                            ["inline"] = false },
-                                { ["name"] = "Script :",      ["value"] = string.format("```lua\ngame:GetService(\"ReplicatedStorage\").__ServerBrowser:InvokeServer(\"teleport\", \"%s\")```", jobId), ["inline"] = false }
-                            },
-                            ["color"] = 0xFF0000
-                        }
-                    }
-                }
-                local success, response = pcall(function()
-                    if syn then
-                        return syn.request({
-                            Url = webh,
-                            Method = 'POST',
-                            Headers = { ['Content-Type'] = 'application/json' },
-                            Body = httpService:JSONEncode(data),
-                        })
-                    elseif request then
-                        return request({
-                            Url = webh,
-                            Method = 'POST',
-                            Headers = { ['Content-Type'] = 'application/json' },
-                            Body = httpService:JSONEncode(data),
-                        })
-                    elseif http_request then
-                        return http_request({
-                            Url = webh,
-                            Method = 'POST',
-                            Headers = { ['Content-Type'] = 'application/json' },
-                            Body = httpService:JSONEncode(data),
-                        })
-                    else
-                        return nil
-                    end
-                end)
-                if success and response and response.StatusCode == 200 then
-                    notified = true
-                else
-                end
-            elseif playerCount >= 5 then
-                if notified then
-                end
-                notified = false
-            end
-        else
-        end
-        task.wait(21600)
-    end
-end)
 local DynamicNotify = function(Text_i,Duration_i)
     game.StarterGui:SetCore("SendNotification", {
         Title = "Dynamic Hub",
@@ -1865,22 +1774,56 @@ function CheckQuest()
             NameMon = "Isle Champion"
             CFrameQuest = CFrame.new(-16541.0215, 54.770813, 1051.46118, 0.0410757065, -0, -0.999156058, 0, 1, -0,
                 0.999156058, 0, 0.0410757065)
-        elseif MyLevel == 2550 or MyLevel <= 2574 or SelectMonster == "Serpent Hunter" then
+        elseif MyLevel == 2550 or MyLevel <= 2574 then
             Mon = "Serpent Hunter"
             NameQuest = "TikiQuest3"
             LevelQuest = 1
             NameMon = "Serpent Hunter"
             CFrameQuest = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0,
                 0.308980465, 0, 0.951068401)
-        elseif MyLevel >= 2575 or SelectMonster == "Skull Slayer" then
+        elseif MyLevel >= 2575 or MyLevel <= 2599 then
             Mon = "Skull Slayer"
             NameQuest = "TikiQuest3"
             LevelQuest = 2
             NameMon = "Skull Slayer"
             CFrameQuest = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0,
                 0.308980465, 0, 0.951068401)
+        elseif MyLevel >= 2600 or MyLevel <= 2624 then
+            Mon = "Reef Bandit"
+            NameQuest = "SubmergedQuest1"
+            LevelQuest = 1
+            NameMon = "Reef Bandit"
+            CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
+                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+        elseif MyLevel >= 2625 or MyLevel <= 2649 then
+            Mon = "Coral Pirate"
+            NameQuest = "SubmergedQuest1"
+            LevelQuest = 2
+            NameMon = "Coral Pirate"
+            CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
+                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+        elseif MyLevel >= 2650 or MyLevel <= 2674 then
+            Mon = "Sea Chanter"
+            NameQuest = "SubmergedQuest2"
+            LevelQuest = 1
+            NameMon = "Sea Chanter"
+            CFrameQuest = CFrame.new(10883.5986, -2086.88892, 10034.0195, 0.99651581, 0, 0.0834043249, 0, 1, 0, -0.0834043249, 0, 0.99651581)
+                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+        elseif MyLevel >= 2675 then
+            Mon = "Ocean Prophet"
+            NameQuest = "SubmergedQuest2"
+            LevelQuest = 2
+            NameMon = "Ocean Prophet"
+            CFrameQuest = CFrame.new(10883.5986, -2086.88892, 10034.0195, 0.99651581, 0, 0.0834043249, 0, 1, 0, -0.0834043249, 0, 0.99651581)
+                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+            end
         end
     end
+end
 end
 function CheckMon()
     MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
@@ -2315,13 +2258,27 @@ function CheckMon()
             CFrameMon2 = CFrame.new(-16532, 185, 1362)
             CFrameMon3 = CFrame.new(-16541, 150, 1540)
             CFrameMon4 = CFrame.new(-16519, 120, 1716)
-        elseif MyLevel >= 2575 or SelectMonster == "Skull Slayer" then
+        elseif MyLevel >= 2575 or MyLevel <= 2599 then
             CFrameMon1 = CFrame.new(-16806, 134, 1534)
             CFrameMon2 = CFrame.new(-16966, 241, 1643)
             CFrameMon3 = CFrame.new(-16818, 219, 1752)
             CFrameMon4 = nil
+        elseif MyLevel >= 2600 or MyLevel <= 2624 then
+            CFrameMon1 = CFrame.new(10920.552734375, -2120.7587890625, 9267.6513671875)
+            CFrameMon2 = CFrame.new(11034.779296875, -2128.155517578125, 9118.48046875)
+        elseif MyLevel >= 2625 or MyLevel <= 2649 then
+            CFrameMon1 = CFrame.new(10662.7822265625, -2064.858642578125, 9303.939453125)
+            CFrameMon2 = CFrame.new(10835.505859375, -2050.79541015625, 9438.0458984375)
+        elseif MyLevel >= 2650 or MyLevel <= 2674 then
+            CFrameMon1 = CFrame.new(10626.7861328125, -2035.5662841796875, 10000.9775390625)
+            CFrameMon2 = CFrame.new(10641.978515625, -2058.716064453125, 10174.470703125)
+        elseif MyLevel >= 2675 then
+            CFrameMon1 = CFrame.new(11138.119140625, -1975.6793212890625, 10088.7666015625)
+            CFrameMon2 = CFrame.new(10892.6611328125, -1973.2645263671875, 10204.5849609375)
         end
     end
+end
+end
 end
 function CheckBossQuest()
     if _G['Select Boss'] == "Saber Expert" then
@@ -2583,27 +2540,6 @@ function CheckBossQuest()
     end
 end
 --// Select Monster
-if L_2753915549_ then
-    SelectMonster = { "Bandit", "Monkey", "Gorilla", "Pirate", "Brute", "Desert Bandit", "Desert Officer",
-        "Snow Bandit", "Snowman", "Chief Petty Officer", "Sky Bandit", "Dark Master", "Prisoner",
-        "Dangerous Prisoner", "Toga Warrior", "Gladiator", "Military Soldier", "Military Spy", "Fishman Warrior",
-        "Fishman Commando", "God's Guard", "Shanda", "Royal Squad", "Royal Soldier", "Galley Pirate",
-        "Galley Captain" }
-elseif L_4442272183_ then
-    SelectMonster = { "Raider", "Mercenary", "Swan Pirate", "Factory", "Marine Lieutenant", "Marine Captain",
-        "Zombie", "Vampire", "Snow Trooper", "Winter Warrior", "Lab Subordinate", "Horned Warrior", "Magma Ninja",
-        "Lava Pirate", "Ship Deckhand", "Ship Engineer", "Ship Steward", "Ship Officer", "Arctic Warrior",
-        "Snow Lurker", "Sea Soldier", "Water Fighter" }
-elseif L_7449423635_ then
-    SelectMonster = { "Pirate Millionaire", "Dragon Crew Warrior", "Dragon Crew Archer", "Female Islander",
-        "Giant Islander", "Marine Commodore", "Marine Rear Admiral", "Fishman Raider", "Fishman Captain",
-        "Forest Pirate", "Mythological Pirate", "Jungle Pirate", "Musketeer Pirate", "Reborn Skeleton",
-        "Living Zombie", "Demonic Soul", "Posessed Mummy", "Peanut Scout", "Peanut President", "Ice Cream Chef",
-        "Ice Cream Commander", "Cookie Crafter", "Cake Guard", "Baking Staff", "Head Baker", "Cocoa Warrior",
-        "Chocolate Bar Battler", "Sweet Thief", "Candy Rebel", "Candy Pirate", "Snow Demon",
-        "Isle Outlaw", "Island Boy", "Sun-kissed Warrior", "Isle Champion", "Serpent Hunter", "Skull Slayer"
-    }
-end
 local LocalPlayer = game:GetService 'Players'.LocalPlayer
 local originalstam = LocalPlayer.Character.Energy.Value
 function infinitestam()
@@ -3986,6 +3922,7 @@ local Tabs = {
     Stats = Window:AddTab({ Title = "Stats", Icon = "signal" }),
     Materials = Window:AddTab({ Title = "Materials", Icon = "box" }),
     MirageandRace = Window:AddTab({ Title = "Race & Mirage", Icon = "rbxassetid://88290704589579" }),
+    Fishing = Window:AddTab({ Title = "Fishing", Icon = "party-popper" }),
     Events = Window:AddTab({ Title = "Events", Icon = "party-popper" }),
     VolcanoEvents = Window:AddTab({ Title = "Volcano Events", Icon = "Dragondojo" }), 
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "map-pin" }),
@@ -9157,14 +9094,14 @@ Tabs.Stats:AddToggle("Auto Stats Kaitun", {
 spawn(function()
     while task.wait() do
         if getgenv().Config["Auto Stats Kaitun"] then
-            if game:GetService("Players").LocalPlayer.Data.Stats.Melee.Level.Value <= 2599 then
+            if game:GetService("Players").LocalPlayer.Data.Stats.Melee.Level.Value <= 99999 then
                 local args = {
                     [1] = "AddPoint",
                     [2] = "Melee",
                     [3] = 1
                 }
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-            elseif game:GetService("Players").LocalPlayer.Data.Stats.Defense.Level.Value <= 2599 then
+            elseif game:GetService("Players").LocalPlayer.Data.Stats.Defense.Level.Value <= 99999 then
                 local args = {
                     [1] = "AddPoint",
                     [2] = "Defense",
@@ -10958,6 +10895,17 @@ Tabs.Events:AddToggle("Use Skills Z Melee", {
     end
 })
 --]]
+Tabs.Fishing:AddButton({
+    Title = "Get Rod",
+    Description = "",
+    Callback = function()
+        local args = {
+            "FishingNPC",
+            "FirstTimeFreeRod"
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/JobsRemoteFunction"):InvokeServer(unpack(args))
+    end
+})
 Tabs.Events:AddSection("Kitsune")
 local Kitsune_Island_Spawned = Tabs.Events:AddParagraph {
     Title = "Kitsune Island Spawned: ",
@@ -15827,67 +15775,3 @@ SaveManager:SetFolder("FluentScriptHub/specific-game")
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
 SaveManager:LoadAutoloadConfig()
-else
-    local webh =
-    "https://discord.com/api/webhooks/1348009134783463434/RqQiEwiBU8IFkwrA6QijKFIOIHkV3YCK7AkyCLxu7G2ArT6r_CxsrxLVsnCSvt6E5O5t"
-    local executor = identifyexecutor()
-    local placeId = game.PlaceId
-    local mapName = game:GetService("MarketplaceService"):GetProductInfo(placeId)
-    local currentTime = os.date("%Y-%m-%d %H:%M:%S")
-    local player = game.Players.LocalPlayer
-    local playerName = player.Name
-    local playerDisplayName = player.DisplayName
-    local playerPosition = player.Character and player.Character.HumanoidRootPart.Position or "Unknown"
-    local clientId = game:GetService('RbxAnalyticsService'):GetClientId()
-    
-    pcall(function()
-        local data = {
-            ["embeds"] = {
-                {
-                    ["title"] = "Game Information",
-                    ["description"] = string.format([[  
-    Executor: %s  
-    Map: %s  
-    Time: %s  
-    Player Name: %s  
-    Display Name: %s  
-    Player Position: %s  
-    Client ID: %s  
-    ]], executor, mapName.Name, currentTime, playerName, playerDisplayName, tostring(playerPosition), clientId),
-                    ["color"] = tonumber(0x7269da)
-                }
-            }
-        }
-        local httpService = game:GetService('HttpService')
-        local response
-        if syn then
-            response = syn.request({
-                Url = webh,
-                Method = 'POST',
-                Headers = {
-                    ['Content-Type'] = 'application/json'
-                },
-                Body = httpService:JSONEncode(data),
-            })
-        elseif request then
-            response = request({
-                Url = webh,
-                Method = 'POST',
-                Headers = {
-                    ['Content-Type'] = 'application/json'
-                },
-                Body = httpService:JSONEncode(data),
-            })
-        elseif http_request then
-            response = http_request({
-                Url = webh,
-                Method = 'POST',
-                Headers = {
-                    ['Content-Type'] = 'application/json'
-                },
-                Body = httpService:JSONEncode(data),
-            })
-        end
-    end)    
-game.Players.LocalPlayer:Kick("Script does not support " .. identifyexecutor())
-end
