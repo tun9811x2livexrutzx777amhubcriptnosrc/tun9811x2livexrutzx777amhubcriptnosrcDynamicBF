@@ -17,7 +17,7 @@ if not Settings['Team'] then
 if not v1 or v1.Name ~= Settings['Team'] then
     local args = {
         [1] = "SetTeam",
-        [2] = "Pirates",
+        [2] = "Marines",
     }
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end
@@ -1781,37 +1781,37 @@ function CheckQuest()
             NameMon = "Serpent Hunter"
             CFrameQuest = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0,
                 0.308980465, 0, 0.951068401)
-        elseif MyLevel >= 2575 or MyLevel <= 2599 then
+        elseif MyLevel == 2575 or MyLevel <= 2599 then
             Mon = "Skull Slayer"
             NameQuest = "TikiQuest3"
             LevelQuest = 2
             NameMon = "Skull Slayer"
             CFrameQuest = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0,
                 0.308980465, 0, 0.951068401)
-        elseif MyLevel >= 2600 or MyLevel <= 2624 then
+        elseif MyLevel == 2600 or MyLevel <= 2624 then
             Mon = "Reef Bandit"
             NameQuest = "SubmergedQuest1"
             LevelQuest = 1
             NameMon = "Reef Bandit"
             CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
                 if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
-        elseif MyLevel >= 2625 or MyLevel <= 2649 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-16271.3271484375, 25.233417510986328, 1370.41943359375))
+        elseif MyLevel == 2625 or MyLevel <= 2649 then
             Mon = "Coral Pirate"
             NameQuest = "SubmergedQuest1"
             LevelQuest = 2
             NameMon = "Coral Pirate"
             CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
                 if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
-        elseif MyLevel >= 2650 or MyLevel <= 2674 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-16271.3271484375, 25.233417510986328, 1370.41943359375))
+        elseif MyLevel == 2650 or MyLevel <= 2674 then
             Mon = "Sea Chanter"
             NameQuest = "SubmergedQuest2"
             LevelQuest = 1
             NameMon = "Sea Chanter"
             CFrameQuest = CFrame.new(10883.5986, -2086.88892, 10034.0195, 0.99651581, 0, 0.0834043249, 0, 1, 0, -0.0834043249, 0, 0.99651581)
                 if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-16271.3271484375, 25.233417510986328, 1370.41943359375))
         elseif MyLevel >= 2675 then
             Mon = "Ocean Prophet"
             NameQuest = "SubmergedQuest2"
@@ -1819,7 +1819,7 @@ function CheckQuest()
             NameMon = "Ocean Prophet"
             CFrameQuest = CFrame.new(10883.5986, -2086.88892, 10034.0195, 0.99651581, 0, 0.0834043249, 0, 1, 0, -0.0834043249, 0, 0.99651581)
                 if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-16271.3271484375, 25.233417510986328, 1370.41943359375))
             end
         end
     end
@@ -2258,18 +2258,18 @@ function CheckMon()
             CFrameMon2 = CFrame.new(-16532, 185, 1362)
             CFrameMon3 = CFrame.new(-16541, 150, 1540)
             CFrameMon4 = CFrame.new(-16519, 120, 1716)
-        elseif MyLevel >= 2575 or MyLevel <= 2599 then
+        elseif MyLevel == 2575 or MyLevel <= 2599 then
             CFrameMon1 = CFrame.new(-16806, 134, 1534)
             CFrameMon2 = CFrame.new(-16966, 241, 1643)
             CFrameMon3 = CFrame.new(-16818, 219, 1752)
             CFrameMon4 = nil
-        elseif MyLevel >= 2600 or MyLevel <= 2624 then
+        elseif MyLevel == 2600 or MyLevel <= 2624 then
             CFrameMon1 = CFrame.new(10920.552734375, -2120.7587890625, 9267.6513671875)
             CFrameMon2 = CFrame.new(11034.779296875, -2128.155517578125, 9118.48046875)
-        elseif MyLevel >= 2625 or MyLevel <= 2649 then
+        elseif MyLevel == 2625 or MyLevel <= 2649 then
             CFrameMon1 = CFrame.new(10662.7822265625, -2064.858642578125, 9303.939453125)
             CFrameMon2 = CFrame.new(10835.505859375, -2050.79541015625, 9438.0458984375)
-        elseif MyLevel >= 2650 or MyLevel <= 2674 then
+        elseif MyLevel == 2650 or MyLevel <= 2674 then
             CFrameMon1 = CFrame.new(10626.7861328125, -2035.5662841796875, 10000.9775390625)
             CFrameMon2 = CFrame.new(10641.978515625, -2058.716064453125, 10174.470703125)
         elseif MyLevel >= 2675 then
