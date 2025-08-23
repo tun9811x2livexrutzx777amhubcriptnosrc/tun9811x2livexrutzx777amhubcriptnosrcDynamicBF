@@ -20,6 +20,7 @@ if not v1 or v1.Name ~= Settings['Team'] then
         [2] = "Pirates",
     }
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
 elseif Settings['Team'] == "Pirates" then
     local args = {
         [1] = "SetTeam",
@@ -32,7 +33,6 @@ elseif Settings['Team'] == "Marines" then
         [2] = "Marines",
     }
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-end
 end
 Time = 1
 repeat wait() until game:IsLoaded()
