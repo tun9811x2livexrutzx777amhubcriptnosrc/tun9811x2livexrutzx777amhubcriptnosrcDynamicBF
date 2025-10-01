@@ -5990,7 +5990,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Bisento v2"] and getgenv().Config["Auto Bisento v2 Hop"] and L_2753915549_ then
+        if Config["Auto Bisento v2"] and Config["Auto Bisento v2 Hop"] and L_2753915549_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Greybeard") then
@@ -6007,7 +6007,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Bisento v2"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Bisento v2"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6020,7 +6020,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Buy Lengedary Sword"] then
+        if Config["Auto Buy Lengedary Sword"] then
             pcall(function()
                 local args = {
                     [1] = "LegendarySwordDealer",
@@ -6037,7 +6037,7 @@ spawn(function()
                     [2] = "3"
                 }
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                if getgenv().Config["Auto Buy Lengedary Sword Hop"] and getgenv().Config["Auto Buy Lengedary Sword"] then
+                if Config["Auto Buy Lengedary Sword Hop"] and Config["Auto Buy Lengedary Sword"] then
                     wait(5)
                     Hop()
                 end
@@ -6048,7 +6048,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Rengoku"] and L_4442272183_ then
+            if Config["Auto Rengoku"] and L_4442272183_ then
                 player = game:GetService("Players").LocalPlayer
                 backpack = player.Backpack
                 character = player.Character
@@ -6074,7 +6074,7 @@ spawn(function()
                             target.HumanoidRootPart.CanCollide = false
                             BringMob(target.HumanoidRootPart.CFrame) 
                             TP(target.HumanoidRootPart.CFrame * Pos)
-                        until backpack:FindFirstChild("Hidden Key") or not getgenv().Config["Auto Rengoku"] or not target.Parent or target.Humanoid.Health <= 0
+                        until backpack:FindFirstChild("Hidden Key") or not Config["Auto Rengoku"] or not target.Parent or target.Humanoid.Health <= 0
                     else
                         replicatedStorage = game:GetService("ReplicatedStorage")
                         snowLurker = replicatedStorage:FindFirstChild("Snow Lurker")
@@ -6092,7 +6092,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Rengoku"] then
+        if Config["Auto Rengoku"] then
             pcall(function()
                 if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") then
                     checkHiddenKey = false
@@ -6111,7 +6111,7 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         BringMob(v.HumanoidRootPart.CFrame) 
                                         TP(v.HumanoidRootPart.CFrame * Pos)
-                                    until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") or not getgenv().Config["Auto Rengoku"] or not v.Parent or v.Humanoid.Health <= 0
+                                    until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") or not Config["Auto Rengoku"] or not v.Parent or v.Humanoid.Health <= 0
                                 end
                                 Posawdaw = CFrame.new()
                             if checkHiddenKey then
@@ -6131,7 +6131,7 @@ end)
 local BigMomPos = CFrame.new(-731.2034301757812, 381.5658874511719, -11198.4951171875)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Budy Sword"] and L_7449423635_ then
+        if Config["Auto Budy Sword"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Cake Queen") then
@@ -6148,7 +6148,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Budy Sword"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Budy Sword"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6171,7 +6171,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Budy Sword"] and getgenv().Config["Auto Budy Sword Hop"] and L_7449423635_ then
+        if Config["Auto Budy Sword"] and Config["Auto Budy Sword Hop"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Cake Queen") then
@@ -6188,7 +6188,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Budy Sword"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Budy Sword"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6202,7 +6202,7 @@ end)
 cccccc = CFrame.new(5366, 22, -305)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Canvander"] and L_7449423635_ then
+        if Config["Auto Canvander"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Beautiful Pirate") then
@@ -6218,7 +6218,7 @@ spawn(function()
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
-                                until not getgenv().Config["Auto Canvander"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Canvander"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6241,7 +6241,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Canvander"] and getgenv().Config["Auto Canvander Hop"] and L_7449423635_ then
+        if Config["Auto Canvander"] and Config["Auto Canvander Hop"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Beautiful Pirate") then
@@ -6257,7 +6257,7 @@ spawn(function()
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
-                                until not getgenv().Config["Auto Canvander"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Canvander"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6270,14 +6270,14 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Yama"] then
+        if Config["Auto Yama"] then
             if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter", "Progress") >= 30 then
                 repeat
                     wait()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",
                         Vector3.new(5661.52979, 1013.07385, -334.962189))
                     fireclickdetector(game.workspace.Map.Waterfall.SealedKatana.Hitbox.ClickDetector)
-                until game.Players.LocalPlayer.Backpack:FindFirstChild("Yama") or not getgenv().Config["Auto Yama"]
+                until game.Players.LocalPlayer.Backpack:FindFirstChild("Yama") or not Config["Auto Yama"]
             else
                 if (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == true then
                     if (string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Urban")) then
@@ -6289,7 +6289,7 @@ spawn(function()
                                             game:GetService("RunService").Heartbeat:wait()
                                             EquipWeapon(_G['Select Weapon'])
                                             TP(v38.HumanoidRootPart.CFrame * Pos)
-                                        until (getgenv().Config["Auto Yama"] == false or v38.Humanoid.Health <= (0) or not v.Parent)
+                                        until (Config["Auto Yama"] == false or v38.Humanoid.Health <= (0) or not v.Parent)
                                     end
                                 end
                             end
@@ -6332,7 +6332,7 @@ local twinpos = CFrame.new(-13346.2705, 405.925385, -8575.56641, -0.998146832, -
     -1.80948838e-08, 1, -8.76578881e-08, -0.0608517416, -8.85965505e-08, -0.998146832)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Twin Hooks"] and L_7449423635_ then
+        if Config["Auto Twin Hooks"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Captain Elephant") then
@@ -6349,7 +6349,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     toposition(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Twin Hooks"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Twin Hooks"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6372,7 +6372,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Twin Hooks"] and getgenv().Config["Auto Twin Hooks Hop"] and L_7449423635_ then
+        if Config["Auto Twin Hooks"] and Config["Auto Twin Hooks Hop"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Captain Elephant") then
@@ -6389,7 +6389,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     toposition(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Twin Hooks"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Twin Hooks"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6403,7 +6403,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if getgenv().Config["Auto Soul Guitar"] then
+            if Config["Auto Soul Guitar"] then
                 if CheckGun("Skull Guitar") == false then
                     if (CFrame.new(-9681.458984375, 6.139880657196045, 6341.3720703125).Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000 then
                         if game:GetService("Workspace").NPCs:FindFirstChild("Skeleton Machine") then
@@ -6412,7 +6412,7 @@ spawn(function()
                             if game:GetService("Workspace").Map["Haunted Castle"].Candle1.Transparency == 0 then
                                 if game:GetService("Workspace").Map["Haunted Castle"].Placard1.Left.Part.Transparency == 0 then
                                     Quest2 = true
-                                    repeat wait() TP(CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875)) until (CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875).Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not getgenv().Config["Auto Soul Guitar"]
+                                    repeat wait() TP(CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875)) until (CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875).Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not Config["Auto Soul Guitar"]
                                     wait(1)
                                     fireclickdetector(game:GetService("Workspace").Map["Haunted Castle"].Placard7.Left.ClickDetector)
                                     wait(1)
@@ -6431,7 +6431,7 @@ spawn(function()
                                 elseif game:GetService("Workspace").Map["Haunted Castle"].Tablet.Segment1:FindFirstChild("ClickDetector") then
                                     if game:GetService("Workspace").Map["Haunted Castle"]["Lab Puzzle"].ColorFloor.Model.Part1:FindFirstChild("ClickDetector") then
                                         Quest4 = true
-                                        repeat wait() TP(CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625)) until (CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625).Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not getgenv().Config["Auto Soul Guitar"]
+                                        repeat wait() TP(CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625)) until (CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625).Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not Config["Auto Soul Guitar"]
                                         wait(1)
                                         TP(game:GetService("Workspace").Map["Haunted Castle"]["Lab Puzzle"].ColorFloor.Model.Part3.CFrame)
                                         wait(1)
@@ -6517,7 +6517,7 @@ local tushitapos = CFrame.new(-10324.416, 332.800507, -9445.86621, -0.0438114405
     -2.5365658e-08, 1, -3.74179656e-08, 0.999039829, 2.37019684e-08, -0.0438114405)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Tushita"] and L_7449423635_ then
+        if Config["Auto Tushita"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Longma") then
@@ -6534,7 +6534,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Tushita"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Tushita"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6557,38 +6557,38 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Holy Torch"] then
+        if Config["Auto Holy Torch"] then
             pcall(function()
                 EquipWeapon("Holy Torch")
                 repeat
                     TP(CFrame.new(-10753.3174, 412.433777, -9365.34375, 0.970033109, -6.00706827e-08, 0.242972791,
                         7.93705368e-08, 1, -6.96430433e-08, -0.242972791, 8.68409415e-08, 0.970033109))
                     wait()
-                until not getgenv().Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-10753.3174, 412.433777, -9365.34375, 0.970033109, -6.00706827e-08, 0.242972791, 7.93705368e-08, 1, -6.96430433e-08, -0.242972791, 8.68409415e-08, 0.970033109)).Magnitude <= 10
+                until not Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-10753.3174, 412.433777, -9365.34375, 0.970033109, -6.00706827e-08, 0.242972791, 7.93705368e-08, 1, -6.96430433e-08, -0.242972791, 8.68409415e-08, 0.970033109)).Magnitude <= 10
                 wait(1)
                 repeat
                     TP(CFrame.new(-11673.7344, 331.953827, -9474.70117, 0.283551037, 4.05383149e-09, -0.958957136,
                         2.1445361e-09, 1, 4.86144414e-09, 0.958957136, -3.43498585e-09, 0.283551037))
                     wait()
-                until not getgenv().Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-11673.7344, 331.953827, -9474.70117, 0.283551037, 4.05383149e-09, -0.958957136, 2.1445361e-09, 1, 4.86144414e-09, 0.958957136, -3.43498585e-09, 0.283551037)).Magnitude <= 10
+                until not Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-11673.7344, 331.953827, -9474.70117, 0.283551037, 4.05383149e-09, -0.958957136, 2.1445361e-09, 1, 4.86144414e-09, 0.958957136, -3.43498585e-09, 0.283551037)).Magnitude <= 10
                 wait(1)
                 repeat
                     TP(CFrame.new(-12133.5586, 519.679443, -10654.5859, 0.648711026, 1.72827441e-08, -0.761034846,
                         4.58535396e-08, 1, 6.1795383e-08, 0.761034846, -7.49834896e-08, 0.648711026))
                     wait()
-                until not getgenv().Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-12133.5586, 519.679443, -10654.5859, 0.648711026, 1.72827441e-08, -0.761034846, 4.58535396e-08, 1, 6.1795383e-08, 0.761034846, -7.49834896e-08, 0.648711026)).Magnitude <= 10
+                until not Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-12133.5586, 519.679443, -10654.5859, 0.648711026, 1.72827441e-08, -0.761034846, 4.58535396e-08, 1, 6.1795383e-08, 0.761034846, -7.49834896e-08, 0.648711026)).Magnitude <= 10
                 wait(1)
                 repeat
                     TP(CFrame.new(-13336.917, 485.744751, -6983.9502, 0.889054537, -8.44348449e-08, -0.457801312,
                         6.7040304e-08, 1, -5.42426477e-08, 0.457801312, 1.7533532e-08, 0.889054537))
                     wait()
-                until not getgenv().Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-13336.917, 485.744751, -6983.9502, 0.889054537, -8.44348449e-08, -0.457801312, 6.7040304e-08, 1, -5.42426477e-08, 0.457801312, 1.7533532e-08, 0.889054537)).Magnitude <= 10
+                until not Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-13336.917, 485.744751, -6983.9502, 0.889054537, -8.44348449e-08, -0.457801312, 6.7040304e-08, 1, -5.42426477e-08, 0.457801312, 1.7533532e-08, 0.889054537)).Magnitude <= 10
                 wait(1)
                 repeat
                     TP(CFrame.new(-13486.9111, 332.608368, -7924.9502, -0.974770486, 5.87527749e-10, 0.22320962,
                         6.13812445e-10, 1, 4.83782805e-11, -0.22320962, 1.84166557e-10, -0.974770486))
                     wait()
-                until not getgenv().Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-13486.9111, 332.608368, -7924.9502, -0.974770486, 5.87527749e-10, 0.22320962, 6.13812445e-10, 1, 4.83782805e-11, -0.22320962, 1.84166557e-10, -0.974770486)).Magnitude <= 10
+                until not Config["Auto Holy Torch"] or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-13486.9111, 332.608368, -7924.9502, -0.974770486, 5.87527749e-10, 0.22320962, 6.13812445e-10, 1, 4.83782805e-11, -0.22320962, 1.84166557e-10, -0.974770486)).Magnitude <= 10
                 wait(1)
             end)
         end
@@ -6596,7 +6596,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Quest Yama"] then
+        if Config["Auto Quest Yama"] then
             pcall(function()
                 if GetMaterial("Alucard Fragment") == 0 then
                     Auto_Quest_Yama_1 = true;
@@ -6643,7 +6643,7 @@ spawn(function()
                             repeat
                                 wait()
                                 TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 0, (-2)))
-                            until not getgenv().Config["Auto Quest Yama"] or not Auto_Quest_Yama_1;
+                            until not Config["Auto Quest Yama"] or not Auto_Quest_Yama_1;
                             (game:GetService("ReplicatedStorage")).Remotes.CommF_:InvokeServer("CDKQuest",
                                 "StartTrial", "Evil");
                         end;
@@ -6708,7 +6708,7 @@ spawn(function()
                                 v.HumanoidRootPart.CanCollide = false
                                 BringMob(v.HumanoidRootPart.CFrame) 
                             end
-                        until not getgenv().Config["Auto Quest Yama"] or not Auto_Quest_Yama_2 or (not v.Parent) or v.Humanoid.Health <= 0 or (not v:FindFirstChild("HazeESP"))
+                        until not Config["Auto Quest Yama"] or not Auto_Quest_Yama_2 or (not v.Parent) or v.Humanoid.Health <= 0 or (not v:FindFirstChild("HazeESP"))
                     else
                         for x, y in pairs((game:GetService("ReplicatedStorage")):GetChildren()) do
                             if y:FindFirstChild("HazeESP") then
@@ -6773,7 +6773,7 @@ spawn(function()
                                     repeat
                                         wait()
                                         TP(v.HumanoidRootPart.CFrame * Pos)
-                                    until not getgenv().Config["Auto Quest Yama"] or not Auto_Quest_Yama_3 or (game:GetService("Workspace")).Map:FindFirstChild("HellDimension")
+                                    until not Config["Auto Quest Yama"] or not Auto_Quest_Yama_3 or (game:GetService("Workspace")).Map:FindFirstChild("HellDimension")
                                 end
                             end
                         end
@@ -6789,7 +6789,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Quest Tushita"] then
+        if Config["Auto Quest Tushita"] then
             pcall(function()
                 if GetMaterial("Alucard Fragment") == 3 then
                     Auto_Quest_Yama_1 = false;
@@ -6877,7 +6877,7 @@ spawn(function()
                                         TP(v.HumanoidRootPart.CFrame * Pos)
                                         v.HumanoidRootPart.CanCollide = false
                                         BringMob(v.HumanoidRootPart.CFrame) 
-                                    until not getgenv().Config["Auto Quest Tushita"] or not Auto_Quest_Tushita_3 or (game:GetService("Workspace")).Map:FindFirstChild("HeavenlyDimension")
+                                    until not Config["Auto Quest Tushita"] or not Auto_Quest_Tushita_3 or (game:GetService("Workspace")).Map:FindFirstChild("HeavenlyDimension")
                                 end
                             end
                         end
@@ -6917,7 +6917,7 @@ spawn(function()
                             wait(1.5);
                             TP((game:GetService("Workspace")).Map.HeavenlyDimension.Exit.CFrame);
                         end
-                    until not getgenv().Config["Auto Quest Tushita"] or (not Auto_Quest_Tushita_3) or GetMaterial("Alucard Fragment") == 6
+                    until not Config["Auto Quest Tushita"] or (not Auto_Quest_Tushita_3) or GetMaterial("Alucard Fragment") == 6
                 end
             end)
         end
@@ -6926,7 +6926,7 @@ end)
 local getcdk = CFrame.new(-12359.79, 603.354004, -6552.86719, -0.00293002231, -3.04624841e-08, -0.999995708, 4.2381803e-08, 1, -3.05867971e-08, 0.999995708, -4.2471239e-08, -0.00293002231)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Get Cursed Dual Katana"] and L_7449423635_ then
+        if Config["Auto Get Cursed Dual Katana"] and L_7449423635_ then
             pcall(function()
                 enemies = workspace.Enemies
                 if enemies:FindFirstChild("Cursed Dual Katana") then
@@ -6943,7 +6943,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Get Cursed Dual Katana"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Get Cursed Dual Katana"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -6967,7 +6967,7 @@ end)
 spawn(function()
     pcall(function()
         while task.wait() do
-            if not getgenv().Config["Auto Bartilo Quest"] then break end
+            if not Config["Auto Bartilo Quest"] then break end
             local player = game:GetService("Players").LocalPlayer
             local replicatedStorage = game:GetService("ReplicatedStorage")
             local commF = replicatedStorage.Remotes.CommF_
@@ -6989,20 +6989,20 @@ spawn(function()
                                         v.HumanoidRootPart.Transparency = 1
                                         v.HumanoidRootPart.CanCollide = false
                                         TP(v.HumanoidRootPart.CFrame * Pos)
-                                    until not v.Parent or v.Humanoid.Health <= 0 or not getgenv().Config["Auto Bartilo Quest"] or not questGui.Visible
+                                    until not v.Parent or v.Humanoid.Health <= 0 or not Config["Auto Bartilo Quest"] or not questGui.Visible
                                 end
                             end
                         else
                             repeat
                                 TP(CFrame.new(932.624, 156.106, 1180.274))
                                 task.wait()
-                            until not getgenv().Config["Auto Bartilo Quest"] or (player.Character.HumanoidRootPart.Position - Vector3.new(932.624, 156.106, 1180.274)).Magnitude <= 10
+                            until not Config["Auto Bartilo Quest"] or (player.Character.HumanoidRootPart.Position - Vector3.new(932.624, 156.106, 1180.274)).Magnitude <= 10
                         end
                     else
                         repeat
                             TP(CFrame.new(-456.289, 73.020, 299.895))
                             task.wait()
-                        until not getgenv().Config["Auto Bartilo Quest"] or (player.Character.HumanoidRootPart.Position - Vector3.new(-456.289, 73.020, 299.895)).Magnitude <= 10
+                        until not Config["Auto Bartilo Quest"] or (player.Character.HumanoidRootPart.Position - Vector3.new(-456.289, 73.020, 299.895)).Magnitude <= 10
                         task.wait(1.1)
                         commF:InvokeServer("StartQuest", "BartiloQuest", 1)
                     end
@@ -7018,7 +7018,7 @@ spawn(function()
                                     AutoHaki()
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                     sethiddenproperty(player, "SimulationRadius", math.huge)
-                                until not v.Parent or v.Humanoid.Health <= 0 or not getgenv().Config["Auto Bartilo Quest"]
+                                until not v.Parent or v.Humanoid.Health <= 0 or not Config["Auto Bartilo Quest"]
                             end
                         end
                     end
@@ -7037,7 +7037,7 @@ spawn(function()
                         repeat
                             TP(CFrame.new(pos))
                             task.wait()
-                        until not getgenv().Config["Auto Bartilo Quest"] or (player.Character.HumanoidRootPart.Position - pos).Magnitude <= 10
+                        until not Config["Auto Bartilo Quest"] or (player.Character.HumanoidRootPart.Position - pos).Magnitude <= 10
                         task.wait(1)
                     end
                 end
@@ -7048,7 +7048,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Musketeer Hat"] then
+            if Config["Auto Musketeer Hat"] then
                 if game:GetService("Players").LocalPlayer.Data.Level.Value >= 1800 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CitizenQuestProgress").KilledBandits == false then
                     if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Forest Pirate") and string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "50") and game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                         if workspace.Enemies:FindFirstChild("Forest Pirate") then
@@ -7063,7 +7063,7 @@ spawn(function()
                                             BringMob(v.HumanoidRootPart.CFrame) 
                                             v.HumanoidRootPart.CanCollide = false
                                         end)
-                                    until getgenv().Config["Auto Musketeer Hat"] == false or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    until Config["Auto Musketeer Hat"] == false or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                 end
                             end
                         else
@@ -7093,7 +7093,7 @@ spawn(function()
                                             sethiddenproperty(game:GetService("Players").LocalPlayer,
                                                 "SimulationRadius", math.huge)
                                         end)
-                                    until getgenv().Config["Auto Musketeer Hat"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    until Config["Auto Musketeer Hat"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                 end
                             end
                         else
@@ -7117,7 +7117,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Rainbow Haki"] then
+            if Config["Auto Rainbow Haki"] then
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                     TP(CFrame.new(-11892.0703125, 930.57672119141, -8760.1591796875))
                     if (Vector3.new(-11892.0703125, 930.57672119141, -8760.1591796875) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
@@ -7136,7 +7136,7 @@ spawn(function()
                                     BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
-                                until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                until Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                             end
                         end
                     else
@@ -7155,7 +7155,7 @@ spawn(function()
                                     BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
-                                until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                until Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                             end
                         end
                     else
@@ -7174,7 +7174,7 @@ spawn(function()
                                     BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
-                                until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                until Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                             end
                         end
                     else
@@ -7193,7 +7193,7 @@ spawn(function()
                                     BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
-                                until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                until Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                             end
                         end
                     else
@@ -7212,7 +7212,7 @@ spawn(function()
                                     BringMob(v.HumanoidRootPart.CFrame) 
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
-                                until getgenv().Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                until Config["Auto Rainbow Haki"] == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                             end
                         end
                     else
@@ -7278,7 +7278,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Factory"] and L_4442272183_ then
+        if Config["Auto Factory"] and L_4442272183_ then
             pcall(function()
                 TP(CFrame.new(432, 211, -431) * CFrame.new(0, -20, 0))
                 EquipWeapon(_G['Select Weapon'])
@@ -7288,13 +7288,13 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Castle Pirate Raid"] and L_7449423635_ then
+        if Config["Auto Castle Pirate Raid"] and L_7449423635_ then
             pcall(function()
                 TP(CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751,
                     3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512))
                 if (CFrame.new(-5539.3115234375, 313.800537109375, -2972.372314453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= (500) then
                     for v25, v26 in pairs(workspace.Enemies:GetChildren()) do
-                        if getgenv().Config["Auto Castle Pirate Raid"] and v26:FindFirstChild("HumanoidRootPart") and v26:FindFirstChild("Humanoid") and v26.Humanoid.Health > (0) then
+                        if Config["Auto Castle Pirate Raid"] and v26:FindFirstChild("HumanoidRootPart") and v26:FindFirstChild("Humanoid") and v26.Humanoid.Health > (0) then
                             if (v26.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 then
                                 repeat
                                     wait()
@@ -7302,7 +7302,7 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     TP(v26.HumanoidRootPart.CFrame * Pos)
                                     BringMob(v26.HumanoidRootPart.CFrame) 
-                                until v26.Humanoid.Health <= 0 or not v26.Parent or not getgenv().Config["Auto Castle Pirate Raid"]
+                                until v26.Humanoid.Health <= 0 or not v26.Parent or not Config["Auto Castle Pirate Raid"]
                             end
                         end
                     end
@@ -7314,7 +7314,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if getgenv().Config["Auto Farm Sea Events"] then
+            if Config["Auto Farm Sea Events"] then
                 if not workspace.Enemies:FindFirstChild("Shark") or not workspace.Enemies:FindFirstChild("Terrorshark") or not workspace.Enemies:FindFirstChild("Piranha") or not workspace.Enemies:FindFirstChild("Fish Crew Member") or not CheckPirateBoat() then
                     if not game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                         buyb = TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08,
@@ -7368,7 +7368,7 @@ spawn(function()
                                             PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559,
                                                 -324.4842224121094))
                                         end
-                                    until workspace.Enemies:FindFirstChild("Shark") or workspace.Enemies:FindFirstChild("Terrorshark") or workspace.Enemies:FindFirstChild("Piranha") or workspace.Enemies:FindFirstChild("Fish Crew Member") or CheckPirateBoat() or getgenv().Config["Auto Farm Sea Events"] == false or _G.StopTweenBoat == false
+                                    until workspace.Enemies:FindFirstChild("Shark") or workspace.Enemies:FindFirstChild("Terrorshark") or workspace.Enemies:FindFirstChild("Piranha") or workspace.Enemies:FindFirstChild("Fish Crew Member") or CheckPirateBoat() or Config["Auto Farm Sea Events"] == false or _G.StopTweenBoat == false
                                 end
                             end
                         end
@@ -7381,7 +7381,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Piranha"] then
+            if Config["Auto Farm Sea Events"] and Config["Auto Kill Piranha"] then
                 if workspace.Enemies:FindFirstChild("Piranha") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
                     StopBoatsTween()
@@ -7395,7 +7395,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Shark"] then
+            if Config["Auto Farm Sea Events"] and Config["Auto Kill Shark"] then
                 if workspace.Enemies:FindFirstChild("Shark") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
                     StopBoatsTween()
@@ -7409,7 +7409,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Terrorshark"] then
+            if Config["Auto Farm Sea Events"] and Config["Auto Kill Terrorshark"] then
                 if workspace.Enemies:FindFirstChild("Terrorshark") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
                     StopBoatsTween()
@@ -7423,7 +7423,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Fish Crew Member"] then
+            if Config["Auto Farm Sea Events"] and Config["Auto Kill Fish Crew Member"] then
                 if workspace.Enemies:FindFirstChild("Fish Crew Member") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
                     StopBoatsTween()
@@ -7437,7 +7437,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Sea Beasts"] then
+            if Config["Auto Farm Sea Events"] and Config["Auto Kill Sea Beasts"] then
                 if game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast2") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast3") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
                     StopBoatsTween()
@@ -7451,7 +7451,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Raid Ship"] then
+            if Config["Auto Farm Sea Events"] and Config["Auto Kill Raid Ship"] then
                 if CheckPirateBoat() then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
                     StopBoatsTween()
@@ -7464,7 +7464,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Piranha"] and L_7449423635_ then
+        if Config["Auto Farm Sea Events"] and Config["Auto Kill Piranha"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Piranha") then
@@ -7482,7 +7482,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
+                                until not Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
                             end
                         end
                     end
@@ -7493,7 +7493,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Shark"] and L_7449423635_ then
+        if Config["Auto Farm Sea Events"] and Config["Auto Kill Shark"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 for _, v in pairs(enemies:GetChildren()) do
@@ -7510,7 +7510,7 @@ spawn(function()
                                 BringMob(rootPart.CFrame) 
                                 TP(rootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
+                            until not Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
                         end
                     end
                 end
@@ -7520,7 +7520,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Terrorshark"] and L_7449423635_ then
+        if Config["Auto Farm Sea Events"] and Config["Auto Kill Terrorshark"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 local player = game.Players.LocalPlayer
@@ -7546,7 +7546,7 @@ spawn(function()
                                         TP(rootPart.CFrame * Pos)
                                     end
                                     sethiddenproperty(player, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
+                                until not Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
                             end
                         end
                     end
@@ -7557,7 +7557,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Fish Crew Member"] and L_7449423635_ then
+        if Config["Auto Farm Sea Events"] and Config["Auto Kill Fish Crew Member"] and L_7449423635_ then
             pcall(function()
                 local enemies = workspace.Enemies
                 for _, v in pairs(enemies:GetChildren()) do
@@ -7574,7 +7574,7 @@ spawn(function()
                                 BringMob(rootPart.CFrame) 
                                 TP(rootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
+                            until not Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
                         end
                     end
                 end
@@ -7584,7 +7584,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Sea Beasts"] and L_7449423635_ then
+        if Config["Auto Farm Sea Events"] and Config["Auto Kill Sea Beasts"] and L_7449423635_ then
             pcall(function()
                 local enemies = game:GetService("Workspace").SeaBeasts
                 local player = game.Players.LocalPlayer
@@ -7597,7 +7597,7 @@ spawn(function()
                             AutoHaki()
                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 480, 0))
                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                        until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent
+                        until not Config["Auto Farm Sea Events"] or not v.Parent
                     end
                 end
             end)
@@ -7606,7 +7606,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Sea Beasts"] and L_7449423635_ then
+        if Config["Auto Farm Sea Events"] and Config["Auto Kill Sea Beasts"] and L_7449423635_ then
             pcall(function()
                 local enemies = game:GetService("Workspace").SeaBeasts
                 local player = game.Players.LocalPlayer
@@ -7652,7 +7652,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Sea Events"] and getgenv().Config["Auto Kill Raid Ship"] and L_7449423635_ then
+        if Config["Auto Farm Sea Events"] and Config["Auto Kill Raid Ship"] and L_7449423635_ then
             pcall(function()
                 if CheckPirateBoat() then
                     local v = CheckPirateBoat()
@@ -7699,7 +7699,7 @@ gg.__namecall = newcclosure(function(...)
     if tostring(method) == "FireServer" then
         if tostring(args[1]) == "RemoteEvent" then
             if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-                if getgenv().Config["Auto Farm Kill Raid Ship"] then
+                if Config["Auto Farm Kill Raid Ship"] then
                     args[2] = AimBotSkillPositionBoat
                     return old(unpack(args))
                 end
@@ -7711,7 +7711,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if getgenv().Config["Auto Find Kitsune Island"] and L_7449423635_ then
+            if Config["Auto Find Kitsune Island"] and L_7449423635_ then
                     if not game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                         buyb = TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08,
                             -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08,
@@ -7734,7 +7734,7 @@ spawn(function()
                                     repeat
                                         wait()
                                         PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                    until game:GetService("Workspace").SeaBeasts:FindFirstChild("d") or game:GetService("Workspace").SeaBeasts:FindFirstChild("dz") or game:GetService("Workspace").SeaBeasts:FindFirstChild("ddd") or not getgenv().Config["Auto Find Kitsune Island"] or _G.StopTweenBoat == false
+                                    until game:GetService("Workspace").SeaBeasts:FindFirstChild("d") or game:GetService("Workspace").SeaBeasts:FindFirstChild("dz") or game:GetService("Workspace").SeaBeasts:FindFirstChild("ddd") or not Config["Auto Find Kitsune Island"] or _G.StopTweenBoat == false
                             end
                         end
                     end
@@ -7745,7 +7745,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Teleport to Kitsune Island"] then
+        if Config["Teleport to Kitsune Island"] then
             if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") or game.Workspace._WorldOrigin.Locations:FindFirstChild("Kitsune Island") then
                 game.Players.LocalPlayer.Character.Humanoid.Sit = false
                 TP(game.Workspace._WorldOrigin.Locations:FindFirstChild("Kitsune Island").CFrame * CFrame.new(23,-25.5,19))
@@ -7755,7 +7755,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Collect Azure Ember"] then
+        if Config["Auto Collect Azure Ember"] then
             pcall(function()
                 local CFrameMe = game.Players.LocalPlayer.Character.HumanoidRootPart
                 for i, v in pairs(game:GetService("Workspace").EmberTemplate:GetChildren()) do
@@ -7768,7 +7768,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Trade Azure Ember"] then
+        if Config["Auto Trade Azure Ember"] then
             pcall(function()
                 local test = workspace.Map.KitsuneIsland.ShrineDialogPart
                 local test1 = Darkbeard
@@ -7789,7 +7789,7 @@ end
 local doingQuest = false
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dragon Hunter"] and not doingQuest then
+        if Config["Auto Dragon Hunter"] and not doingQuest then
             doingQuest = true
             pcall(function()
                 TP(CFrame.new(5864.96729, 1209.49329, 810.422363))
@@ -7823,7 +7823,7 @@ spawn(function()
                             TP(questCFrame)
                             task.wait(3.7)
                             local killCount = 0
-                            while killCount < targetCount and getgenv().Config["Auto Dragon Hunter"] do
+                            while killCount < targetCount and Config["Auto Dragon Hunter"] do
                                 local objects = workspace.Enemies:GetChildren()
                                 if value:find("Destroy 10 trees on Hydra Island.") or value:find("Destroyed 1/10 trees on Hydra Island.") or value:find("Destroyed 2/10 trees on Hydra Island.") or value:find("Destroyed 3/10 trees on Hydra Island.") or value:find("Destroyed 4/10 trees on Hydra Island.") or value:find("Destroyed 5/10 trees on Hydra Island.") or value:find("Destroyed 6/10 trees on Hydra Island.") or value:find("Destroyed 7/10 trees on Hydra Island.") or value:find("Destroyed 8/10 trees on Hydra Island.") or value:find("Destroyed 9/10 trees on Hydra Island.") then
                                     objects = game:GetService("Workspace").Map.Waterfall:FindFirstChild(
@@ -7846,7 +7846,7 @@ spawn(function()
                                                     BringMob(v.HumanoidRootPart.CFrame) 
                                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
                                                         math.huge)
-                                                until not getgenv().Config["Auto Dragon Hunter"] or not obj.Parent or humanoid.Health <= 0
+                                                until not Config["Auto Dragon Hunter"] or not obj.Parent or humanoid.Health <= 0
                                             end
                                         end
                                         killCount = killCount + 1
@@ -7875,7 +7875,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dragon Hunter"] and doingQuest then
+        if Config["Auto Dragon Hunter"] and doingQuest then
             pcall(function()
                 local objects = game:GetService("Workspace").Map.Waterfall:FindFirstChild("IslandModel"):GetChildren()
                 for _, v in pairs(objects) do
@@ -7938,7 +7938,7 @@ local function attackLavaGolem2()
                     TP(golem.HumanoidRootPart.CFrame * Pos)
                 end
                 wait(0.5)
-            until golem == nil or golem.Humanoid.Health <= 0 or not getgenv().Config["Auto Dojo Quest"]
+            until golem == nil or golem.Humanoid.Health <= 0 or not Config["Auto Dojo Quest"]
         end
         isAttackingGolem2 = false
     end
@@ -7981,7 +7981,7 @@ local function sealLava2()
                 if _G['Skill C'] then useSkill("C") end
                 if _G['Skill V'] then useSkill("V") end
                 if _G['Skill F'] then useSkill("F") end
-            until checkcolor.BrickColor.Name ~= "Bright red" or checkcolorVFXLayer.BrickColor.Name ~= "Bright red" or not getgenv().Config["Auto Dojo Quest"]
+            until checkcolor.BrickColor.Name ~= "Bright red" or checkcolorVFXLayer.BrickColor.Name ~= "Bright red" or not Config["Auto Dojo Quest"]
             if checkcolor.BrickColor.Name ~= "Bright red" and checkcolorVFXLayer.BrickColor.Name ~= "Bright red" then
                 isSealingLava2 = false 
                 attackLavaGolem2()
@@ -7992,7 +7992,7 @@ local function sealLava2()
 end
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dojo Quest"] then
+        if Config["Auto Dojo Quest"] then
             pcall(function()
                 local posquest = CFrame.new(5864, 1208, 873)
                 local cfmonster = CFrame.new(-16966, 241, 1643)
@@ -8004,7 +8004,7 @@ spawn(function()
                 repeat
                     wait(0.1)
                     TP(posquest)
-                until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                 wait(0.1)
                 local args = {
                     [1] = {
@@ -8017,7 +8017,7 @@ spawn(function()
                 repeat
                     wait(0.1)
                     TP(cfmonster)
-                until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (cfmonster.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (cfmonster.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                 local killCount2 = 0
                     while killCount2 < 30 do wait()
                         for _, v in pairs(workspace.Enemies:GetChildren()) do
@@ -8046,7 +8046,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8071,7 +8071,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8113,7 +8113,7 @@ spawn(function()
                                             repeat
                                                 wait()
                                                 PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                            until not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark >= 1 or workspace.Enemies:FindFirstChild("Terrorshark")
+                                            until not Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark >= 1 or workspace.Enemies:FindFirstChild("Terrorshark")
                                             game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                         end
                                     end
@@ -8144,7 +8144,7 @@ spawn(function()
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
-                                            until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
+                                            until not Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
                                             if enemyHumanoid.Health <= 0 then
                                                 repeat task.wait() until not v.Parent
                                                 killCountTerrorshark = killCountTerrorshark + 1
@@ -8163,7 +8163,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8189,7 +8189,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8219,7 +8219,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8258,7 +8258,7 @@ spawn(function()
                                     repeat
                                         wait()
                                         PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                    until CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or (posquestckeck.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000
+                                    until CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or not Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or (posquestckeck.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000
                                 end
                             end
                         end
@@ -8270,7 +8270,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8297,7 +8297,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8325,7 +8325,7 @@ spawn(function()
                                                 game:GetService("RunService").Heartbeat:wait()
                                                 EquipWeapon(_G['Select Weapon'])
                                                 TP(v38.HumanoidRootPart.CFrame * Pos)
-                                            until (getgenv().Config["Auto Dojo Quest"] == false or v38.Humanoid.Health <= (0) or not v.Parent)
+                                            until (Config["Auto Dojo Quest"] == false or v38.Humanoid.Health <= (0) or not v.Parent)
                                         end
                                     end
                                 end
@@ -8370,7 +8370,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8412,7 +8412,7 @@ spawn(function()
                                             repeat
                                                 wait()
                                                 PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                            until CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark2 >= 1 or workspace.Enemies:FindFirstChild("Terrorshark")
+                                            until CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or not Config["Auto Dojo Quest"] or _G.StopTweenBoat == false or killCountTerrorshark2 >= 1 or workspace.Enemies:FindFirstChild("Terrorshark")
                                         end
                                     end
                                 end
@@ -8442,7 +8442,7 @@ spawn(function()
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
-                                            until not getgenv().Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
+                                            until not Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
                                             if enemyHumanoid.Health <= 0 then
                                                 repeat task.wait() until not v.Parent
                                                 killCountTerrorshark2 = killCountTerrorshark2 + 1
@@ -8461,7 +8461,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8487,7 +8487,7 @@ spawn(function()
                     repeat
                         wait(0.1)
                         TP(posquest)
-                    until not getgenv().Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == true or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == true and CheckBelt("Dojo Belt (Orange)") == true and CheckBelt("Dojo Belt (Green)") == true and CheckBelt("Dojo Belt (Blue)") == true and CheckBelt("Dojo Belt (Purple)") == true and CheckBelt("Dojo Belt (Red)") == true and CheckBelt("Dojo Belt (Black)") == true or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                     wait(0.1)
                     local args = {
                         [1] = {
@@ -8528,7 +8528,7 @@ spawn(function()
                                         repeat
                                             wait()
                                             PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                        until game:GetService("Workspace").Map:FindFirstChild("PrehistoricRelic") or game.Workspace._WorldOrigin.Locations:FindFirstChild("Prehistoric Island") or not getgenv().Config["Auto Dojo Quest"] or _G.StopTweenBoat == false
+                                        until game:GetService("Workspace").Map:FindFirstChild("PrehistoricRelic") or game.Workspace._WorldOrigin.Locations:FindFirstChild("Prehistoric Island") or not Config["Auto Dojo Quest"] or _G.StopTweenBoat == false
                                     end
                                 end
                             end
@@ -8574,7 +8574,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dojo Quest"] then
+        if Config["Auto Dojo Quest"] then
             pcall(function()
                 if game.workspace.Map:FindFirstChild("PrehistoricIsland") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
@@ -8599,7 +8599,7 @@ gg.__namecall = newcclosure(function(...)
     if tostring(method) == "FireServer" then
         if tostring(args[1]) == "RemoteEvent" then
             if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-                if getgenv().Config["Auto Dojo Quest"] then
+                if Config["Auto Dojo Quest"] then
                     args[2] = Posvolcanorock
                     return old(unpack(args))
                 end
@@ -8612,11 +8612,11 @@ AutoFarmLeatherVolcanic = CFrame.new(-13354.001, 379.738068, -7752.01367, 0.7926
 -1.42174805e-08, 1, -6.10772233e-08, 0.609638572, 5.70821896e-08, 0.792679489)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Craft Volcanic Magnet"] then
+        if Config["Auto Craft Volcanic Magnet"] then
             pcall(function()
                 if GetMaterial("Volcanic Magnet") <= 10 then
                     if GetMaterial("Blaze Ember") < 15 and GetMaterial("Scrap Metal") <= 10 then
-                        getgenv().Config["Auto Dragon HunterMagnet"] = true
+                        Config["Auto Dragon HunterMagnet"] = true
                     elseif GetMaterial("Scrap Metal") < 10 and GetMaterial("Blaze Ember") >= 15 then
                         local enemies = workspace.Enemies
                         if enemies:FindFirstChild("Forest Pirate") then
@@ -8634,7 +8634,7 @@ spawn(function()
                                             BringMob(rootPart.CFrame) 
                                             TP(rootPart.CFrame * Pos)
                                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                        until not getgenv().Config["Auto Craft Volcanic Magnet"] or not v.Parent or humanoid.Health <= 0
+                                        until not Config["Auto Craft Volcanic Magnet"] or not v.Parent or humanoid.Health <= 0
                                     end
                                 end
                             end
@@ -8663,14 +8663,14 @@ spawn(function()
                 end
             end)
         else
-            getgenv().Config["Auto Dragon HunterMagnet"] = false
+            Config["Auto Dragon HunterMagnet"] = false
         end
     end
 end)
 local doingQuestMagnet = false
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dragon HunterMagnet"] and not doingQuestMagnet then
+        if Config["Auto Dragon HunterMagnet"] and not doingQuestMagnet then
             doingQuestMagnet = true
             pcall(function()
                 TP(CFrame.new(5864.96729, 1209.49329, 810.422363))
@@ -8704,7 +8704,7 @@ spawn(function()
                             TP(questCFrame)
                             task.wait(3.7)
                             local killCount = 0
-                            while killCount < targetCount and getgenv().Config["Auto Dragon HunterMagnet"] do
+                            while killCount < targetCount and Config["Auto Dragon HunterMagnet"] do
                                 local objects = workspace.Enemies:GetChildren()
                                 if value:find("Destroy 10 trees on Hydra Island.") or value:find("Destroyed 1/10 trees on Hydra Island.") or value:find("Destroyed 2/10 trees on Hydra Island.") or value:find("Destroyed 3/10 trees on Hydra Island.") or value:find("Destroyed 4/10 trees on Hydra Island.") or value:find("Destroyed 5/10 trees on Hydra Island.") or value:find("Destroyed 6/10 trees on Hydra Island.") or value:find("Destroyed 7/10 trees on Hydra Island.") or value:find("Destroyed 8/10 trees on Hydra Island.") or value:find("Destroyed 9/10 trees on Hydra Island.") then
                                     objects = game:GetService("Workspace").Map.Waterfall:FindFirstChild(
@@ -8727,7 +8727,7 @@ spawn(function()
                                                     BringMob(obj.HumanoidRootPart.CFrame) 
                                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
                                                         math.huge)
-                                                until not getgenv().Config["Auto Dragon HunterMagnet"] or not obj.Parent or humanoid.Health <= 0
+                                                until not Config["Auto Dragon HunterMagnet"] or not obj.Parent or humanoid.Health <= 0
                                             end
                                         end
                                         killCount = killCount + 1
@@ -8756,7 +8756,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dragon HunterMagnet"] and doingQuestMagnet then
+        if Config["Auto Dragon HunterMagnet"] and doingQuestMagnet then
             pcall(function()
                 local objects = game:GetService("Workspace").Map.Waterfall:FindFirstChild("IslandModel"):GetChildren()
                 for _, v in pairs(objects) do
@@ -8802,7 +8802,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Collect Blaze Ember"] then
+        if Config["Auto Collect Blaze Ember"] then
             pcall(function()
                 local CFrameMe = game.Players.LocalPlayer.Character.HumanoidRootPart
                 for i, v in pairs(game:GetService("Workspace").EmberTemplate:GetChildren()) do
@@ -8816,7 +8816,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if getgenv().Config["Auto Find Prehistoric Island"] and L_7449423635_ then
+            if Config["Auto Find Prehistoric Island"] and L_7449423635_ then
                     if not game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                         buyb = TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08,
                             -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08,
@@ -8839,7 +8839,7 @@ spawn(function()
                                     repeat
                                         wait()
                                         PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                    until game:GetService("Workspace").SeaBeasts:FindFirstChild("d") or game:GetService("Workspace").SeaBeasts:FindFirstChild("dz") or game:GetService("Workspace").SeaBeasts:FindFirstChild("ddd") or not getgenv().Config["Auto Find Prehistoric Island"] or _G.StopTweenBoat == false
+                                    until game:GetService("Workspace").SeaBeasts:FindFirstChild("d") or game:GetService("Workspace").SeaBeasts:FindFirstChild("dz") or game:GetService("Workspace").SeaBeasts:FindFirstChild("ddd") or not Config["Auto Find Prehistoric Island"] or _G.StopTweenBoat == false
                             end
                         end
                     end
@@ -8850,7 +8850,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Teleport to Prehistoric Island"] then
+        if Config["Teleport to Prehistoric Island"] then
             if game:GetService("Workspace").Map:FindFirstChild("PrehistoricRelic") or game.Workspace._WorldOrigin.Locations:FindFirstChild("Prehistoric Island") then
                 game.Players.LocalPlayer.Character.Humanoid.Sit = false
                 TP(game.Workspace._WorldOrigin.Locations:FindFirstChild("Prehistoric Island").CFrame * CFrame.new(0,20,0))
@@ -8877,7 +8877,7 @@ local function attackLavaGolem()
                     TP(golem.HumanoidRootPart.CFrame * Pos)
                 end
                 wait(0.5)
-            until golem == nil or golem.Humanoid.Health <= 0 or not getgenv().Config["Auto Relic Events"]
+            until golem == nil or golem.Humanoid.Health <= 0 or not Config["Auto Relic Events"]
         end
         isAttackingGolem = false
     end
@@ -8920,7 +8920,7 @@ local function sealLava()
                 if _G['Skill C'] then useSkill("C") end
                 if _G['Skill V'] then useSkill("V") end
                 if _G['Skill F'] then useSkill("F") end
-            until checkcolor.BrickColor.Name ~= "Bright red" or checkcolorVFXLayer.BrickColor.Name ~= "Bright red" or not getgenv().Config["Auto Relic Events"]
+            until checkcolor.BrickColor.Name ~= "Bright red" or checkcolorVFXLayer.BrickColor.Name ~= "Bright red" or not Config["Auto Relic Events"]
             if checkcolor.BrickColor.Name ~= "Bright red" and checkcolorVFXLayer.BrickColor.Name ~= "Bright red" then
                 isSealingLava = false 
                 attackLavaGolem()
@@ -8931,7 +8931,7 @@ local function sealLava()
 end
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Relic Events"] then
+        if Config["Auto Relic Events"] then
             pcall(function()
                 if game.workspace.Map:FindFirstChild("PrehistoricIsland") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
@@ -8958,7 +8958,7 @@ gg.__namecall = newcclosure(function(...)
     if tostring(method) == "FireServer" then
         if tostring(args[1]) == "RemoteEvent" then
             if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-                if getgenv().Config["Auto Relic Events"] then
+                if Config["Auto Relic Events"] then
                     args[2] = Posvolcanorock
                     return old(unpack(args))
                 end
@@ -8969,7 +8969,7 @@ gg.__namecall = newcclosure(function(...)
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Relic Events"] then
+        if Config["Auto Relic Events"] then
             pcall(function()
                 if game.workspace.Map:FindFirstChild("PrehistoricIsland") then
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
@@ -9004,7 +9004,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Collect Dinosaur Bones"] then
+        if Config["Auto Collect Dinosaur Bones"] then
             pcall(function()
                 for i,v in  pairs(game.workspace:GetChildren()) do
                     if v.Name == "DinoBone" then
@@ -9019,13 +9019,13 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Collect Dragon Egg"] then
+        if Config["Auto Collect Dragon Egg"] then
             pcall(function()
                 for i, v in pairs(game.workspace.Map.PrehistoricIsland.Core.SpawnedDragonEggs:GetDescendants()) do
                     if v.Name == "DragonEgg" then
                     repeat wait()
                     TP(v.Molten.CFrame)
-                    until not getgenv().Config["Auto Collect Dragon Egg"] or v.Name ~= "DragonEgg"
+                    until not Config["Auto Collect Dragon Egg"] or v.Name ~= "DragonEgg"
                     end
                 end
             end)
@@ -9034,13 +9034,13 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Collect Dragon Egg"] then
+        if Config["Auto Collect Dragon Egg"] then
             pcall(function()
                 for i, v in pairs(game.workspace.Map.PrehistoricIsland.Core.SpawnedDragonEggs:GetDescendants()) do
                     if v.Name == "ProximityPrompt" then
                     repeat wait()
                     fireproximityprompt(v, 40)
-                    until not getgenv().Config["Auto Collect Dragon Egg"] or v.Name ~= "ProximityPrompt"
+                    until not Config["Auto Collect Dragon Egg"] or v.Name ~= "ProximityPrompt"
                     end
                 end
             end)
@@ -9050,7 +9050,7 @@ end)
 AutoFarmLeather = CFrame.new(-1223, 14, 4060)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Leather" then
+        if Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Leather" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Pirate") and enemies:FindFirstChild("Brute") then
@@ -9068,7 +9068,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
                             end
                         end
                     end
@@ -9093,7 +9093,7 @@ local AutoFarmLeather2 = CFrame.new(-988.00415, 172.441269, 1438.27039, -0.00364
     1.41154317e-07, 1, -3.18896487e-09, -0.999993384, 1.41141754e-07, -0.00364514231)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Leather" then
+        if Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Leather" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Mercenary") then
@@ -9111,7 +9111,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
                             end
                         end
                     end
@@ -9137,7 +9137,7 @@ local AutoFarmLeather3 = CFrame.new(-13354.001, 379.738068, -7752.01367, 0.79267
     -1.42174805e-08, 1, -6.10772233e-08, 0.609638572, 5.70821896e-08, 0.792679489)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Leather" then
+        if Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Leather" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Forest Pirate") then
@@ -9155,7 +9155,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
                             end
                         end
                     end
@@ -9179,7 +9179,7 @@ end)
 AutoFarmLeather = CFrame.new(-1223, 14, 4060)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Scrap Meta" then
+        if Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Scrap Meta" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Pirate") and enemies:FindFirstChild("Brute") then
@@ -9197,7 +9197,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
                             end
                         end
                     end
@@ -9222,7 +9222,7 @@ local AutoFarmLeather2 = CFrame.new(-988.00415, 172.441269, 1438.27039, -0.00364
     1.41154317e-07, 1, -3.18896487e-09, -0.999993384, 1.41141754e-07, -0.00364514231)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Scrap Meta" then
+        if Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Scrap Meta" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Mercenary") then
@@ -9240,7 +9240,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
                             end
                         end
                     end
@@ -9266,7 +9266,7 @@ local AutoFarmLeather3 = CFrame.new(-13354.001, 379.738068, -7752.01367, 0.79267
     -1.42174805e-08, 1, -6.10772233e-08, 0.609638572, 5.70821896e-08, 0.792679489)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Scrap Meta" then
+        if Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Scrap Meta" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Forest Pirate") then
@@ -9284,7 +9284,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
                             end
                         end
                     end
@@ -9309,7 +9309,7 @@ local AutoFarmFiahTail = CFrame.new(60887, 96, 1546)
 local requestEntranceDone = false
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Fiah Tail" then
+        if Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Fiah Tail" then
             pcall(function()
                 if not requestEntranceDone then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",
@@ -9332,7 +9332,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Fiah Tail"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Fiah Tail"
                             end
                         end
                     end
@@ -9359,7 +9359,7 @@ local AutoFarmFiahTail3 = CFrame.new(-10491.3994, 367.740082, -8434.71387, -0.66
     -0.747827291, -3.12983373e-09, 1, -2.6008049e-08, 0.747827291, -1.49259947e-08, -0.663893342)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Fiah Tail" then
+        if Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Fiah Tail" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Fishman Raider") then
@@ -9377,7 +9377,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Fiah Tail"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Fiah Tail"
                             end
                         end
                     end
@@ -9401,7 +9401,7 @@ end)
 local AutoFarmMagmaOre = CFrame.new(-5408, 11, 8455)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Magma Ore" then
+        if Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Magma Ore" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Military Soldier") then
@@ -9419,7 +9419,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Magma Ore"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Magma Ore"
                             end
                         end
                     end
@@ -9444,7 +9444,7 @@ local AutoFarmMagmaOre2 = CFrame.new(-5230.55029, 33.2870216, -4664.38574, 0.927
     4.83817786e-08, 1, -3.57486805e-08, 0.374699801, 1.50156101e-08, 0.927146196)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Magma Ore" then
+        if Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Magma Ore" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Lava Pirate") then
@@ -9462,7 +9462,7 @@ spawn(function()
                                     BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Magma Ore"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Magma Ore"
                             end
                         end
                     end
@@ -9487,7 +9487,7 @@ local AutoFarmAngelWings = CFrame.new(-7833.17236, 5664.76709, -1738.12341, 0.98
     6.88215662e-09, 1, 1.25307551e-07, -0.175775602, -1.2214683e-07, 0.984430254)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Angel Wings" then
+        if Config["Auto Farm Materials"] and L_2753915549_ and Config["Select Materials"] == "Angel Wings" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Royal Soldier") then
@@ -9505,7 +9505,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     BringMob(rootPart.CFrame) 
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Angel Wings"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Angel Wings"
                             end
                         end
                     end
@@ -9529,7 +9529,7 @@ end)
 local AutoFarmRadioactiveMaterials = CFrame.new(426, 133, 82)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Radioactive Materials" then
+        if Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Radioactive Materials" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Factory Staff") then
@@ -9547,7 +9547,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Radioactive Materials"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Radioactive Materials"
                             end
                         end
                     end
@@ -9571,7 +9571,7 @@ end)
 local AutoFarmDemonicWips = CFrame.new(-9265, 217, 6123)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Demonic Wips" then
+        if Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Demonic Wips" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Demonic Soul") then
@@ -9589,7 +9589,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Demonic Wips"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Demonic Wips"
                             end
                         end
                     end
@@ -9613,7 +9613,7 @@ end)
 local AutoFarmVampireFang = CFrame.new(-6183, 76, -1178)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Vampire Fang" then
+        if Config["Auto Farm Materials"] and L_4442272183_ and Config["Select Materials"] == "Vampire Fang" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Vampire") then
@@ -9631,7 +9631,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Vampire Fang"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Vampire Fang"
                             end
                         end
                     end
@@ -9656,7 +9656,7 @@ local AutoFarmMiniTusk = CFrame.new(-13431.2148, 544.050171, -6849.32324, -0.579
     -4.87719305e-08, 1, -3.88311499e-08, -0.815220952, -6.2248958e-08, -0.579150081)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Mini Tusk" then
+        if Config["Auto Farm Materials"] and L_7449423635_ and Config["Select Materials"] == "Mini Tusk" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Mythological Pirate") then
@@ -9674,7 +9674,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Mini Tusk"
+                                until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Mini Tusk"
                             end
                         end
                     end
@@ -9699,7 +9699,7 @@ local AutoFarmGunpowder = CFrame.new(-367.398956, 77.0727768, 5931.71826, -0.933
     7.24117877e-09, 1, -1.26892559e-07, 0.357344002, -1.21101792e-07, -0.933972836)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Farm Gunpowder"] and L_7449423635_ and Config["Select Materials"] == "Gunpowder" then
+        if Config["Auto Farm Gunpowder"] and L_7449423635_ and Config["Select Materials"] == "Gunpowder" then
             pcall(function()
                 local enemies = workspace.Enemies
                 if enemies:FindFirstChild("Pistol Billionaire") then
@@ -9717,7 +9717,7 @@ spawn(function()
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not getgenv().Config["Auto Farm Gunpowder"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Gunpowder"
+                                until not Config["Auto Farm Gunpowder"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Gunpowder"
                             end
                         end
                     end
@@ -9741,7 +9741,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if getgenv().Config["Auto Find Mirage Island"] then
+            if Config["Auto Find Mirage Island"] then
                 if not game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
                     buyb = TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08,
                         -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08,
@@ -9764,7 +9764,7 @@ spawn(function()
                                 repeat
                                     wait()
                                     PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559, -324.4842224121094))
-                                until workspace.Enemies:FindFirstChild("dd") or workspace.Enemies:FindFirstChild("D") or workspace.Enemies:FindFirstChild("d") or workspace.Enemies:FindFirstChild("Fish Crew d") or getgenv().Config["Auto Find Mirage Island"] == false or _G.StopTweenBoat == false
+                                until workspace.Enemies:FindFirstChild("dd") or workspace.Enemies:FindFirstChild("D") or workspace.Enemies:FindFirstChild("d") or workspace.Enemies:FindFirstChild("Fish Crew d") or Config["Auto Find Mirage Island"] == false or _G.StopTweenBoat == false
                             end
                         end
                     end
@@ -9775,7 +9775,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Teleport to Mirage Island"] then
+        if Config["Teleport to Mirage Island"] then
             pcall(function()
                 if (game.workspace._WorldOrigin.Locations:FindFirstChild("Mirage Island")) or game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
                     TP(game.workspace._WorldOrigin.Locations:FindFirstChild("Mirage Island").CFrame *
@@ -9788,7 +9788,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Find Advanced Fruit Dealer"] then
+            if Config["Auto Find Advanced Fruit Dealer"] then
                 if game:GetService("Workspace").NPCs:FindFirstChild("Advanced Fruit Dealer") then
                     TP(game:GetService("Workspace").NPCs["Advanced Fruit Dealer"].HumanoidRootPart.CFrame)
                 end
@@ -9799,7 +9799,7 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if getgenv().Config["Auto Find Gear"] then
+            if Config["Auto Find Gear"] then
                 if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
                     for i, v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do
                         if v:IsA("MeshPart") then
@@ -9816,7 +9816,7 @@ end)
 spawn(function()
     while task.wait() do
         pcall(function()
-            if getgenv().Config["Auto Lock Camera to Moon"] then
+            if Config["Auto Lock Camera to Moon"] then
                 wait()
                 local moonDir = game.Lighting:GetMoonDirection()
                 local lookAtPos = game.Workspace.CurrentCamera.CFrame.p + moonDir * 100
@@ -9828,7 +9828,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Complete Trail"] then
+        if Config["Auto Complete Trail"] then
             pcall(function()
                 if game:GetService("Players").LocalPlayer.Data.Race.Value == "Human" then
                     for i, v in pairs(game.workspace.Enemies:GetChildren()) do
@@ -9838,7 +9838,7 @@ spawn(function()
                                 wait()
                                 TP(v.HumanoidRootPart.CFrame * Pos)
                                 EquipWeapon(_G['Select Weapon'])
-                            until not getgenv().Config["Auto Complete Trail"] or not v.Parent or v.Humanoid.Health <= 0
+                            until not Config["Auto Complete Trail"] or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
                     end
@@ -9896,7 +9896,7 @@ spawn(function()
                                 wait()
                                 TP(v.HumanoidRootPart.CFrame * Pos)
                                 EquipWeapon(_G['Select Weapon'])
-                            until not getgenv().Config["Auto Complete Trail"] or not v.Parent or v.Humanoid.Health <= 0
+                            until not Config["Auto Complete Trail"] or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
                     end
@@ -9907,7 +9907,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Teleport to Race Door"] then
+        if Config["Teleport to Race Door"] then
             pcall(function()
                 if game:GetService("Players").LocalPlayer.Data.Race.Value == "Human" then
                     TP(game.workspace.Map["Temple of Time"].HumanCorridor.Door.Entrance.CFrame * CFrame.new(0,0,2))
@@ -9937,7 +9937,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Spectate to Players"] then
+        if Config["Spectate to Players"] then
             pcall(function()
                 if game.Players:FindFirstChild(_G['Select Player']) then
                     game.Workspace.Camera.CameraSubject = game.Players:FindFirstChild(_G['Select Player']).Character
@@ -9950,7 +9950,7 @@ spawn(function()
     end
 end)
 local function TeleportToPlayerAbove()
-    if not getgenv().Config["Teleport to Players"] or not _G['Select Player'] then return end
+    if not Config["Teleport to Players"] or not _G['Select Player'] then return end
     local targetPlayer = game:GetService("Players"):FindFirstChild(_G['Select Player'])
     if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
         if game.Players.LocalPlayer.Character.Humanoid.Health > 4000 then
@@ -9960,7 +9960,7 @@ local function TeleportToPlayerAbove()
     end
 end
 local function TeleportToPlayerBeside()
-    if not getgenv().Config["Teleport to Players"] or not _G['Select Player'] then return end
+    if not Config["Teleport to Players"] or not _G['Select Player'] then return end
     local targetPlayer = game:GetService("Players"):FindFirstChild(_G['Select Player'])
     if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
         if game.Players.LocalPlayer.Character.Humanoid.Health > 4000 then
@@ -9970,7 +9970,7 @@ local function TeleportToPlayerBeside()
     end
 end
 local function TeleportToPlayerLower()
-    if not getgenv().Config["Teleport to Players"] or not _G['Select Player'] then return end
+    if not Config["Teleport to Players"] or not _G['Select Player'] then return end
     local targetPlayer = game:GetService("Players"):FindFirstChild(_G['Select Player'])
     if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
         if game.Players.LocalPlayer.Character.Humanoid.Health > 4000 then
@@ -9981,21 +9981,21 @@ local function TeleportToPlayerLower()
 end
 spawn(function()
     while wait() do
-        if getgenv().Config["Teleport to Players"] and _G['Select Player'] and _G['Position'] == "Above" then
+        if Config["Teleport to Players"] and _G['Select Player'] and _G['Position'] == "Above" then
             pcall(TeleportToPlayerAbove)
         end
     end
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Teleport to Players"] and _G['Select Player'] and _G['Position'] == "Beside" then
+        if Config["Teleport to Players"] and _G['Select Player'] and _G['Position'] == "Beside" then
             pcall(TeleportToPlayerBeside)
         end
     end
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Teleport to Players"] and _G['Select Player'] and _G['Position'] == "Lower" then
+        if Config["Teleport to Players"] and _G['Select Player'] and _G['Position'] == "Lower" then
             pcall(TeleportToPlayerLower)
         end
     end
@@ -10012,7 +10012,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Kill Players"] and _G['Select Player'] then
+        if Config["Auto Kill Players"] and _G['Select Player'] then
             pcall(function()
                 local targetPlayer = game:GetService("Players"):FindFirstChild(_G['Select Player'])
                 if targetPlayer then
@@ -10025,7 +10025,7 @@ spawn(function()
                             elseif game.Players.LocalPlayer.Character.Humanoid.Health <= 4000 then
                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,125,0))
                             end
-                        until not getgenv().Config["Auto Kill Players"] or not v.Parent or v.Humanoid.Health <= 0
+                        until not Config["Auto Kill Players"] or not v.Parent or v.Humanoid.Health <= 0
                     end
                    end
                 end
@@ -10035,7 +10035,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Kill Players"] and _G['Select Player'] then
+        if Config["Auto Kill Players"] and _G['Select Player'] then
             pcall(function()
                 local targetPlayer = game:GetService("Players"):FindFirstChild(_G['Select Player'])
                 if targetPlayer then
@@ -10073,7 +10073,7 @@ spawn(function()
                             if _G['Skill V'] then useSkill("V") end
                             if _G['Skill F'] then useSkill("F") end
                             end
-                        until not getgenv().Config["Auto Kill Players"] or not v.Parent or v.Humanoid.Health <= 0
+                        until not Config["Auto Kill Players"] or not v.Parent or v.Humanoid.Health <= 0
                     end
                    end
                 end
@@ -10101,7 +10101,7 @@ gg.__namecall = newcclosure(function(...)
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Enabled PvP"] then
+        if Config["Enabled PvP"] then
             pcall(function()
                 local args = {
                     [1] = "EnablePvp"
@@ -10114,7 +10114,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Activate Ability"] then
+        if Config["Auto Activate Ability"] then
             pcall(function()
                 local args = {
                     [1] = "ActivateAbility"
@@ -10127,7 +10127,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Safe Mode"] and game.Players.LocalPlayer.Character.Humanoid.Health < 4000 then
+        if Config["Safe Mode"] and game.Players.LocalPlayer.Character.Humanoid.Health < 4000 then
             pcall(function()
                 TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 200, 0))
                 if game.Players.LocalPlayer.Character.Humanoid.Health > 4000 then
@@ -10139,7 +10139,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Stats Melee"] then
+        if Config["Auto Stats Melee"] then
             local args = {
                 [1] = "AddPoint",
                 [2] = "Melee",
@@ -10151,7 +10151,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Stats Defense"] then
+        if Config["Auto Stats Defense"] then
             local args = {
                 [1] = "AddPoint",
                 [2] = "Defense",
@@ -10163,7 +10163,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Stats Sword"] then
+        if Config["Auto Stats Sword"] then
             local args = {
                 [1] = "AddPoint",
                 [2] = "Sword",
@@ -10175,7 +10175,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Stats Gun"] then
+        if Config["Auto Stats Gun"] then
             local args = {
                 [1] = "AddPoint",
                 [2] = "Gun",
@@ -10187,7 +10187,7 @@ spawn(function()
 end)
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Stats Demon Fruit"] then
+        if Config["Auto Stats Demon Fruit"] then
             local args = {
                 [1] = "AddPoint",
                 [2] = "Demon Fruit",
@@ -10199,7 +10199,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Tween Island"] then
+        if Config["Tween Island"] then
             pcall(function()
                 if _G.SelectIsland == "WindMill" then
                     TP(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
@@ -10403,12 +10403,12 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Buy Chip"] then
+        if Config["Auto Buy Chip"] then
             pcall(function()
                 local args = {
                     [1] = "RaidsNpc",
                     [2] = "Select",
-                    [3] = getgenv().Config["Select Chip Raid"]
+                    [3] = Config["Select Chip Raid"]
                 }
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
             end)
@@ -10417,7 +10417,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Start Raid"] then
+        if Config["Auto Start Raid"] then
             pcall(function()
                 if L_4442272183_ then
                     fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Main
@@ -10432,7 +10432,7 @@ spawn(function()
 end)
 spawn(function()
     while wait(.1) do
-        if getgenv().Config["Auto Awaken"] then
+        if Config["Auto Awaken"] then
             pcall(function()
                 local args = {
                     [1] = "Awakener",
@@ -10450,7 +10450,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Kill Aura"] then
+        if Config["Kill Aura"] then
             pcall(function()
                 for i, v in pairs(game.workspace.Enemies:GetChildren()) do
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
@@ -10466,7 +10466,7 @@ end)
 local InCombat = false
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dungeon"] then
+        if Config["Auto Dungeon"] then
             pcall(function()
                 local foundEnemy = false
                 local player = game.Players.LocalPlayer
@@ -10489,7 +10489,7 @@ spawn(function()
                                     BringMob(v.HumanoidRootPart.CFrame) 
                                     v.HumanoidRootPart.CanCollide = false
                                     TP(v.HumanoidRootPart.CFrame * Pos)
-                                until not getgenv().Config["Auto Dungeon"] or not v.Parent or v.Humanoid.Health <= 0
+                                until not Config["Auto Dungeon"] or not v.Parent or v.Humanoid.Health <= 0
 
                                 InCombat = false
                             end
@@ -10505,7 +10505,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Auto Dungeon"] and not InCombat then
+        if Config["Auto Dungeon"] and not InCombat then
             pcall(function()
                 local locations = game:GetService("Workspace")["_WorldOrigin"].Locations
                 for i = 5, 1, -1 do
@@ -10521,7 +10521,7 @@ spawn(function()
 end)
 spawn(function()
     while wait(0.1) do
-        if getgenv().Config["Auto Random Fruit"] then
+        if Config["Auto Random Fruit"] then
             local args = {
                 [1] = "Cousin",
                 [2] = "Buy"
@@ -10594,7 +10594,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if getgenv().Config["Teleport to Fruit"] then
+        if Config["Teleport to Fruit"] then
             pcall(function()
                 for i, v in pairs(workspace:GetChildren()) do
                     if v:IsA("Tool") then
@@ -10609,19 +10609,19 @@ Settings = {
     ['Team'] = nil, -- Pirates/Marines
 }
 local v1 = game:GetService("Players").LocalPlayer.Team
-if Settings['Team'] ~= "Pirates" and Settings['Team'] ~= "Marines" and v1 ~= "Pirates" and v1 ~= "Marines" then
+if Settings['Team'] ~= "Pirates" and Settings['Team'] ~= "Marines" and v1 ~= "Pirates" and v1 ~= "Marines" and game.PlaceId ~= 10115141931728 then
     local args = {
         [1] = "SetTeam",
         [2] = "Pirates",
     }
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-elseif Settings['Team'] == "Pirates" and v1 ~= "Pirates" then
+elseif Settings['Team'] == "Pirates" and v1 ~= "Pirates" and game.PlaceId ~= 10115141931728 then
     local args = {
         [1] = "SetTeam",
         [2] = "Pirates",
     }
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-elseif Settings['Team'] == "Marines" and v1 ~= "Marines" then
+elseif Settings['Team'] == "Marines" and v1 ~= "Marines" and game.PlaceId ~= 10115141931728 then
     local args = {
         [1] = "SetTeam",
         [2] = "Marines",
@@ -13406,7 +13406,7 @@ spawn(function()
         end
     end
 end)
-row = titledRow(form, "Auto Complete Trail","Auto Complete Trail")
+row = titledRow(form, "Auto Complete Trail")
 row:Right():Toggle({
     Value = Config["Auto Complete Trail"] or false,
     ValueChanged = function(self, value)
@@ -13415,7 +13415,7 @@ row:Right():Toggle({
         _St(Config["Auto Complete Trail"])
     end,
 })
-row = titledRow(form, "Teleport to Race Door","Teleport to Race Door")
+row = titledRow(form, "Teleport to Race Door")
 row:Right():Toggle({
     Value = Config["Teleport to Race Door"] or false,
     ValueChanged = function(self, value)
@@ -13549,6 +13549,18 @@ row:Right():Button({
             game:GetService("Workspace").Map["Temple of Time"].NoGlitching:Remove()
         end
         ProximityPrompt.Triggered:Connect(onProximity)
+    end,
+})
+form = Tabs.Events:PageSection({ Title = "Celebration" }):Form()
+row = titledRow(form, "Teleport to Celebration Event")
+row:Right():Button({
+    Label = "Click here!",
+    State = "Primary",
+    Pushed = function(self)
+        local args = {
+            "CelebrationTeleport"
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/CelebrationTeleport"):InvokeServer(unpack(args))
     end,
 })
 local ZoneSeaEvents = {
@@ -13787,7 +13799,7 @@ local BT_D = row:Left():TitleStack({
 })
 spawn(function()
     while task.wait() do
-        if getgenv().Config["Auto Dragon Hunter"] or getgenv().Config["Auto Dragon HunterMagnet"] then
+        if Config["Auto Dragon Hunter"] or Config["Auto Dragon HunterMagnet"] then
             local questData = game:GetService("ReplicatedStorage").Modules.Net["RF/DragonHunter"]:InvokeServer({
                 ["Context"] = "Check" })
             if questData then
@@ -14613,7 +14625,7 @@ row:Right():Button({
         local args = {
             [1] = "RaidsNpc",
             [2] = "Select",
-            [3] = getgenv().Config["Select Chip Raid"]
+            [3] = Config["Select Chip Raid"]
         }
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end,
