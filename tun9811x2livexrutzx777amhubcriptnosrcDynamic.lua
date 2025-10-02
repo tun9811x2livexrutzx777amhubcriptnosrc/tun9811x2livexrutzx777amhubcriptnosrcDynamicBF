@@ -14669,6 +14669,7 @@ row:Right():Toggle({
     ValueChanged = function(self, value)
         Config["Teleport to Fruit"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Teleport to Fruit"])
     end,
 })
 form = Tabs.Shop:PageSection({ Title = "Bone - Ectoplasm - Fragment" }):Form()
