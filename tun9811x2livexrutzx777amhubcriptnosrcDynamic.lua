@@ -10869,11 +10869,25 @@ row = titledRow(form, "Fast Attack","quick attack")
 row:Right():Toggle({
     Value = Config["Fast Attack"] or true,
     ValueChanged = function(self, value)
-        _G['Fast Attack'] = value
         Config["Fast Attack"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
+--[[ loadstring(game:HttpGet("https://pastebin.com/raw/Vtjx3jJE"))()
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Config["Fast Attack"] then
+                for i,v in pairs(workspace.Enemies:GetChildren()) do
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude <= 60 then
+                    _G['Fast Attack'] = true
+                    _G["Fast Attack"] = true
+                    end
+                end
+            end
+        end)
+    end
+end) *]]
 row = titledRow(form, "Damage Aura","for attack players")
 row:Right():Toggle({
     Value = Config["Damage Aura"] or false,
