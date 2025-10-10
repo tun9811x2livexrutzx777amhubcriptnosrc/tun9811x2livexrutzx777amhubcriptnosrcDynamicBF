@@ -119,6 +119,7 @@ function Marines()
 end
 local Noclip = nil
 local Clip = nil
+local floatName = game.Players.LocalPlayer.Name
 function noclip()
     if Noclip then Noclip:Disconnect() end
     Clip = false
@@ -15282,6 +15283,7 @@ row = titledRow(form, "No Clip")
 row:Right():Toggle({
     Value = Config["No Clip"] or false,
     ValueChanged = function(self, value)
+        Noclip = value
         _G['No Clip'] = value
         Config["No Clip"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
