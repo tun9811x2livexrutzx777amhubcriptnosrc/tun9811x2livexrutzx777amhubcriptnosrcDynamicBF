@@ -5583,7 +5583,9 @@ spawn(function()
                         end
                     end
                 else 
+                    if not game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+                    end
                 end
             end)
         end
@@ -10876,7 +10878,7 @@ end
 ImageButton.MouseButton1Click:Connect(function()
     ClickSound:Play()
     playClickFlash()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftAlt", false, game)
+    game:GetService("VirtualInputManager"):SendKeynEvet(true, "LeftAlt", false, game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false, "LeftAlt", false, game)
 end)
 code = {}
@@ -15019,6 +15021,14 @@ row:Right():Button({
     State = "Primary",
     Pushed = function(self)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+    end,
+})
+row = titledRow(form, "Buy Sanguine Art [ $5,000 Fragments / $5,000,000 Beli ]")
+row:Right():Button({
+    Label = "Click here!",
+    State = "Primary",
+    Pushed = function(self)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySanguineArt")
     end,
 })
 form = Tabs.Shop:PageSection({ Title = "Sword" }):Form()
