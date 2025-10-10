@@ -1788,37 +1788,33 @@ function CheckQuest()
             LevelQuest = 1
             NameMon = "Reef Bandit"
             CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
-                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-16271.3271484375, 25.233417510986328, 1370.41943359375))
         elseif MyLevel == 2625 or MyLevel <= 2649 then
             Mon = "Coral Pirate"
             NameQuest = "SubmergedQuest1"
             LevelQuest = 2
             NameMon = "Coral Pirate"
             CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
-                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-16271.3271484375, 25.233417510986328, 1370.41943359375))
         elseif MyLevel == 2650 or MyLevel <= 2674 then
             Mon = "Sea Chanter"
             NameQuest = "SubmergedQuest2"
             LevelQuest = 1
             NameMon = "Sea Chanter"
             CFrameQuest = CFrame.new(10883.5986, -2086.88892, 10034.0195, 0.99651581, 0, 0.0834043249, 0, 1, 0, -0.0834043249, 0, 0.99651581)
-                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(10533.2861328125, -2029.0860595703125, 9940.482421875))
-        elseif MyLevel >= 2675 then
+        elseif MyLevel == 2675 or MyLevel <= 2699 then
             Mon = "Ocean Prophet"
             NameQuest = "SubmergedQuest2"
             LevelQuest = 2
             NameMon = "Ocean Prophet"
             CFrameQuest = CFrame.new(10883.5986, -2086.88892, 10034.0195, 0.99651581, 0, 0.0834043249, 0, 1, 0, -0.0834043249, 0, 0.99651581)
-                if _G['Auto Farm Level'] and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-16271.3271484375, 25.233417510986328, 1370.41943359375))
+        elseif MyLevel >= 2700 then
+            Mon = "Grand Devotee"
+            NameQuest = "SubmergedQuest3"
+            LevelQuest = 2
+            NameMon = "Grand Devotee"
+            CFrameQuest = CFrame.new(9637.29395, -1993.13513, 9616.30176, 0.689391017, 0, -0.724389434, -0, 1, 0, 0.724389434, 0, 0.689391017)
             end
         end
     end
-end
-end
 function CheckMon()
     MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
     if L_2753915549_ then
@@ -2266,13 +2262,15 @@ function CheckMon()
         elseif MyLevel == 2650 or MyLevel <= 2674 then
             CFrameMon1 = CFrame.new(10626.7861328125, -2035.5662841796875, 10000.9775390625)
             CFrameMon2 = CFrame.new(10641.978515625, -2058.716064453125, 10174.470703125)
-        elseif MyLevel >= 2675 then
+        elseif MyLevel == 2675 or MyLevel <= 2699 then
             CFrameMon1 = CFrame.new(11138.119140625, -1975.6793212890625, 10088.7666015625)
             CFrameMon2 = CFrame.new(10892.6611328125, -1973.2645263671875, 10204.5849609375)
+        elseif MyLevel >= 2700 then
+            CFrameMon1 = CFrame.new(9570.44141, -1957.20251, 9691.96875, -0.974017322, 0.0509526171, -0.220667422, 0.0259306245, 0.993045509, 0.114839748, 0.224984184, 0.106133856, -0.968564749)
+            CFrameMon2 = CFrame.new(9601.57031, -1958.32568, 9863.35449, -0.994877696, 0.0330292918, -0.0955377743, 0.0243629236, 0.995598793, 0.0904960856, 0.0981063098, 0.0877049565, -0.991303682)
+            CFrameMon3 = CFrame.new(9662.51953, -1937.39722, 10084.793, 0.982877791, -0.0334810466, 0.181191221, 0.022473095, 0.997793853, 0.0624692403, -0.182883009, -0.0573277026, 0.981461823)
         end
     end
-end
-end
 end
 function CheckBossQuest()
     if _G['Select Boss'] == "Saber Expert" then
@@ -3596,7 +3594,7 @@ local function isAutoEnabled()
         "Auto Relic Events", "Auto Collect Dinosaur Bones", "Auto Collect Dragon Egg",
         "Auto Find Kitsune Island", "Teleport to Kitsune Island", "Auto Craft Volcanic Magnet", "Auto Quest Yama", "Auto Quest Tushita",
         "Auto Collect Berry", "Auto Godhuman Full", "Auto Electric Claw", "Auto Sharkman Karate", "Auto Twin Hooks",
-        "Auto Soul Guitar", "Auto Kill Players", "Auto Complete Trail", "Auto Farm Chest [ Tweem ]", "Auto Farm Chest [ TP ] ( Risk )",
+        "Auto Soul Guitar", "Auto Kill Players", "Auto Complete Trail", "Auto Farm Chest [ Tween ]", "Auto Farm Chest [ TP ] ( Risk )",
         "Auto Observation V2", "Auto Dough King V2", "Auto Farm Order Boss", "Auto Tyrant of the Skies","Enabled Farm Fast",
         "Auto Farm Oni Soldier","Auto Farm Red Commander","Auto Fishing"
     }
@@ -3828,7 +3826,7 @@ Speed22 = 300
 v2 = false
 spawn(function()
     while wait() do
-        if Config["Auto Farm Level"] then
+        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value < 2600 then
             pcall(function()
                 local v3 = (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text)
                 if not string.find(v3, NameMon) then
@@ -3891,6 +3889,164 @@ spawn(function()
         end
     end
 end)
+local pos_fatm_lel = CFrame.new(-16070.9297, 54.770813, 1051.46118, 0.999156058, -0, 0.0410757065, 0, 1, 0,
+    -0.0410757065, 0, 0.999156058)
+spawn(function()
+    while task.wait() do
+        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value >= 2600 and game:GetService("Players").LocalPlayer.Data.Level.Value < 2700 then
+            print("Farm 2")
+            pcall(function()
+                local v3 = (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text)
+                if not string.find(v3, NameMon) then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                end
+                if (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == false then
+                    CheckQuest()
+                    if (BypassTP) then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= (1300) then
+                            TP(CFrameQuest)
+                        else
+                            TP(pos_fatm_lel)
+                            local args = {
+                                "TravelToSubmergedIsland"
+                            }
+                            game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/SubmarineWorkerSpeak"):InvokeServer(unpack(args))
+                        end
+                    else
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= (1300) then
+                            TP(CFrameQuest)
+                        else
+                            TP(pos_fatm_lel)
+                            local args = {
+                                "TravelToSubmergedIsland"
+                            }
+                            game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/SubmarineWorkerSpeak"):InvokeServer(unpack(args))
+                        end
+                    end
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= (20) then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest,
+                            LevelQuest)
+                    end
+                elseif (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == true then
+                    CheckQuest()
+                    v2 = false
+                    if (workspace.Enemies:FindFirstChild(Mon)) then
+                        for v4, v5 in pairs(workspace.Enemies:GetChildren()) do
+                            if (v5:FindFirstChild("HumanoidRootPart") and v5:FindFirstChild("Humanoid") and v5.Humanoid.Health > (0)) then
+                                if (v5.Name == Mon) then
+                                    if (string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon)) then
+                                        repeat
+                                            wait()
+                                            EquipWeapon(_G['Select Weapon'])
+                                            AutoHaki()
+                                            v5.Humanoid.WalkSpeed = 0
+                                            TP(v5.HumanoidRootPart.CFrame * Pos)
+                                            BringMob(v5.HumanoidRootPart.CFrame)
+                                        until not Config["Auto Farm Level"] or v5.Humanoid.Health <= 0 or not v5.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    else
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
+                                            "AbandonQuest")
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        CheckMon()
+                        for _, v6 in ipairs({ CFrameMon1, CFrameMon2, CFrameMon3, CFrameMon4 }) do
+                            if (workspace.Enemies:FindFirstChild(Mon)) then
+                                break
+                            end
+                            TP(v6)
+                            wait(0.65)
+                        if (game:GetService("ReplicatedStorage"):FindFirstChild(Mon)) then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame *
+                                CFrame.new(15, 10, 2))
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
+spawn(function()
+    while task.wait() do
+        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value >= 2700 then
+            print("Farm 2")
+            pcall(function()
+                local v3 = (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text)
+                if not string.find(v3, NameMon) then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                end
+                if (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == false then
+                    CheckQuest()
+                    if (BypassTP) then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= (2000) then
+                            TP(CFrameQuest)
+                        else
+                            TP(pos_fatm_lel)
+                            local args = {
+                                "TravelToSubmergedIsland"
+                            }
+                            game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/SubmarineWorkerSpeak"):InvokeServer(unpack(args))
+                        end
+                    else
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= (2000) then
+                            TP(CFrameQuest)
+                        else
+                            TP(pos_fatm_lel)
+                            local args = {
+                                "TravelToSubmergedIsland"
+                            }
+                            game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/SubmarineWorkerSpeak"):InvokeServer(unpack(args))
+                        end
+                    end
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= (20) then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest,
+                            LevelQuest)
+                    end
+                elseif (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == true then
+                    CheckQuest()
+                    v2 = false
+                    if (workspace.Enemies:FindFirstChild(Mon)) then
+                        for v4, v5 in pairs(workspace.Enemies:GetChildren()) do
+                            if (v5:FindFirstChild("HumanoidRootPart") and v5:FindFirstChild("Humanoid") and v5.Humanoid.Health > (0)) then
+                                if (v5.Name == Mon) then
+                                    if (string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon)) then
+                                        repeat
+                                            wait()
+                                            EquipWeapon(_G['Select Weapon'])
+                                            AutoHaki()
+                                            v5.Humanoid.WalkSpeed = 0
+                                            TP(v5.HumanoidRootPart.CFrame * Pos)
+                                            BringMob(v5.HumanoidRootPart.CFrame)
+                                        until not Config["Auto Farm Level"] or v5.Humanoid.Health <= 0 or not v5.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    else
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
+                                            "AbandonQuest")
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        CheckMon()
+                        for _, v6 in ipairs({ CFrameMon1, CFrameMon2, CFrameMon3, CFrameMon4 }) do
+                            if (workspace.Enemies:FindFirstChild(Mon)) then
+                                break
+                            end
+                            TP(v6)
+                            wait(0.65)
+                        if (game:GetService("ReplicatedStorage"):FindFirstChild(Mon)) then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame *
+                                CFrame.new(15, 10, 2))
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
 spawn(function()
     while task.wait() do
         if Config["Auto Farm [Nearest Mob]"] then
@@ -3900,7 +4056,7 @@ spawn(function()
                         repeat
                             wait()
                             EquipWeapon(_G['Select Weapon'])
-                            TP(v13.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                            TP(v13.HumanoidRootPart.CFrame * Pos)
                             BringMob(v13.HumanoidRootPart.CFrame)
                         until not Config["Auto Farm [Nearest Mob]"] or not v13.Parent or v13.Humanoid.Health <= 0
                     end
@@ -3954,7 +4110,7 @@ spawn(function()
                                 EquipWeapon(_G['Select Weapon'])
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
-                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                TP(v.HumanoidRootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                             until v.Humanoid.Health <= 0 or not  Config["Auto Farm All Boss"] or not v.Parent
                         end
@@ -3966,7 +4122,7 @@ spawn(function()
                                         task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G['Select Weapon'])
-                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                        TP(v.HumanoidRootPart.CFrame * Pos)
                                         sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                             math.huge)
                                     until not Config["Auto Farm All Boss"] or not v.Parent or v.Humanoid.Health <= 0
@@ -3992,7 +4148,7 @@ spawn(function()
                                     task.wait()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
-                                    TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                    TP(v.HumanoidRootPart.CFrame * Pos)
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius",
                                         math.huge)
                                 until not Config["Auto Farm Boss"] or not v.Parent or v.Humanoid.Health <= 0
@@ -4053,7 +4209,7 @@ spawn(function()
                                             task.wait()
                                             EquipWeapon(_G['Select Weapon'])
                                             AutoHaki()
-                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                            TP(v.HumanoidRootPart.CFrame * Pos)
                                         until not Config["Auto Farm Boss"] or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
@@ -4114,7 +4270,7 @@ spawn(function()
                                                     .Value)
                                                 PosMonMasteryFruit = v.HumanoidRootPart.Position
                                                 BringMob(v.HumanoidRootPart.CFrame)
-                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0)) 
+                                                TP(v.HumanoidRootPart.CFrame * Pos) 
                                                 _G['Enabled Aimbot Mastery'] = true
                                                 _G['UseSkill'] = true
                                             else
@@ -4123,7 +4279,7 @@ spawn(function()
                                                 AutoHaki()
                                                 EquipWeapon(_G['Select Weapon'])
                                                 BringMob(v.HumanoidRootPart.CFrame)
-                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                                TP(v.HumanoidRootPart.CFrame * Pos)
                                                 PosMonMasteryFruit = v.HumanoidRootPart.Position
                                             end
                                         until not Config["Auto Farm Mastery Fruit"] or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or Config["Select Method"] ~= "Level"
@@ -4204,7 +4360,7 @@ spawn(function()
                                                 AutoHaki()
                                                 EquipWeaponGun()
                                                 PosMonMasteryGun = v.HumanoidRootPart.Position
-                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                                TP(v.HumanoidRootPart.CFrame * Pos)
                                                 BringMob(v.HumanoidRootPart.CFrame)
                                                 _G['Enabled Aimbot Mastery Gun'] = true
                                                 _G['UseSkill'] = true
@@ -4220,7 +4376,7 @@ spawn(function()
                                                 _G['UseSkill'] = false
                                                 AutoHaki()
                                                 EquipWeapon(_G['Select Weapon'])
-                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                                TP(v.HumanoidRootPart.CFrame * Pos)
                                                 PosMonMasteryGun = v.HumanoidRootPart.Position
                                                 BringMob(v.HumanoidRootPart.CFrame)  
                                             end
@@ -4283,7 +4439,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeaponFruit()
                                     PosMonMasteryFruit = v34.HumanoidRootPart.Position
-                                    TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                    TP(v34.HumanoidRootPart.CFrame * Pos)
                                     BringMob(v34.HumanoidRootPart.CFrame) 
                                     _G['Enabled Aimbot Mastery'] = true
                                     _G['UseSkill'] = true
@@ -4292,7 +4448,7 @@ spawn(function()
                                     _G['UseSkill'] = false
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
-                                    TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                    TP(v34.HumanoidRootPart.CFrame * Pos)
                                     PosMonMasteryFruit = v34.HumanoidRootPart.Position
                                     BringMob(v34.HumanoidRootPart.CFrame)
                                 end
@@ -4302,13 +4458,13 @@ spawn(function()
                 end
                 for v33, v34 in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                     if v34.Name == "Reborn Skeleton" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     elseif v34.Name == "Living Zombie" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     elseif v34.Name == "Demonic Soul" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     elseif v34.Name == "Posessed Mummy" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     end
                 end
             end)
@@ -4338,7 +4494,7 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeaponGun()
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
-                                    TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                    TP(v34.HumanoidRootPart.CFrame * Pos)
                                     BringMob(v34.HumanoidRootPart.CFrame) 
                                     _G['Enabled Aimbot Mastery Gun'] = true
                                     _G['UseSkill'] = true
@@ -4347,7 +4503,7 @@ spawn(function()
                                     _G['UseSkill'] = false
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
-                                    TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                    TP(v34.HumanoidRootPart.CFrame * Pos)
                                     PosMonMasteryGun = v34.HumanoidRootPart.Position
                                     BringMob(v34.HumanoidRootPart.CFrame)
                                 end
@@ -4357,13 +4513,13 @@ spawn(function()
                 end
                 for v33, v34 in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                     if v34.Name == "Reborn Skeleton" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     elseif v34.Name == "Living Zombie" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     elseif v34.Name == "Demonic Soul" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     elseif v34.Name == "Posessed Mummy" then
-                        TP(v34.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                        TP(v34.HumanoidRootPart.CFrame * Pos)
                     end
                 end
             end)
@@ -4381,7 +4537,7 @@ spawn(function()
                 if (game.ReplicatedStorage:FindFirstChild("Cake Prince") or workspace.Enemies:FindFirstChild("Cake Prince")) then
                     if (workspace.Enemies:FindFirstChild("Cake Prince")) then
                         for v28, v29 in pairs(workspace.Enemies:GetChildren()) do
-                            if (Config["Auto Fram Cake Prince"] and v29.Name == "Cake Prince" and v29:FindFirstChild("HumanoidRootPart") and v29:FindFirstChild("Humanoid") and v29.Humanoid.Health) > (0) then
+                            if (Config["Auto Farm Cake Prince"] and v29.Name == "Cake Prince" and v29:FindFirstChild("HumanoidRootPart") and v29:FindFirstChild("Humanoid") and v29.Humanoid.Health) > (0) then
                                 HealthMin = v29.Humanoid.MaxHealth * Config["Kill At"] / 100
                                 repeat
                                     game:GetService("RunService").Heartbeat:wait()
@@ -4389,7 +4545,7 @@ spawn(function()
                                         AutoHaki()
                                         EquipWeaponFruit()
                                         PosMonMasteryFruit = v29.HumanoidRootPart.Position
-                                        TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                        TP(v29.HumanoidRootPart.CFrame * Pos)
                                         BringMob(v34.HumanoidRootPart.CFrame)
                                         _G['Enabled Aimbot Mastery'] = true
                                         _G['UseSkill'] = true
@@ -4398,7 +4554,7 @@ spawn(function()
                                         _G['UseSkill'] = false
                                         AutoHaki()
                                         EquipWeapon(_G['Select Weapon'])
-                                        TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                        TP(v29.HumanoidRootPart.CFrame * Pos)
                                         PosMonMasteryFruit = v29.HumanoidRootPart.Position
                                         BringMob(v29.HumanoidRootPart.CFrame)  
                                     end
@@ -4422,7 +4578,7 @@ spawn(function()
                                             AutoHaki()
                                             EquipWeaponFruit()
                                             PosMonMasteryFruit = v31.HumanoidRootPart.Position
-                                            TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                            TP(v31.HumanoidRootPart.CFrame * Pos)
                                             BringMob(v34.HumanoidRootPart.CFrame)
                                             _G['Enabled Aimbot Mastery'] = true
                                             _G['UseSkill'] = true
@@ -4431,7 +4587,7 @@ spawn(function()
                                             _G['UseSkill'] = false
                                             AutoHaki()
                                             EquipWeapon(_G['Select Weapon'])
-                                            TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                            TP(v31.HumanoidRootPart.CFrame * Pos)
                                             PosMonMasteryFruit = v31.HumanoidRootPart.Position
                                             BringMob(v34.HumanoidRootPart.CFrame)
                                         end
@@ -4462,7 +4618,7 @@ spawn(function()
                 if (game.ReplicatedStorage:FindFirstChild("Cake Prince") or workspace.Enemies:FindFirstChild("Cake Prince")) then
                     if (workspace.Enemies:FindFirstChild("Cake Prince")) then
                         for v28, v29 in pairs(workspace.Enemies:GetChildren()) do
-                            if (Config["Auto Fram Cake Prince"] and v29.Name == "Cake Prince" and v29:FindFirstChild("HumanoidRootPart") and v29:FindFirstChild("Humanoid") and v29.Humanoid.Health) > (0) then
+                            if (Config["Auto Farm Cake Prince"] and v29.Name == "Cake Prince" and v29:FindFirstChild("HumanoidRootPart") and v29:FindFirstChild("Humanoid") and v29.Humanoid.Health) > (0) then
                                 HealthMin = v29.Humanoid.MaxHealth * Config["Kill At"] / 100
                                 repeat
                                     game:GetService("RunService").Heartbeat:wait()
@@ -4470,7 +4626,7 @@ spawn(function()
                                         AutoHaki()
                                         EquipWeaponGun()
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
-                                        TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                        TP(v29.HumanoidRootPart.CFrame * Pos)
                                         BringMob(v29.HumanoidRootPart.CFrame) 
                                         _G['Enabled Aimbot Mastery Gun'] = true
                                         _G['UseSkill'] = true
@@ -4479,7 +4635,7 @@ spawn(function()
                                         _G['UseSkill'] = false
                                         AutoHaki()
                                         EquipWeapon(_G['Select Weapon'])
-                                        TP(v29.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                        TP(v29.HumanoidRootPart.CFrame * Pos)
                                         PosMonMasteryGun = v29.HumanoidRootPart.Position
                                         BringMob(v29.HumanoidRootPart.CFrame) 
                                     end
@@ -4503,7 +4659,7 @@ spawn(function()
                                             AutoHaki()
                                             EquipWeaponGun()
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
-                                            TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                            TP(v31.HumanoidRootPart.CFrame * Pos)
                                             --BringMob(v34.HumanoidRootPart.CFrame)
                                             BringMob(v31.HumanoidRootPart.CFrame) 
                                             _G['Enabled Aimbot Mastery Gun'] = true
@@ -4513,7 +4669,7 @@ spawn(function()
                                             _G['UseSkill'] = false
                                             AutoHaki()
                                             EquipWeapon(_G['Select Weapon'])
-                                            TP(v31.HumanoidRootPart.CFrame * CFrame.new(0,PosY,0))
+                                            TP(v31.HumanoidRootPart.CFrame * Pos)
                                             PosMonMasteryGun = v31.HumanoidRootPart.Position
                                             --BringMob(v34.HumanoidRootPart.CFrame)
                                             BringMob(v31.HumanoidRootPart.CFrame) 
@@ -4573,13 +4729,13 @@ gg.__namecall = newcclosure(function(...)
 end)
 spawn(function()
     while wait() do
-        if Config["Auto Farm Chest [ Tweem ]"] then
+        if Config["Auto Farm Chest [ Tween ]"] then
             pcall(function()
                 for i, v in pairs(workspace.Map:GetDescendants()) do
                     if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
                         repeat wait()
                             TP(v.CFrame)
-                        until not Config["Auto Farm Chest [ Tweem ]"] or not v.Parent or (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude == 0
+                        until not Config["Auto Farm Chest [ Tween ]"] or not v.Parent or (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude == 0
                         wait(0.2)
                     end
                 end
@@ -4610,7 +4766,7 @@ spawn(function()
                 if (game.ReplicatedStorage:FindFirstChild("Cake Prince") or workspace.Enemies:FindFirstChild("Cake Prince")) then
                     if (workspace.workspace.Enemies:FindFirstChild("Cake Prince")) then
                         for v28, v29 in pairs(Workspace.Enemies:GetChildren()) do
-                            if (Config["Auto Fram Cake Prince"] and v29.Name == "Cake Prince" and v29:FindFirstChild("HumanoidRootPart") and v29:FindFirstChild("Humanoid") and v29.Humanoid.Health) > (0) then
+                            if (Config["Auto Farm Cake Prince"] and v29.Name == "Cake Prince" and v29:FindFirstChild("HumanoidRootPart") and v29:FindFirstChild("Humanoid") and v29.Humanoid.Health) > (0) then
                                 repeat
                                     game:GetService("RunService").Heartbeat:wait()
                                     EquipWeapon(_G['Select Weapon'])
@@ -10043,36 +10199,38 @@ spawn(function()
                     if v.Name == _G['Select Player'] then
                         repeat 
                             task.wait()
+                            for i,v in pairs(_G.Skills) do
                             if game.Players.LocalPlayer.Character.Humanoid.Health > 5000 then
                             game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
                             game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
                             game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
                             game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
                             game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
                             end
+                        end
                         until not Config["Auto Kill Players"] or not v.Parent or v.Humanoid.Health <= 0
                     end
                    end
@@ -10306,6 +10464,16 @@ spawn(function()
                     TP(CFrame.new(-1014.4241943359375, 149.11068725585938, -14555.962890625))
                 elseif _G.SelectIsland == "Tiki Outpost" then
                     TP(CFrame.new(-16542.447265625, 55.68632888793945, 1044.41650390625))
+                elseif _G.SelectIsland == "Submerged Island" then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(10883.5986, -2086.88892, 10034.0195, 0.99651581, 0, 0.0834043249, 0, 1, 0, -0.0834043249, 0, 0.99651581).Position).Magnitude <= (1100) then
+                        TP(CFrameQuest)
+                    else
+                        TP(pos_fatm_lel)
+                        local args = {
+                            "TravelToSubmergedIsland"
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/SubmarineWorkerSpeak"):InvokeServer(unpack(args))
+                    end
                 end
             end)
         end
@@ -10865,29 +11033,17 @@ task.spawn(function()
         end)
     end
 end)
-row = titledRow(form, "Fast Attack","quick attack")
+--[[ row = titledRow(form, "Fast Attack","quick attack")
 row:Right():Toggle({
     Value = Config["Fast Attack"] or true,
     ValueChanged = function(self, value)
         Config["Fast Attack"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
-})
+}) *]]
 loadstring(game:HttpGet("https://pastebin.com/raw/Vtjx3jJE"))()
-spawn(function()
-    while wait() do
-        pcall(function()
-            if Config["Fast Attack"] then
-                for i,v in pairs(workspace.Enemies:GetChildren()) do
-                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude <= 60 then
-                    _G['Fast Attack'] = true
-                    _G["Fast Attack"] = true
-                    end
-                end
-            end
-        end)
-    end
-end)
+_G['Fast Attack'] = true
+_G["Fast Attack"] = true
 row = titledRow(form, "Damage Aura","for attack players")
 row:Right():Toggle({
     Value = Config["Damage Aura"] or false,
@@ -11467,7 +11623,7 @@ spawn(function()
                             sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
                         end
                     end
-                    if _G['Auto Fram Cake Prince'] and _G['MagnetDought'] then
+                    if _G['Auto Farm Cake Prince'] and _G['MagnetDought'] then
                         if (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= _G['BringMode'] and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                             v.Humanoid:ChangeState(14)
                             v.HumanoidRootPart.CanCollide = false
@@ -12542,13 +12698,13 @@ row:Right():Toggle({
     end,
 })
 form = Tabs.Main:PageSection({ Title = "Chest" }):Form()
-row = titledRow(form, "Auto Farm Chest [ Tweem ]","Automatically farm chests [Tweem]")
+row = titledRow(form, "Auto Farm Chest [ Tween ]","Automatically farm chests [Tween]")
 row:Right():Toggle({
-    Value = Config["Auto Farm Chest [ Tweem ]"] or false,
+    Value = Config["Auto Farm Chest [ Tween ]"] or false,
     ValueChanged = function(self, value)
-        Config["Auto Farm Chest [ Tweem ]"] = value
+        Config["Auto Farm Chest [ Tween ]"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
-        _St(Config["Auto Farm Chest [ Tweem ]"])
+        _St(Config["Auto Farm Chest [ Tween ]"])
     end,
 })
 row = titledRow(form, "Auto Farm Chest [ TP ] ( Risk )","Automatically farm chests [TP]")
@@ -13498,18 +13654,6 @@ row:Right():Button({
         ProximityPrompt.Triggered:Connect(onProximity)
     end,
 })
-form = Tabs.Events:PageSection({ Title = "Celebration" }):Form()
-row = titledRow(form, "Teleport to Celebration Event")
-row:Right():Button({
-    Label = "Click here!",
-    State = "Primary",
-    Pushed = function(self)
-        local args = {
-            "CelebrationTeleport"
-        }
-        game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/CelebrationTeleport"):InvokeServer(unpack(args))
-    end,
-})
 local ZoneSeaEvents = {
     "Sea 1 [Low]",
     "Sea 2 [Medium]",
@@ -14310,6 +14454,7 @@ elseif L_7449423635_ then
         "Cocoa Island",
         "Candy Island",
         "Tiki Outpost",
+        "Submerged Island",
     }
 end
 form = Tabs.Location:PageSection({ Title = "Teleport to Island" }):Form()
