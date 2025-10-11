@@ -4737,7 +4737,9 @@ spawn(function()
                         repeat wait()
                             TP(v.CFrame)
                         until not Config["Auto Farm Chest [ Tween ]"] or not v.Parent or (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude == 0
+                        if Config["Auto Farm Chest [ Tween ]"] then
                         wait(0.2)
+                        end
                     end
                 end
             end)
