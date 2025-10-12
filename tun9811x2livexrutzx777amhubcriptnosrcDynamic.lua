@@ -10900,7 +10900,7 @@ function code.sleep(t)
     task.wait(t)
 end
 local window = app:Window({
-    Title = "Dynamic Hub [ Blox Fruit ]",
+    Title = "Dynamic Hub [ Blox Fruits ]",
     Subtitle = "Make By thanakrit0067 & khaay4997",
     Size = userInputService.TouchEnabled and UDim2.fromOffset(550, 325) or UDim2.fromOffset(850, 530),
 })
