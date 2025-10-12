@@ -15401,6 +15401,7 @@ row = titledRow(form, "Infinit Ability")
 row:Right():Toggle({
     Value = Config["Infinit Ability"] or false,
     ValueChanged = function(self, value)
+        InfAbility = vakue
         Config["Infinit Ability"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         local water = game.workspace.Map:FindFirstChild("WaterBase-Plane")
