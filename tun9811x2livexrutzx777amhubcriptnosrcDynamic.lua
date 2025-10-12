@@ -10004,6 +10004,11 @@ spawn(function()
                         end
                     end
                 elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Mink" then
+                    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+						if v.Name == "StartPoint" then
+							HyperCahaya(v.CFrame* CFrame.new(0,10,0))
+					  	end
+				   	end
                 elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Fishman" then
                     local enemies = game:GetService("Workspace").SeaBeasts
                     local player = game.Players.LocalPlayer
@@ -10048,7 +10053,13 @@ spawn(function()
                         end
                     end
                 elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Cyborg" then
+                    TP(CFrame.new(28654, 14898.7832, -30, 1, 0, 0, 0, 1, 0, 0, 0, 1))
                 elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Skypiea" then
+                    for i,v in pairs(game:GetService("Workspace").Map.SkyTrial.Model:GetDescendants()) do
+						if v.Name ==  "snowisland_Cylinder.081" then
+							TP(v.CFrame* CFrame.new(0,0,0))
+						end
+					end
                 elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Ghoul" then
                     for i, v in pairs(game.workspace.Enemies:GetChildren()) do
                         if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
