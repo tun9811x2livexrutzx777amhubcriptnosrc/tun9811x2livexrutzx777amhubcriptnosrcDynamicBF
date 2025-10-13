@@ -9049,15 +9049,16 @@ local function attackLavaGolem()
     if #golems > 0 then
         isAttackingGolem = true
         for _, golem in pairs(golems) do
-            repeat
+            repeat wait()
                 if golem and golem:FindFirstChild("HumanoidRootPart") and golem.Humanoid.Health > 0 then
                     EquipWeapon(_G['Select Weapon'])
                     TP(golem.HumanoidRootPart.CFrame * Pos)
                 end
-                wait(0.5)
             until golem == nil or golem.Humanoid.Health <= 0 or not Config["Auto Relic Events"]
         end
+        if #game.workspace.Enemies:GetChildren() == 0 then
         isAttackingGolem = false
+        end
     end
 end
 local function sealLava()
@@ -9101,10 +9102,10 @@ local function sealLava()
                     if v == "F"  then useSkill("F") end
                 end
             until checkcolor.BrickColor.Name ~= "Bright red" or checkcolorVFXLayer.BrickColor.Name ~= "Bright red" or not Config["Auto Relic Events"]
-            if checkcolor.BrickColor.Name ~= "Bright red" and checkcolorVFXLayer.BrickColor.Name ~= "Bright red" then
+            --[[ if checkcolor.BrickColor.Name ~= "Bright red" and checkcolorVFXLayer.BrickColor.Name ~= "Bright red" then *]]
                 isSealingLava = false 
                 attackLavaGolem()
-            end
+            --[[ end *]]
             break
         end
     end
@@ -9189,8 +9190,6 @@ spawn(function()
                 for i,v in  pairs(game.workspace:GetChildren()) do
                     if v.Name == "DinoBone" then
                     TP(v.CFrame)
-                    else
-                        break
                     end
                 end
             end)
