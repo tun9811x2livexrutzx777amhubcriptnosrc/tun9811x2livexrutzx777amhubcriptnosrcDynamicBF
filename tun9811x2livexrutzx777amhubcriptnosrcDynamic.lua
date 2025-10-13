@@ -5320,34 +5320,36 @@ spawn(function()
                 for _, v in pairs(enemies:GetChildren()) do
                     if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
                     if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumnaoidRootPart.Position).Magnitude <= 575 then
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
+                        for i,v in pairs(_G.Skills) do
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                        end
                     end
                 end
             end
@@ -7776,34 +7778,36 @@ spawn(function()
                 for _, v in pairs(enemies:GetChildren()) do
                     if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
                     if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumnaoidRootPart.Position).Magnitude <= 575 then
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
+                        for i,v in pairs(_G.Skills) do
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                        end
                     end
                 end
             end
@@ -7821,30 +7825,37 @@ spawn(function()
                         wait()
                         spawn(TP(v.Engine.CFrame * CFrame.new(0, -20, 0)), 1)
                         AimBotSkillPositionBoat = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
-                            EquipWeaponMelee()
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                            EquipWeaponSword()
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                            EquipWeaponGun()
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
-                            EquipWeaponFruit()
-                        if _G['Skill Z'] then useSkill("Z") end
-                        if _G['Skill X'] then useSkill("X") end
-                        if _G['Skill C'] then useSkill("C") end
-                        if _G['Skill V'] then useSkill("V") end
-                        if _G['Skill F'] then useSkill("F") end
+                        EquipWeaponMelee()
+                        for i,v in pairs(_G.Skills) do
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                            if v == "Z" then useSkill("Z") end
+                            if v == "X" then useSkill("X") end
+                            if v == "C"  then useSkill("C") end
+                            if v == "V"  then useSkill("V") end
+                            if v == "F"  then useSkill("F") end
+                        end
                     until not v or not v.Parent or v.Health.Value <= 0 or not CheckPirateBoat()
                 end
             end)
@@ -8045,34 +8056,36 @@ spawn(function()
                         local Poswolrd = tree:GetPivot()
                         local Pos = Poswolrd.Position
                         if (Pos - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 125 then
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
+                            for i,v in pairs(_G.Skills) do
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                            end
                         end
                     end
                 end
@@ -8114,34 +8127,36 @@ local function sealLava2()
             repeat wait()
                 TP(checkcolor.CFrame + Vector3.new(0, 5, 0))
                 Posvolcanorock = checkcolor.Position
-                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
-                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
-                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
-                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
+                for i,v in pairs(_G.Skills) do
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                end
             until checkcolor.BrickColor.Name ~= "Bright red" or checkcolorVFXLayer.BrickColor.Name ~= "Bright red" or not Config["Auto Dojo Quest"]
             if checkcolor.BrickColor.Name ~= "Bright red" and checkcolorVFXLayer.BrickColor.Name ~= "Bright red" then
                 isSealingLava2 = false 
@@ -8926,34 +8941,36 @@ spawn(function()
                         local Poswolrd = tree:GetPivot()
                         local Pos = Poswolrd.Position
                         if (Pos - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 125 then
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                            if _G['Skill Z'] then useSkill("Z") end
-                            if _G['Skill X'] then useSkill("X") end
-                            if _G['Skill C'] then useSkill("C") end
-                            if _G['Skill V'] then useSkill("V") end
-                            if _G['Skill F'] then useSkill("F") end
+                            for i,v in pairs(_G.Skills) do
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                            end
                         end
                     end
                 end
@@ -9053,34 +9070,36 @@ local function sealLava()
             repeat wait()
                 TP(checkcolor.CFrame + Vector3.new(0, 5, 0))
                 Posvolcanorock = checkcolor.Position
-                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
-                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
-                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
-                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                if _G['Skill Z'] then useSkill("Z") end
-                if _G['Skill X'] then useSkill("X") end
-                if _G['Skill C'] then useSkill("C") end
-                if _G['Skill V'] then useSkill("V") end
-                if _G['Skill F'] then useSkill("F") end
+                for i,v in pairs(_G.Skills) do
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                    game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                    game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                    if v == "Z" then useSkill("Z") end
+                    if v == "X" then useSkill("X") end
+                    if v == "C"  then useSkill("C") end
+                    if v == "V"  then useSkill("V") end
+                    if v == "F"  then useSkill("F") end
+                end
             until checkcolor.BrickColor.Name ~= "Bright red" or checkcolorVFXLayer.BrickColor.Name ~= "Bright red" or not Config["Auto Relic Events"]
             if checkcolor.BrickColor.Name ~= "Bright red" and checkcolorVFXLayer.BrickColor.Name ~= "Bright red" then
                 isSealingLava = false 
@@ -10020,34 +10039,36 @@ spawn(function()
                                 task.wait()
                                 AutoHaki()
                                 TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 480, 0))
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                                if _G['Skill Z'] then useSkill("Z") end
-                                if _G['Skill X'] then useSkill("X") end
-                                if _G['Skill C'] then useSkill("C") end
-                                if _G['Skill V'] then useSkill("V") end
-                                if _G['Skill F'] then useSkill("F") end
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                                if _G['Skill Z'] then useSkill("Z") end
-                                if _G['Skill X'] then useSkill("X") end
-                                if _G['Skill C'] then useSkill("C") end
-                                if _G['Skill V'] then useSkill("V") end
-                                if _G['Skill F'] then useSkill("F") end
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                                if _G['Skill Z'] then useSkill("Z") end
-                                if _G['Skill X'] then useSkill("X") end
-                                if _G['Skill C'] then useSkill("C") end
-                                if _G['Skill V'] then useSkill("V") end
-                                if _G['Skill F'] then useSkill("F") end
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                                if _G['Skill Z'] then useSkill("Z") end
-                                if _G['Skill X'] then useSkill("X") end
-                                if _G['Skill C'] then useSkill("C") end
-                                if _G['Skill V'] then useSkill("V") end
-                                if _G['Skill F'] then useSkill("F") end
+                                for i,v in pairs(_G.Skills) do
+                                    game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                                    game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                                    if v == "Z" then useSkill("Z") end
+                                    if v == "X" then useSkill("X") end
+                                    if v == "C"  then useSkill("C") end
+                                    if v == "V"  then useSkill("V") end
+                                    if v == "F"  then useSkill("F") end
+                                    game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                                    game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                                    if v == "Z" then useSkill("Z") end
+                                    if v == "X" then useSkill("X") end
+                                    if v == "C"  then useSkill("C") end
+                                    if v == "V"  then useSkill("V") end
+                                    if v == "F"  then useSkill("F") end
+                                    game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                                    game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                                    if v == "Z" then useSkill("Z") end
+                                    if v == "X" then useSkill("X") end
+                                    if v == "C"  then useSkill("C") end
+                                    if v == "V"  then useSkill("V") end
+                                    if v == "F"  then useSkill("F") end
+                                    game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                                    game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                                    if v == "Z" then useSkill("Z") end
+                                    if v == "X" then useSkill("X") end
+                                    if v == "C"  then useSkill("C") end
+                                    if v == "V"  then useSkill("V") end
+                                    if v == "F"  then useSkill("F") end
+                                end
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             until not _G['Auto Farm Sea Beasts'] or not v.Parent
                         end
