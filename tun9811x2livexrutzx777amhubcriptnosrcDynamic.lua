@@ -7944,7 +7944,7 @@ spawn(function()
             pcall(function()
                 local test = workspace.Map.KitsuneIsland.ShrineDialogPart
                 local test1 = Darkbeard
-                if GetMaterial("Azure Ember") >= cheeckAzure then
+                if GetMaterial("Azure Ember") >= Config["Values Azure Ember"] then
                     game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/KitsuneStatuePray"):InvokeServer()
                 end
             end)
