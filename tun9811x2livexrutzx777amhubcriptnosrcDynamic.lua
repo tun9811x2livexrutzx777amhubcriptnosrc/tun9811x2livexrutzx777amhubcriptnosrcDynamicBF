@@ -5047,7 +5047,7 @@ end)
 spawn(function()
     while task.wait() do
         pcall(function()
-            if Config["Auto Farm Observation Esp"] then
+            if Config["Auto Farm Observation Exp"] then
                 repeat
                     task.wait()
                     if not game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
@@ -5063,7 +5063,7 @@ spawn(function()
 end)
 spawn(function()
         while wait() do
-            if Config["Auto Farm Observation Esp"] and L_2753915549_ then
+            if Config["Auto Farm Observation Exp"] and L_2753915549_ then
                 pcall(function()
                 local screenGui = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
                 local imageLabel = screenGui:FindFirstChild("ImageLabel")
@@ -5074,7 +5074,7 @@ spawn(function()
                                 repeat
                                     wait()
                                     TP(v.HumanoidRootPart.CFrame)
-                                until not Config["Auto Farm Observation Esp"] or not v.Parent or not screenGui:FindFirstChild("ImageLabel")
+                                until not Config["Auto Farm Observation Exp"] or not v.Parent or not screenGui:FindFirstChild("ImageLabel")
                             end
                         end
                     end
@@ -5088,7 +5088,7 @@ spawn(function()
 end)
 spawn(function()
         while wait() do
-            if Config["Auto Farm Observation Esp"] and L_4442272183_ then
+            if Config["Auto Farm Observation Exp"] and L_4442272183_ then
                 pcall(function()
                 local screenGui = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
                 local imageLabel = screenGui:FindFirstChild("ImageLabel")
@@ -5099,7 +5099,7 @@ spawn(function()
                                 repeat
                                     wait()
                                     TP(v.HumanoidRootPart.CFrame)
-                                until not Config["Auto Farm Observation Esp"] or not v.Parent or not screenGui:FindFirstChild("ImageLabel")
+                                until not Config["Auto Farm Observation Exp"] or not v.Parent or not screenGui:FindFirstChild("ImageLabel")
                             end
                         end
                     end
@@ -5113,7 +5113,7 @@ spawn(function()
 end)
 spawn(function()
         while wait() do
-            if Config["Auto Farm Observation Esp"] and L_7449423635_ then
+            if Config["Auto Farm Observation Exp"] and L_7449423635_ then
                 pcall(function()
                 local screenGui = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
                 local imageLabel = screenGui:FindFirstChild("ImageLabel")
@@ -5124,7 +5124,7 @@ spawn(function()
                                 repeat
                                     wait()
                                     TP(v.HumanoidRootPart.CFrame)
-                                until not Config["Auto Farm Observation Esp"] or not v.Parent or not screenGui:FindFirstChild("ImageLabel")
+                                until not Config["Auto Farm Observation Exp"] or not v.Parent or not screenGui:FindFirstChild("ImageLabel")
                             end
                         end
                     end
