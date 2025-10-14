@@ -9056,9 +9056,7 @@ local function attackLavaGolem()
                 end
             until golem == nil or golem.Humanoid.Health <= 0 or not Config["Auto Relic Events"]
         end
-        if #game.workspace.Enemies:GetChildren() == 0 then
         isAttackingGolem = false
-        end
     end
 end
 local function sealLava()
