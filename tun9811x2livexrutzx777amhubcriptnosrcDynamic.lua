@@ -3568,7 +3568,49 @@ spawn(function()
         wait(-200)
     end
 end)
-local RunService = game:GetService("RunService")
+--[[]
+spawn(function()
+    while wait(1) do
+        if isAutoEnabled() and game:GetService("Players").LocalPlayer.Character:FindFirstChild("T-Rex-T-Rex") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Yeti-Yeti") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Blade-Blade") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Mammoth-Mammoth") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Gas-Gas") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Leopard-Leopard") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Kitsune-Kitsune") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") and _G['Select Weapon'] == "Fruit" then
+            Click()
+        end
+    end
+end)
+--]]
+Settings = {
+    ['Team'] = nil, -- Pirates/Marines
+}
+local v1 = game:GetService("Players").LocalPlayer.Team
+if Settings['Team'] ~= "Pirates" and Settings['Team'] ~= "Marines" and v1 ~= "Pirates" and v1 ~= "Marines" and game.PlaceId ~= 10115141931728 then
+    local args = {
+        [1] = "SetTeam",
+        [2] = "Pirates",
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+elseif Settings['Team'] == "Pirates" and v1 ~= "Pirates" and game.PlaceId ~= 10115141931728 then
+    local args = {
+        [1] = "SetTeam",
+        [2] = "Pirates",
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+elseif Settings['Team'] == "Marines" and v1 ~= "Marines" and game.PlaceId ~= 10115141931728 then
+    local args = {
+        [1] = "SetTeam",
+        [2] = "Marines",
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+local DynamicNotify = function(Text_i,Duration_i)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Dynamic Hub",
+        Text = Text_i,
+        Duration = Duration_i,
+        Icon = "rbxassetid://105608302686093"
+    })
+end
+DynamicNotify("discord.gg/BFuEmqUgPq",5)
+wait(2)
+spawn(function()local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Config = getgenv().Config
@@ -3604,6 +3646,7 @@ local function isAutoEnabled()
     end
     return false
 end
+isAutoEnabled()
 RunService.Heartbeat:Connect(function()
     if isAutoEnabled() then
         if not Workspace:FindFirstChild("LOL") then
@@ -3655,15 +3698,6 @@ spawn(function()
         end
     end
 end)
---[[]
-spawn(function()
-    while wait(1) do
-        if isAutoEnabled() and game:GetService("Players").LocalPlayer.Character:FindFirstChild("T-Rex-T-Rex") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Yeti-Yeti") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Blade-Blade") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Mammoth-Mammoth") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Gas-Gas") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Leopard-Leopard") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Kitsune-Kitsune") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") and _G['Select Weapon'] == "Fruit" then
-            Click()
-        end
-    end
-end)
---]]
 spawn(function()
     while wait() do
         if isAutoEnabled() then
@@ -3673,7 +3707,6 @@ spawn(function()
         end
     end
 end)
-spawn(function()
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
             if Config["Auto Farm Sea Events"] or Config["Auto Find Mirage Island"] or Config["Auto Find Kitsune Island"] or Config["Auto Find Prehistoric Island"] or Config["Auto Dojo Quest"] then
@@ -7854,8 +7887,7 @@ spawn(function()
                                 AutoHaki()
                                 EquipWeapon(_G['Select Weapon'])
                                 rootPart.CanCollide = false
-                                humanoid.WalkSpeed = 0
-                                BringMob(rootPart.CFrame) 
+                                humanoid.WalkSpeed = 
                                 TP(rootPart.CFrame * Pos)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             until not Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
@@ -7898,37 +7930,35 @@ spawn(function()
                 local humanoid = character and character:FindFirstChild("Humanoid")
                 for _, v in pairs(enemies:GetChildren()) do
                     if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
-                    if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumnaoidRootPart.Position).Magnitude <= 575 then
-                        for i,v in pairs(_G.Skills) do
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                        end
+                    for i,v in pairs(_G.Skills) do
+                        game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                        game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                        if v == "Z" then useSkill("Z") end
+                        if v == "X" then useSkill("X") end
+                        if v == "C"  then useSkill("C") end
+                        if v == "V"  then useSkill("V") end
+                        if v == "F"  then useSkill("F") end
+                        game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                        game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                        if v == "Z" then useSkill("Z") end
+                        if v == "X" then useSkill("X") end
+                        if v == "C"  then useSkill("C") end
+                        if v == "V"  then useSkill("V") end
+                        if v == "F"  then useSkill("F") end
+                        game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                        game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                        if v == "Z" then useSkill("Z") end
+                        if v == "X" then useSkill("X") end
+                        if v == "C"  then useSkill("C") end
+                        if v == "V"  then useSkill("V") end
+                        if v == "F"  then useSkill("F") end
+                        game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                        game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                        if v == "Z" then useSkill("Z") end
+                        if v == "X" then useSkill("X") end
+                        if v == "C"  then useSkill("C") end
+                        if v == "V"  then useSkill("V") end
+                        if v == "F"  then useSkill("F") end
                     end
                 end
             end
@@ -8287,6 +8317,79 @@ local function sealLava2()
         end
     end
 end
+--[[ spawn(function()
+    while wait() do
+        if Config["Auto Dojo Quest"] and CheckBelt("Dojo Belt (White)") == false and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false then
+            pcall(function()
+                local posquest = CFrame.new(5864, 1208, 873)
+                local cfmonster = CFrame.new(-16966, 241, 1643)
+                local posquestckeck = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0, 0.308980465, 0, 0.951068401)
+                if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                end
+                repeat
+                    wait(0.1)
+                    TP(posquest)
+                until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                wait(0.1)
+                local args = {
+                    [1] = {
+                        ["NPC"] = "Dojo Trainer",
+                        ["Command"] = "RequestQuest"
+                    }
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))   
+                wait(0.1)
+                repeat
+                    wait(0.1)
+                    TP(cfmonster)
+                until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (cfmonster.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                local killCount2 = 0
+                    while killCount2 < 30 do wait()
+                        for _, v in pairs(workspace.Enemies:GetChildren()) do
+                            if v.Name == "Skull Slayer" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+                                repeat
+                                    task.wait()
+                                    AutoHaki()
+                                    EquipWeapon(_G['Select Weapon'])
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Humanoid.WalkSpeed = 0
+                                    TP(v.HumanoidRootPart.CFrame * Pos)
+                                until v.Humanoid.Health <= 0 or not _G['Auto Dojo Quest'] or killCount2 >= 30
+                                killCount2 = killCount2 + 1
+                            end
+                            if killCount2 >= 30 then break end
+                        end
+                    end
+                    wait(0.1)
+                    if (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
+                        end
+                    repeat
+                        wait(0.1)
+                        TP(posquest)
+                    until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
+                    wait(0.1)
+                    local args = {
+                        [1] = {
+                            ["NPC"] = "Dojo Trainer",
+                            ["Command"] = "ClaimQuest"
+                        }
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
+                    wait(0.1)
+                    local args = {
+                        [1] = {
+                            ["NPC"] = "Dojo Trainer",
+                            ["Command"] = "RequestQuest"
+                        }
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/InteractDragonQuest"):InvokeServer(unpack(args))
+                
+            end)
+        end
+    end
+end) *]]
 spawn(function()
     while wait() do
         if Config["Auto Dojo Quest"] then
@@ -8324,7 +8427,6 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     v.HumanoidRootPart.CanCollide = false
-                                    BringMob(v.HumanoidRootPart.CFrame) 
                                     v.Humanoid.WalkSpeed = 0
                                     TP(v.HumanoidRootPart.CFrame * Pos)
                                 until v.Humanoid.Health <= 0 or not _G['Auto Dojo Quest'] or killCount2 >= 30
@@ -8434,14 +8536,14 @@ spawn(function()
                                                 rootPart.CanCollide = false
                                                 enemyHumanoid.WalkSpeed = 0
                                                 if humanoid.Health <= 4000 then
-                                                    BringMob(rootPart.CFrame) 
+            
                                                     TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                                 elseif humanoid.Health >= 8000 then
-                                                    BringMob(rootPart.CFrame) 
+            
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
-                                            until not Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
+                                            until not Config["Auto Dojo Quest"] or not v.Parent or enemyHumanoid.Health <= 0
                                             if enemyHumanoid.Health <= 0 then
                                                 repeat task.wait() until not v.Parent
                                                 killCountTerrorshark = killCountTerrorshark + 1
@@ -8732,10 +8834,10 @@ spawn(function()
                                                 rootPart.CanCollide = false
                                                 enemyHumanoid.WalkSpeed = 0
                                                 if humanoid.Health <= 4000 then
-                                                    BringMob(rootPart.CFrame) 
+            
                                                     TP(rootPart.CFrame * CFrame.new(0, 180, 0))
                                                 elseif humanoid.Health >= 8000 then
-                                                    BringMob(rootPart.CFrame) 
+            
                                                     TP(rootPart.CFrame * Pos)
                                                 end
                                                 sethiddenproperty(player, "SimulationRadius", math.huge)
@@ -8928,7 +9030,7 @@ spawn(function()
                                             EquipWeapon(_G['Select Weapon'])
                                             rootPart.CanCollide = false
                                             humanoid.WalkSpeed = 0
-                                            BringMob(rootPart.CFrame) 
+    
                                             TP(rootPart.CFrame * Pos)
                                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                         until not Config["Auto Craft Volcanic Magnet"] or not v.Parent or humanoid.Health <= 0
@@ -9363,7 +9465,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
@@ -9406,7 +9507,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
@@ -9450,7 +9550,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Leather"
@@ -9492,7 +9591,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
@@ -9535,7 +9633,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
@@ -9579,7 +9676,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Scrap Meta"
@@ -9627,7 +9723,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Fiah Tail"
@@ -9672,7 +9767,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Fiah Tail"
@@ -9714,7 +9808,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Magma Ore"
@@ -9757,7 +9850,6 @@ spawn(function()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Magma Ore"
@@ -9801,7 +9893,6 @@ spawn(function()
                                     rootPart.CanCollide = false
                                     BringMob(rootPart.CFrame)
                                     humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Materials"] or not v.Parent or humanoid.Health <= 0 or Config["Select Materials"] ~= "Angel Wings"
                             end
@@ -9841,7 +9932,6 @@ spawn(function()
                                     AutoHaki()
                                     EquipWeapon(_G['Select Weapon'])
                                     rootPart.CanCollide = false
-                                    BringMob(rootPart.CFrame) 
                                     humanoid.WalkSpeed = 0
                                     TP(rootPart.CFrame * Pos)
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
@@ -10957,38 +11047,6 @@ spawn(function()
         end
     end
 end)
-Settings = {
-    ['Team'] = nil, -- Pirates/Marines
-}
-local v1 = game:GetService("Players").LocalPlayer.Team
-if Settings['Team'] ~= "Pirates" and Settings['Team'] ~= "Marines" and v1 ~= "Pirates" and v1 ~= "Marines" and game.PlaceId ~= 10115141931728 then
-    local args = {
-        [1] = "SetTeam",
-        [2] = "Pirates",
-    }
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-elseif Settings['Team'] == "Pirates" and v1 ~= "Pirates" and game.PlaceId ~= 10115141931728 then
-    local args = {
-        [1] = "SetTeam",
-        [2] = "Pirates",
-    }
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-elseif Settings['Team'] == "Marines" and v1 ~= "Marines" and game.PlaceId ~= 10115141931728 then
-    local args = {
-        [1] = "SetTeam",
-        [2] = "Marines",
-    }
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-end
-local DynamicNotify = function(Text_i,Duration_i)
-    game.StarterGui:SetCore("SendNotification", {
-        Title = "Dynamic Hub",
-        Text = Text_i,
-        Duration = Duration_i,
-        Icon = "rbxassetid://105608302686093"
-    })
-end
-DynamicNotify("discord.gg/BFuEmqUgPq",5)
 if game:GetService("Players").LocalPlayer.Team then end
 wait(1.5)
 local cascade = loadstring(game:HttpGet("https://raw.githubusercontent.com/tun9811/wddaaadd3wfefeewgwee/refs/heads/main/AutoFarmtest.luau"))()
