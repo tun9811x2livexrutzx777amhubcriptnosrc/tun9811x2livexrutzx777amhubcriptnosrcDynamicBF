@@ -7542,6 +7542,127 @@ spawn(function()
     end
 end)
 spawn(function()
+    while wait() do
+        pcall(function()
+            if Config["Auto Find Frozen Dimension"] then
+                if not game:GetService("Workspace").Map:FindFirstChild("FrozenDimension") then
+                    if not game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
+                        buyb = TP(CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08,
+                            -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08,
+                            -0.997757435))
+                        if (CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08, -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08, -0.997757435).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                            if buyb then buyb:Stop() end
+                            local args = {
+                                [1] = "BuyBoat",
+                                [2] = "PirateGrandBrigade"
+                            }
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                        end
+                    elseif game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
+                        if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            TPP(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame *
+                                CFrame.new(0, 1, 0))
+                        else
+                            for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
+                                if v.Name == "PirateGrandBrigade" then
+                                    repeat
+                                        wait()
+                                            PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559,
+                                                -324.4842224121094))
+                                    until game:GetService("Workspace").Map:FindFirstChild("FrozenDimension") or not Config["Auto Find Frozen Dimension"] or _G.StopTweenBoat == false
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        if Config["Auto Attack Leviathan"] then
+            pcall(function()
+                for _, v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                    if v.Name == "Leviathan" and v:FindFirstChild("HumanoidRootPart") then
+                        repeat
+                            wait()             
+                            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude > 10 then
+                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 500, 0))
+                            end                            
+                            for i,v in pairs(_G.Skills) do
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                                if v == "Z" then useSkill("Z") end
+                                if v == "X" then useSkill("X") end
+                                if v == "C"  then useSkill("C") end
+                                if v == "V"  then useSkill("V") end
+                                if v == "F"  then useSkill("F") end
+                            end
+                            AimBotSkillPositionLLL = v.HumanoidRootPart.Position                  
+                        until not v.Parent or not v:FindFirstChild("HumanoidRootPart") or not Config["Auto Attack Leviathan"]                        
+                    end
+                end
+            end)
+        end
+    end
+end)
+local gg = getrawmetatable(game)
+local old = gg.__namecall
+setreadonly(gg, false)
+gg.__namecall = newcclosure(function(...)
+    local method = getnamecallmethod()
+    local args = { ... }
+    if tostring(method) == "FireServer" then
+        if tostring(args[1]) == "RemoteEvent" then
+            if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+                if Config["Auto Attack Leviathan"] then
+                    args[2] = AimBotSkillPositionLLL
+                    return old(unpack(args))
+                end
+            end
+        end
+    end
+    return old(...)
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Config["Teleport To Frozen Dimension"] then
+                local frozenDim = game:GetService("Workspace").Map:FindFirstChild("FrozenDimension")
+                if frozenDim then
+                    local targetPos = frozenDim.Center.Position
+                    local playerPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position                    
+                    if (playerPos - Vector3.new(targetPos.X, 500, targetPos.Z)).Magnitude > 10 then
+                        TP(CFrame.new(targetPos.X, 500, targetPos.Z))
+                    end
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
     pcall(function()
         while wait() do
             if Config["Auto Farm Sea Events"] and Config["Auto Kill Piranha"] then
@@ -10318,6 +10439,35 @@ spawn(function()
     end
 end)
 spawn(function()
+    while wait() do
+        if Config["Auto Turn On Race V4"] then
+            pcall(function()
+                spawn(function()
+                    local lastCheckTime = 0
+                    while true do
+                        task.wait(0.1)
+                        if Config["Auto Turn On Race V4"] then
+                            local currentTime = tick()
+                            if currentTime - lastCheckTime >= 0.5 then
+                                lastCheckTime = currentTime
+                                local character = game.Players.LocalPlayer.Character
+                                if character and character:FindFirstChild("RaceEnergy") and
+                                character.RaceEnergy.Value >= 1 and
+                                not character.RaceTransformed.Value then
+                                    local be = game:GetService("VirtualInputManager")
+                                    be:SendKeyEvent(true, "Y", false, game)
+                                    task.wait(0.1)
+                                    be:SendKeyEvent(false, "Y", false, game)
+                                end
+                            end
+                        end
+                    end
+                end)
+            end)
+        end
+    end
+end)
+spawn(function()
     while task.wait() do
         if Config["Safe Mode"] and game.Players.LocalPlayer.Character.Humanoid.Health < 4000 then
             pcall(function()
@@ -11075,6 +11225,23 @@ row:Right():Toggle({
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 }) *]]
+row = titledRow(form, "Auto Turn On Race V3")
+row:Right():Toggle({
+    Value = Config["Auto Activate Ability"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Activate Ability"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Activate Ability"])
+    end,
+})
+row = titledRow(form, "Auto Turn On Race V4")
+row:Right():Toggle({
+    Value = Config["Auto Turn On Race V4"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Turn On Race V4"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+    end,
+})
 loadstring(game:HttpGet("https://pastebin.com/raw/Vtjx3jJE"))()
 _G['Fast Attack'] = true
 _G["Fast Attack"] = true
@@ -13826,6 +13993,71 @@ row:Right():Toggle({
         _St(Config["Auto Kill Raid Ship"])
     end,
 })
+form = Tabs.Events:PageSection({ Title = "Leviathan" }):Form()
+--[[ local row = form:Row({
+    SearchIndex = "Already Kill",
+})
+local BT_D = row:Left():TitleStack({
+    Title = "Status Chip Leviathan",
+    SubTitle = ""
+})
+spawn(function()
+    pcall(function()
+        while wait() do
+            local bribeStatus = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("InfoLeviathan", "1")
+            if bribeStatus == 5 then
+                BT_D.SubTitle = ("Leviathan Is Out There")
+            elseif bribeStatus == 0 then
+                BT_D.SubTitle = ("I Don't Know")
+            else
+                BT_D.SubTitle = ("Buy: " .. tostring(bribeStatus))
+            end
+        end
+    end)
+end) *]]
+row = titledRow(form, "Auto Find Frozen Dimension","Automatically searches for the Frozen Dimension when the Leviathan event appears")
+row:Right():Toggle({
+    Value = Config["Auto Find Frozen Dimension"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Find Frozen Dimension"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Find Frozen Dimension"])
+        if not value then
+            StopBoatsTween()
+        else
+            _G.StopTweenBoat = false
+        end
+    end,
+})
+row = titledRow(form, "Teleport To Frozen Dimension","Instantly teleports to the Frozen Dimension once its location is detected")
+row:Right():Toggle({
+    Value = Config["Teleport To Frozen Dimension"] or false,
+    ValueChanged = function(self, value)
+        Config["Teleport To Frozen Dimension"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Teleport To Frozen Dimension"])
+    end,
+})
+row = titledRow(form, "Auto Attack Leviathan","Automatically attacks the Leviathan boss. Once it appears, the system locks on and continuously attacks.")
+row:Right():Toggle({
+    Value = Config["Auto Attack Leviathan"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Attack Leviathan"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Attack Leviathan"])
+    end,
+})
+row = titledRow(
+    form,
+    "Buy Chip Leviathan"
+)
+row:Right():Button({
+    Label = "Click here!",
+    State = "Primary",
+    Pushed = function(self)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("InfoLeviathan", "2")
+    end,
+})
 form = Tabs.Events:PageSection({ Title = "Kitsune" }):Form()
 local row = form:Row({
     SearchIndex = "Already Kill",
@@ -14330,15 +14562,6 @@ row:Right():Toggle({
         Config["Enabled PvP"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         _St(Config["Enabled PvP"])
-    end,
-})
-row = titledRow(form, "Auto Activate Ability","Automatically uses your character’s abilities or skills based on set conditions, such as attacking players or enemies. Useful in PvP or PvE for faster and more precise combat")
-row:Right():Toggle({
-    Value = Config["Auto Activate Ability"] or false,
-    ValueChanged = function(self, value)
-        Config["Auto Activate Ability"] = value
-        getgenv()['Update_Setting'](getgenv()['MyName'])
-        _St(Config["Auto Activate Ability"])
     end,
 })
 row = titledRow(form, "Safe Mode","Keeps gameplay safe from detection or game restrictions by limiting certain actions. Useful for players who want to use automation features safely")
