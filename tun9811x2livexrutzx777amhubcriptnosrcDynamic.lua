@@ -11118,7 +11118,6 @@ end
 ImageButton.MouseButton1Click:Connect(function()
     ClickSound:Play()
     playClickFlash()
-    game:GetService("VirtualInputManager"):SendKeynEvet(true, "LeftAlt", false, game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false, "LeftAlt", false, game)
 end)
 code = {}
