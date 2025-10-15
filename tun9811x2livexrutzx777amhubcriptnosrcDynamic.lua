@@ -3639,7 +3639,7 @@ local function isAutoEnabled()
         "Auto Collect Berry", "Auto Godhuman Full", "Auto Electric Claw", "Auto Sharkman Karate", "Auto Twin Hooks",
         "Auto Soul Guitar", "Auto Kill Players", "Auto Complete Trail", "Auto Farm Chest [ Tween ]", "Auto Farm Chest [ TP ] ( Risk )",
         "Auto Observation V2", "Auto Dough King V2", "Auto Farm Order Boss", "Auto Tyrant of the Skies","Enabled Farm Fast",
-        "Auto Farm Oni Soldier","Auto Farm Red Commander","Auto Fishing"
+        "Auto Farm Oni Soldier","Auto Farm Red Commander","Auto Fishing","Auto Upgrade Dragon Talon","Auto Collect Fire Flower"
     }
     for _, key in ipairs(keys_G) do
         if Config[key] then return true end
@@ -11047,6 +11047,63 @@ spawn(function()
         end
     end
 end)
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local InteractDragonQuest = game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]
+function CheckDragon(backpack,char)
+    if not backpack or not char then return nil end
+    if backpack:FindFirstChild("Dragon Talon") then
+        return 1
+    elseif char:FindFirstChild("Dragon Talon") then
+        return 2
+    end
+    return nil
+end
+spawn(function()
+    while wait() do
+        if Config["Auto Upgrade Dragon Talon"] then
+            pcall(function()
+                if #tostring(CheckDragon(LocalPlayer.Backpack,LocalPlayer.Character) > 0) then
+                    local UzothNPC = CFrame.new(5661.89014, 1211.31909, 864.836731, 0.811413169, -1.36805838e-08, -0.584473014, 4.75227395e-08, 1, 4.25682458e-08, 0.584473014, -6.23161966e-08, 0.811413169)
+                    local distance = (UzothNPC.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                    if distance > 5 then
+                        TP(UzothNPC)
+                    else
+                        InteractDragonQuest:InvokeServer({
+                            ["NPC"] = "Uzoth",
+                            ["Command"] = "Upgrade"
+                        }                )
+                    end
+                end
+            end)
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if Config["Auto Collect Fire Flower"] then
+            pcall(function()
+            local fireFlowersFolder = workspace:FindFirstChild("FireFlowers")
+                if fireFlowersFolder then
+                    for _, obj in pairs(fireFlowersFolder:GetChildren()) do
+                        if obj:IsA("Model") and obj.PrimaryPart then
+                            local flowerPos = obj.PrimaryPart.Position
+                            local playerPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                            local distance = (flowerPos - playerPos).Magnitude
+                            if distance <= 1 then
+                                game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, game)
+                                wait(1.5)
+                                game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, game)
+                            else
+                                TP(CFrame.new(flowerPos))
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
 if game:GetService("Players").LocalPlayer.Team then end
 wait(1.5)
 local cascade = loadstring(game:HttpGet("https://raw.githubusercontent.com/tun9811/wddaaadd3wfefeewgwee/refs/heads/main/AutoFarmtest.luau"))()
@@ -14287,6 +14344,26 @@ row:Right():Toggle({
         Config["Auto Collect Blaze Ember"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         _St(Config["Auto Collect Blaze Ember"])
+    end,
+})
+form = Tabs.VolcanoEvents:PageSection({ Title = "Dragon Talon" }):Form()
+row = titledRow(form, "Auto Upgrade Dragon Talon","Automatically upgrades the Dragon Talon skill when requirements are met.")
+row:Right():Toggle({
+    Value = Config["Auto Upgrade Dragon Talon"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Upgrade Dragon Talon"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Upgrade Dragon Talon"])
+    end,
+})
+form = Tabs.VolcanoEvents:PageSection({ Title = "Fire Flower" }):Form()
+row = titledRow(form, "Auto Collect Fire Flower","Automatically searches for and collects Fire Flowers when they appear.")
+row:Right():Toggle({
+    Value = Config["Auto Collect Fire Flower"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Collect Fire Flower"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Collect Fire Flower"])
     end,
 })
 form = Tabs.VolcanoEvents:PageSection({ Title = "Prehistoric Island" }):Form()
