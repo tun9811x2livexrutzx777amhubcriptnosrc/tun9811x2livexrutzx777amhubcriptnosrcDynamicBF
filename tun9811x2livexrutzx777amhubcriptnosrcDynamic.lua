@@ -3631,7 +3631,7 @@ local function isAutoEnabled()
         "Auto Farm Mastery Gun", "Auto Holy Torch", "Auto Budy Sword","Auto Attack Leviathan",
         "Auto Tushita", "Teleport to Fruit", "Auto Evo Race V2","Teleport To Frozen Dimension",
         "Auto Find Advanced Fruit Dealer", "Auto Find Gear","Auto Find Frozen Dimension",
-        "Auto Musketeer Hat", "Auto Rainbow Haki", "Teleport to Race Door",
+        "Auto Musketeer Hat", "Auto Rainbow Haki", "Teleport to Race Door","Auto Darkbeard",
         "Auto Farm Ectoplasm", "Auto Get Cursed Dual Katana", "Auto Farm All Boss",
         "Auto Find Prehistoric Island", "Teleport to Prehistoric Island", "Auto Godhuman Full",
         "Auto Relic Events", "Auto Collect Dinosaur Bones", "Auto Collect Dragon Egg",
@@ -10404,9 +10404,18 @@ end)
 spawn(function()
     while task.wait() do
         if _G['Enabled Aimbot'] then
-            if game.Players:FindFirstChild(_G['Select Player']) and game.Players:FindFirstChild(_G['Select Player']).Character:FindFirstChild("HumanoidRootPart") and game.Players:FindFirstChild(_G['Select Player']).Character:FindFirstChild("Humanoid") and game.Players:FindFirstChild(_G['Select Player']).Character.Humanoid.Health > 0 then
+            if Config["Aimbot Method"] == "Select Players" and game.Players:FindFirstChild(_G['Select Player']) and game.Players:FindFirstChild(_G['Select Player']).Character:FindFirstChild("HumanoidRootPart") and game.Players:FindFirstChild(_G['Select Player']).Character:FindFirstChild("Humanoid") and game.Players:FindFirstChild(_G['Select Player']).Character.Humanoid.Health > 0 then
                 AimBotSkillPosition = game.Players:FindFirstChild(_G['Select Player']).Character:FindFirstChild(
                     "HumanoidRootPart").Position
+            elseif Config["Aimbot Method"] == "Distance" then
+                for i,v in pairs(game.Players:GetPlayers()) do
+                    if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+                        local magnitude = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                        if magnitude <= Config["Distance"] then
+                            AimBotSkillPosition = v.Character.HumanoidRootPart.Position
+                        end
+                    end
+                end
             end
         end
     end
@@ -11099,6 +11108,38 @@ spawn(function()
                             end
                         end
                     end
+                end
+            end)
+        end
+    end
+end)
+spawn(function()
+    while task.wait(0.1) do
+        if Config["Auto Darkbeard"] and World2 then
+            pcall(function()
+                local enemies = game:GetService("Workspace").Enemies
+                local player = game:GetService("Players").LocalPlayer
+                if enemies:FindFirstChild("Darkbeard") then
+                    for _, v in pairs(enemies:GetChildren()) do
+                        if v.Name == "Darkbeard" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            repeat
+                                task.wait(0.05)
+                                AutoHaki()
+                                EquipWeapon(getgenv().SelectWeapon)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Humanoid.WalkSpeed = 0           
+                                topos(v.HumanoidRootPart.CFrame * Pos)
+                            until not Config["Auto Darkbeard"] or not v.Parent or v.Humanoid.Health <= 0
+                        end
+                    end
+                elseif player.Backpack:FindFirstChild("Fist of Darkness") or player.Character:FindFirstChild("Fist of Darkness") then
+                    repeat
+                        task.wait(0.1)
+                        topos(CFrame.new(3778.584, 15.791, -3499.404))
+                        EquipWeapon("Fist of Darkness")
+                    until not Config["Auto Darkbeard"]
+                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard") then
+                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard").HumanoidRootPart.CFrame * Pos)
                 end
             end)
         end
@@ -13281,6 +13322,16 @@ row:Right():Toggle({
         _St(Config["Auto Swan Glasses"])
     end,
 })
+form = Tabs.Sub_Farming:PageSection({ Title = "Darkbeard" }):Form()
+row = titledRow(form, "Auto Darkbeard","Automatically locates and fights the Darkbeard boss when it appears.")
+row:Right():Toggle({
+    Value = Config["Auto Darkbeard"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Darkbeard"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Darkbeard"])
+    end,
+})
 form = Tabs.Sub_Farming:PageSection({ Title = "Bartilo" }):Form()
 row = titledRow(form, "Auto Bartilo Quest","Automatically completes all the quests from NPC Bartilo, from start to finish, without requiring manual effort.")
 row:Right():Toggle({
@@ -14679,6 +14730,54 @@ row:Right():Slider({
     end,
 })
 form = Tabs.PvP:PageSection({ Title = "Aimbot Settings" }):Form()
+row = titledRow(form, "Aimbot Method","Aimbot method")
+row:Right():PullDownButton({
+    Options = {"Select Players","Distance"},
+    Label = "N/A",
+    Multi = false,
+    Selected = "Aimbot Method",
+    ValueLabel = 2,
+    Value = (function()
+        for i, v in ipairs({"Select Players","Distance"}) do
+            if v == Config["Aimbot Method"] then
+                return i
+            end
+        end
+        return 1
+    end)(),
+    ValueChanged = function(self, value)
+        local names = self.Selected
+        if self.Multi then
+            if self.ValueLabel == 1 then
+                _G["selected" .. names] = {}
+                for _, i in ipairs(value) do
+                    table.insert(_G["selected" .. names], self.Options[i])
+                end
+                if #_G["selected" .. names] == 0 then
+                    self.Label = "N/A"
+                elseif #_G["selected" .. names] == 1 then
+                    self.Label = _G["selected" .. names][1]
+                else
+                    self.Label = _G["selected" .. names][1] .. ", ..."
+                end
+            else
+                _G["selected" .. names] = {}
+                for _, i in ipairs(value) do
+                    table.insert(_G["selected" .. names], self.Options[i])
+                end
+                if #_G["selected" .. names] == 0 then
+                    self.Label = "N/A"
+                else
+                    self.Label = table.concat(_G["selected" .. names], ", ")
+                end
+            end
+        else
+            self.Label = self.Options[value] or "N/A"
+        end
+        Config["Aimbot Method"] = self.Options[value]
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+    end,
+})
 row = titledRow(form, "Enabled Aimbot","Enable aim-assist for precise attacks")
 row:Right():Toggle({
     Value = Config["Enabled Aimbot"] or false,
@@ -14689,6 +14788,33 @@ row:Right():Toggle({
         _St(Config["Enabled Aimbot"])
     end,
 })
+local row = form:Row({
+    SearchIndex = "Kill At Health %",
+})
+local K_A = row:Left():TitleStack({
+    Title = "Distance",
+})
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            K_A.Title = "Distance " .. "( " .. tostring(Config["Distance"]) .. " )"
+        end)
+    end
+end)
+row:Right():Slider({
+    Minimum = 100,
+    Maximum = 3000,
+    Value = Config["Distance"] or 1000,
+    ValueChanged = function(self, value)
+    local num = tonumber(value)
+        if num then
+            num = math.floor(num)
+            Config["Distance"] = num
+            getgenv()['Update_Setting'](getgenv()['MyName'])
+        end
+    end,
+})
+form = Tabs.PvP:PageSection({ Title = "Misc" }):Form()
 row = titledRow(form, "Enabled PvP","Enables Player vs Player (PvP) mode, allowing you to attack or be attacked by other players. Useful for training PvP skills or using other PvP features like Auto Kill / Aimbot / Teleport")
 row:Right():Toggle({
     Value = Config["Enabled PvP"] or false,
