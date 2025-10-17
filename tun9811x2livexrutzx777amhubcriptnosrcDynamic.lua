@@ -11420,7 +11420,7 @@ spawn(function()
     end
 end)
 spawn(function()
-    while task.wait(0.1) do
+    while wait() do
         if Config["Auto Darkbeard"] and World2 then
             pcall(function()
                 local enemies = game:GetService("Workspace").Enemies
@@ -11447,6 +11447,20 @@ spawn(function()
                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard") then
                     topos(game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard").HumanoidRootPart.CFrame * Pos)
                 end
+            end)
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if Config["Auto Buy Haki Color"] then
+            pcall(function()
+                local args = {
+                    [1] = "ColorsDealer",
+                    [2] = "2"
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                wait(0.148365927)
             end)
         end
     end
@@ -13533,7 +13547,7 @@ row:Right():Toggle({
         _St(Config["Auto Evo Race V2"])
     end,
 })
-form = form:PageSection({ Title = "Observations" }):Form()
+form = Tabs.Main:PageSection({ Title = "Observations" }):Form()
 local row = form:Row({
     SearchIndex = "Observations",
 })
@@ -13562,6 +13576,15 @@ row:Right():Toggle({
         Config["Auto Farm Observation Exp Hop"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         _St(Config["Auto Farm Observation Exp Hop"])
+    end,
+})
+form = Tabs.Main:PageSection({ Title = "Haki Color" }):Form()
+row = titledRow(form, "Auto Buy Haki Color","Automatically buys Haki color when available.")
+row:Right():Toggle({
+    Value = Config["Auto Buy Haki Color"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Buy Haki Color"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
 form = Tabs.Sub_Farming:PageSection({ Title = "Automatic" })
