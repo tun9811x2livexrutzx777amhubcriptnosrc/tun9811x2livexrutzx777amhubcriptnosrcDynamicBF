@@ -121,12 +121,10 @@ local Noclip = nil
 local Clip = nil
 local floatName = game.Players.LocalPlayer.Name
 function noclip()
-    if Noclip then Noclip:Disconnect() end
-    Clip = false
     Noclip = game:GetService('RunService').Stepped:Connect(function()
         if game.Players.LocalPlayer.Character then
             for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-                if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+                if v:IsA('BasePart') and v.CanCollide then
                     v.CanCollide = false
                 end
             end
@@ -134,11 +132,9 @@ function noclip()
     end)
 end
 function unnoclip()
-    if Noclip then Noclip:Disconnect() end
-    Clip = true
     if game.Players.LocalPlayer.Character then
         for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-            if v:IsA('BasePart') and v.Name ~= floatName then
+            if v:IsA('BasePart') then
                 v.CanCollide = true
             end
         end
@@ -2793,7 +2789,7 @@ function CheckBelt(BeltName)
     return false
 end
 function CheckPirateBoat()
-    local checkmmpb = {"FishBoat"}
+    local checkmmpb = {"PirateGrandBrigade","FishBoat","PirateBrigade"}
     for r, v in next, workspace.Enemies:GetChildren() do
         if table.find(checkmmpb, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
             return v
@@ -2940,6 +2936,31 @@ function TPB2(BoatsPos)
             TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = BoatsPos }):Cancel()
     end
 end
+local Name = game.Players.LocalPlayer.Name
+function checkbot()
+    if #workspace.Boats:GetChildren() == 0 then return false end
+    if #workspace.Boats:GetChildren() > 0 then
+        for i,v in pairs(workspace.Boats:GetChildren()) do
+            local boat = v:FindFirstChild("Owner")
+            if v.Name == Config["Select Boat Sea Events"] and boat:IsA("ObjectValue") and boat.Value and boat.Value.Name == Name then
+                return v
+            end
+        end
+    end
+    return false
+end
+function checkbotf()
+    if #workspace.Boats:GetChildren() == 0 then return false end
+    if #workspace.Boats:GetChildren() > 0 then
+        for i,v in pairs(workspace.Boats:GetChildren()) do
+            local boat = v:FindFirstChild("Owner")
+            if v.Name == Config["Select Boat"] and boat:IsA("ObjectValue") and boat.Value and boat.Value.Name == Name then
+                return v
+            end
+        end
+    end
+    return false
+end
 function PlayBoatsTween(Target)
     local Distance = (Target.Position - game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat.Position)
         .Magnitude
@@ -2952,6 +2973,36 @@ function PlayBoatsTween(Target)
     if _G.StopTweenBoat then
         game:GetService("TweenService"):Create(
             game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat,
+            TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = Target }):Cancel()
+    end
+end
+function PlayBoatsTweenSeaEvent(Target)
+    local Distance = (Target.Position - checkbot().VehicleSeat.Position)
+        .Magnitude
+    if Distance > 1 then
+        Speed = spppp
+    end
+    game:GetService("TweenService"):Create(
+        checkbot().VehicleSeat,
+        TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = Target }):Play()
+    if _G.StopTweenBoat then
+        game:GetService("TweenService"):Create(
+            checkbot().VehicleSeat,
+            TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = Target }):Cancel()
+    end
+end
+function PlayBoatsTweenSeaF(Target)
+    local Distance = (Target.Position - checkbotf().VehicleSeat.Position)
+        .Magnitude
+    if Distance > 1 then
+        Speed = spppp
+    end
+    game:GetService("TweenService"):Create(
+        checkbotf().VehicleSeat,
+        TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = Target }):Play()
+    if _G.StopTweenBoat then
+        game:GetService("TweenService"):Create(
+            checkbotf().VehicleSeat,
             TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = Target }):Cancel()
     end
 end
@@ -2969,7 +3020,8 @@ function StopBoatsTween(target)
     if not target then
         _G.StopTweenBoat = true
         wait(.1)
-        PlayBoatsTween(game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame)
+        PlayBoatsTweenSeaEvent(checkbot().VehicleSeat.CFrame)
+        PlayBoatsTweenSeaF(checkbotf().VehicleSeat.CFrame)
         wait(.1)
         _G.StopTweenBoat = false
     end
@@ -3710,12 +3762,10 @@ end)
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
             if Config["Auto Farm Sea Events"] or Config["Auto Find Mirage Island"] or Config["Auto Find Kitsune Island"] or Config["Auto Find Prehistoric Island"] or Config["Auto Dojo Quest"] or Config["Auto Find Frozen Dimension"] or Config["Auto Farm Sea Beasts"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = false
-                        end
+                local BoatsTarget = checkbot() or checkbotf()
+                for _, v in pairs(BoatsTarget:GetDescendants()) do
+                    if v:IsA("BasePart") then
+                        v.CanCollide = false
                     end
                 end
             end
@@ -3726,12 +3776,10 @@ spawn(function()
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
             if not Config["Auto Farm Sea Events"] or Config["Auto Find Mirage Island"] or Config["Auto Find Kitsune Island"] or Config["Auto Find Prehistoric Island"] or Config["Auto Dojo Quest"] or Config["Auto Find Frozen Dimension"] or Config["Auto Farm Sea Beasts"] then
-                if game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                    local BoatsTarget = game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                    for _, v in pairs(BoatsTarget:GetDescendants()) do
-                        if v:IsA("BasePart") then
-                            v.CanCollide = true
-                        end
+                local BoatsTarget = checkbot() or checkbotf()
+                for _, v in pairs(BoatsTarget:GetDescendants()) do
+                    if v:IsA("BasePart") then
+                        v.CanCollide = true
                     end
                 end
             end
@@ -7497,7 +7545,7 @@ function CheckmodsfiTerrorshark()
     for _, name in ipairs({ "Terrorshark" }) do
         for i,v in pairs(workspace.Enemies:GetChildren()) do
             if v.Name == name then
-                if game.Players.LocalPlayer.Character.Humanoid.Health < 4500 then
+                if game.Players.LocalPlayer.Character.Humanoid.Health < 4000 then
                     return true
                 end
             end
@@ -7510,7 +7558,7 @@ function Checkmodssea()
         if v == "Sea Beasts" then
             for _, sb in ipairs({ "SeaBeast1", "SeaBeast2", "SeaBeast3" }) do
                 for _, beast in pairs(workspace.SeaBeasts:GetChildren()) do
-                    if beast.Name == sb and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 6000 then
+                    if beast.Name == sb and (beast.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 6000 then
                         return true
                     end
                 end
@@ -7535,26 +7583,6 @@ function CheckModPirateBoat()
     end
     return false
 end
-local Name = game.Players.LocalPlayer.Name
-
-function checkbot()
-    if #workspace.Boats:GetChildren() > 0 then
-        for i,v in pairs(workspace.Boats:GetChildren()) do
-            local value = v:FindFirstChild("Owner")
-            if v.Name == "PirateGrandBrigade" and value and value:IsA("ObjectValue") and value.Value and value.Value.Name == Name then
-                return v
-            elseif v.Name == "PirateGrandBrigade" and value and value:IsA("ObjectValue") and value.Value and value.Value.Name ~= Name then
-                return false
-            elseif v.Name ~= "PirateGrandBrigade" then
-                return false
-            end
-        end
-    elseif #workspace.Boats:GetChildren() == 0 then
-        return false
-    end
-    return false
-end
-
 spawn(function()
     while wait() do
         pcall(function()
@@ -7567,51 +7595,53 @@ spawn(function()
                                 -0.997757435))
                             if (CFrame.new(-16192.2539, 12.3828964, 1738.85999, -0.997757435, 4.43451498e-08, -0.0669331998, 5.01932291e-08, 1, -8.56902034e-08, 0.0669331998, -8.88576324e-08, -0.997757435).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                 if buyb then buyb:Stop() end
+                                if not checkbot() then
                                 local args = {
                                     [1] = "BuyBoat",
-                                    [2] = "PirateGrandBrigade"
+                                    [2] = Config["Select Boat Sea Events"]
                                 }
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                            end
                                 wait(1)
                             end
-                        elseif checkbot() and (not Checkmodssea() and not CheckModPirateBoat()) then
+                        elseif checkbot() and not Checkmodssea() and not CheckModPirateBoat() then
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(checkbot().VehicleSeat.CFrame *
                                     CFrame.new(0, 1, 0))
                             else
                                 for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-                                    if v.Name == "PirateGrandBrigade" and not Checkmodssea() and not CheckModPirateBoat() then
+                                    if v.Name == checkbot().Name and not Checkmodssea() and not CheckModPirateBoat() then
                                         repeat
                                             wait()
                                             if _G['Select Zone'] == "Sea 1 [Low]" then
-                                                PlayBoatsTween(CFrame.new(-11887.5166, 30.0003834, 16193.2559,
+                                                PlayBoatsTweenSeaEvent(CFrame.new(-11887.5166, 30.0003834, 16193.2559,
                                                     -0.96912086, -0.00206306507, -0.246577561, -0.00212879549,
                                                     0.999997735, -6.44699627e-10, 0.24657701, 0.000524912612,
                                                     -0.969123065))
                                             elseif _G['Select Zone'] == "Sea 2 [Medium]" then
-                                                PlayBoatsTween(CFrame.new(-11000.5625, -0.306667894, 21056.0312,
+                                                PlayBoatsTweenSeaEvent(CFrame.new(-11000.5625, -0.306667894, 21056.0312,
                                                     -0.796931446, -6.017189E-8, -0.604069769, -7.449085E-8, 1,
                                                     -1.3372562E-9, 0.604069769, 4.3931966E-8, -0.796931446))
                                             elseif _G['Select Zone'] == "Sea 3 [High]" then
-                                                PlayBoatsTween(CFrame.new(-9995.36719, -0.306667894, 24740.7656,
+                                                PlayBoatsTweenSeaEvent(CFrame.new(-9995.36719, -0.306667894, 24740.7656,
                                                     -0.970631301, 1.5574746E-9, -0.240571901, 3.9648890000000003E-9, 1,
                                                     -9.523019E-9, 0.2405719010000098, -1.0197181E-8, -0.970631301))
                                             elseif _G['Select Zone'] == "Sea 4 [Extreme]" then
-                                                PlayBoatsTween(CFrame.new(-8656.56934, -0.3066678939999292, 29984.1152,
+                                                PlayBoatsTweenSeaEvent(CFrame.new(-8656.56934, -0.3066678939999292, 29984.1152,
                                                     -0.737478554, -7.8071736E-8, -0.675370574, -4.139847E-8, 1,
                                                     -7.0392844000000006E-8, 0.675370574, -2.3953902E-8,
                                                     -0.7374785539999493))
                                             elseif _G['Select Zone'] == "Sea 5 [Crazy]" then
-                                                PlayBoatsTween(CFrame.new(-8627.31934, -0.306667835, 34267.3516,
+                                                PlayBoatsTweenSeaEvent(CFrame.new(-8627.31934, -0.306667835, 34267.3516,
                                                     -0.9371762279999984, -4.476127E-12, -0.34885627,
                                                     -2.155638867407106E-8, 1, 5.7896813e-8, 0.34885627, 6.17796e-8,
                                                     -0.937176228))
                                             elseif _G['Select Zone'] == "Sea 6 [???]" then
-                                                PlayBoatsTween(CFrame.new(-2551.66382, -0.306667715, 75050.80469999998,
+                                                PlayBoatsTweenSeaEvent(CFrame.new(-2551.66382, -0.306667715, 75050.80469999998,
                                                     -0.909505963, -3.7095425E-8, -0.415690839, 4.8213584e-9, 1,
                                                     -9.978685E-8, 0.41569083900003534, -9.276093E-8, -0.9095059629999014))
                                             elseif _G['Select Zone'] == "Beyond the Sea" then
-                                                PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559,
+                                                PlayBoatsTweenSeaEvent(CFrame.new(-99999999, 10.964323997497559,
                                                     -324.4842224121094))
                                             end
                                         until Checkmodsfi() or Config["Auto Farm Sea Events"] == false or _G.StopTweenBoat == false or Checkmodssea() or not CheckModPirateBoat()
@@ -7631,123 +7661,25 @@ spawn(function()
                                         EquipWeapon(_G['Select Weapon'])
                                         if CheckmodsfiTerrorshark() then
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,240,0))
-                                        elseif not CheckmodsfiTerrorshark() and game.Players.LocalPlayer.Character.Humanoid.Health >= 7000 then
+                                        elseif not CheckmodsfiTerrorshark() and game.Players.LocalPlayer.Character.Humanoid.Health >= 10000 then
                                         TP(v.HumanoidRootPart.CFrame * Pos) 
+                                        else
+                                            if game.Players.LocalPlayer.Character.Humanoid.Health >= 10000 then
+                                        TP(v.HumanoidRootPart.CFrame * Pos) 
+                                        end
                                         end
                                         v.HumanoidRootPart.CanCollide = false
                                     until not Config["Auto Farm Sea Events"] or not v.Parent or v.Humanoid.Health <= 0 or not Checkmodsfi()
                                 end
                             end
                         end
---[[                     elseif #_G.SelectMonster > 0 and Checkmodssea() then
-                        StopBoatsTween()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                            if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
-                                repeat
-                                    task.wait()
-                                    AutoHaki()
-                                    TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 480, 0))
-                                    for i,v in pairs(_G.Skills) do
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                                        if v == "Z" then useSkill("Z") end
-                                        if v == "X" then useSkill("X") end
-                                        if v == "C"  then useSkill("C") end
-                                        if v == "V"  then useSkill("V") end
-                                        if v == "F"  then useSkill("F") end
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                                        if v == "Z" then useSkill("Z") end
-                                        if v == "X" then useSkill("X") end
-                                        if v == "C"  then useSkill("C") end
-                                        if v == "V"  then useSkill("V") end
-                                        if v == "F"  then useSkill("F") end
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                                        if v == "Z" then useSkill("Z") end
-                                        if v == "X" then useSkill("X") end
-                                        if v == "C"  then useSkill("C") end
-                                        if v == "V"  then useSkill("V") end
-                                        if v == "F"  then useSkill("F") end
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                                        if v == "Z" then useSkill("Z") end
-                                        if v == "X" then useSkill("X") end
-                                        if v == "C"  then useSkill("C") end
-                                        if v == "V"  then useSkill("V") end
-                                        if v == "F"  then useSkill("F") end
-                                    end
-                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not Config["Auto Farm Sea Events"] or not v.Parent
-                            end
-                        end
-                    elseif #_G.SelectMonster > 0 and CheckModPirateBoat() and Checkmodsfi() then
-                        StopBoatsTween()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        for i,v in pairs(workspace.Enemies:GetChildren()) do
-                            for _, name in ipairs(_G.SelectMonster) do
-                                if v.Name == name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat
-                                        wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G['Select Weapon'])
-                                        if CheckmodsfiTerrorshark() then
-                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,180,0))
-                                        elseif not CheckmodsfiTerrorshark() then
-                                        TP(v.HumanoidRootPart.CFrame * Pos) 
-                                        end
-                                        v.HumanoidRootPart.CanCollide = false
-                                    until not Config["Auto Farm Sea Events"] or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    elseif #_G.SelectMonster > 0 and CheckModPirateBoat() then
-                        StopBoatsTween()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        local ddd = CheckPirateBoat()
-                        repeat
-                            wait()
-                            spawn(TP(dd.Engine.CFrame * CFrame.new(0, -20, 0)), 1)
-                            AimBotSkillPositionBoat = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
-                            EquipWeaponMelee()
-                            for i,v in pairs(_G.Skills) do
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                                if v == "Z" then useSkill("Z") end
-                                if v == "X" then useSkill("X") end
-                                if v == "C"  then useSkill("C") end
-                                if v == "V"  then useSkill("V") end
-                                if v == "F"  then useSkill("F") end
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                                if v == "Z" then useSkill("Z") end
-                                if v == "X" then useSkill("X") end
-                                if v == "C"  then useSkill("C") end
-                                if v == "V"  then useSkill("V") end
-                                if v == "F"  then useSkill("F") end
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                                if v == "Z" then useSkill("Z") end
-                                if v == "X" then useSkill("X") end
-                                if v == "C"  then useSkill("C") end
-                                if v == "V"  then useSkill("V") end
-                                if v == "F"  then useSkill("F") end
-                                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                                if v == "Z" then useSkill("Z") end
-                                if v == "X" then useSkill("X") end
-                                if v == "C"  then useSkill("C") end
-                                if v == "V"  then useSkill("V") end
-                                if v == "F"  then useSkill("F") end
-                            end
-                        until not v or not v.Parent or v.Health.Value <= 0 or not CheckPirateBoat() *]]
                     end
                 end
             end
         end)
     end
 end)
+local AimBotSkillPositionSea
 spawn(function()
     while wait() do
         pcall(function()
@@ -7761,41 +7693,64 @@ spawn(function()
                                 repeat
                                     task.wait()
                                     AutoHaki()
+                                    wait(2.3)
+                                    if not AimBotSkillPositionSea then
+                                    AimBotSkillPositionSea = v.HumanoidRootPart.Position
+                                    end
                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 480, 0))
                                     for i,v in pairs(_G.Skills) do
-                                        if Config["Auto Farm Sea Events"] and namemodsfish == "Sea Beasts" then
+                                        if not Config["Auto Farm Sea Events"] or not Checkmodssea() then break end
                                         game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                                         game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                                        wait(0.1)
                                         if v == "Z" then useSkill("Z") end
+                                        wait(0.1)
                                         if v == "X" then useSkill("X") end
+                                        wait(0.1)
                                         if v == "C"  then useSkill("C") end
+                                        wait(0.1)
                                         if v == "V"  then useSkill("V") end
+                                        wait(0.1)
                                         if v == "F"  then useSkill("F") end
                                         game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
                                         game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                                        wait(0.1)
                                         if v == "Z" then useSkill("Z") end
+                                        wait(0.1)
                                         if v == "X" then useSkill("X") end
+                                        wait(0.1)
                                         if v == "C"  then useSkill("C") end
+                                        wait(0.1)
                                         if v == "V"  then useSkill("V") end
+                                        wait(0.1)
                                         if v == "F"  then useSkill("F") end
                                         game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
                                         game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                                        wait(0.1)
                                         if v == "Z" then useSkill("Z") end
+                                        wait(0.1)
                                         if v == "X" then useSkill("X") end
+                                        wait(0.1)
                                         if v == "C"  then useSkill("C") end
+                                        wait(0.1)
                                         if v == "V"  then useSkill("V") end
+                                        wait(0.1)
                                         if v == "F"  then useSkill("F") end
                                         game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
                                         game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                                        wait(0.1)
                                         if v == "Z" then useSkill("Z") end
+                                        wait(0.1)
                                         if v == "X" then useSkill("X") end
+                                        wait(0.1)
                                         if v == "C"  then useSkill("C") end
+                                        wait(0.1)
                                         if v == "V"  then useSkill("V") end
+                                        wait(0.1)
                                         if v == "F"  then useSkill("F") end
-                                        end
                                     end
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not Config["Auto Farm Sea Events"] or not v.Parent
+                                until not Config["Auto Farm Sea Events"] or not v.Parent or not Checkmodssea()
                             end
                         end
                     elseif #_G.SelectMonster > 0 and CheckModPirateBoat() and Checkmodsfi() then
@@ -7817,41 +7772,75 @@ spawn(function()
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         local ddd = CheckPirateBoat()
                         repeat
-                            wait()
+                            task.wait()
                             spawn(TP(ddd.Engine.CFrame * CFrame.new(0, -20, 0)), 1)
                             AimBotSkillPositionBoat = game.Players.LocalPlayer.Character.HumanoidRootPart.Positon + Vector3.new(0, -5, 0)
-                            EquipWeaponMelee()
+                        until not v or not v.Parent or v.Health.Value <= 0 or not CheckModPirateBoat()
+                    end
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Config["Auto Farm Sea Events"] then
+                for i,namemodsfish in pairs(_G.SelectMonster) do
+                    if #_G.SelectMonster > 0 and CheckModPirateBoat() and not Checkmodsfi() then
+                        repeat
                             for i,v in pairs(_G.Skills) do
+                                if not Config["Auto Farm Sea Events"] or not CheckModPirateBoat() then break end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                                wait(0.1)
                                 if v == "Z" then useSkill("Z") end
+                                wait(0.1)
                                 if v == "X" then useSkill("X") end
+                                wait(0.1)
                                 if v == "C"  then useSkill("C") end
+                                wait(0.1)
                                 if v == "V"  then useSkill("V") end
+                                wait(0.1)
                                 if v == "F"  then useSkill("F") end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                                wait(0.1)
                                 if v == "Z" then useSkill("Z") end
+                                wait(0.1)
                                 if v == "X" then useSkill("X") end
+                                wait(0.1)
                                 if v == "C"  then useSkill("C") end
+                                wait(0.1)
                                 if v == "V"  then useSkill("V") end
+                                wait(0.1)
                                 if v == "F"  then useSkill("F") end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                                wait(0.1)
                                 if v == "Z" then useSkill("Z") end
+                                wait(0.1)
                                 if v == "X" then useSkill("X") end
+                                wait(0.1)
                                 if v == "C"  then useSkill("C") end
+                                wait(0.1)
                                 if v == "V"  then useSkill("V") end
+                                wait(0.1)
                                 if v == "F"  then useSkill("F") end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                                wait(0.1)
                                 if v == "Z" then useSkill("Z") end
+                                wait(0.1)
                                 if v == "X" then useSkill("X") end
+                                wait(0.1)
                                 if v == "C"  then useSkill("C") end
+                                wait(0.1)
                                 if v == "V"  then useSkill("V") end
+                                wait(0.1)
                                 if v == "F"  then useSkill("F") end
                             end
-                        until not v or not v.Parent or v.Health.Value <= 0 or not CheckPirateBoat()
+                        until not v or not v.Parent or v.Health.Value <= 0 or not CheckModPirateBoat()
                     end
                 end
             end
@@ -7876,23 +7865,21 @@ gg.__namecall = newcclosure(function(...)
     end
     return old(...)
 end)
-function checkbotf()
-    if #workspace.Boats:GetChildren() > 0 then
-        for i,v in pairs(workspace.Boats:GetChildren()) do
-            local value = v:FindFirstChild("Owner")
-            if v.Name == Config["Select Boat"] and value and value:IsA("ObjectValue") and value.Value and value.Value.Name == Name then
-                return v
-            elseif v.Name == Config["Select Boat"] and value and value:IsA("ObjectValue") and value.Value and value.Value.Name ~= Name then
-                return false
-            elseif v.Name ~= Config["Select Boat"] then
-                return false
+gg.__namecall = newcclosure(function(...)
+    local method = getnamecallmethod()
+    local args = { ... }
+    if tostring(method) == "FireServer" then
+        if tostring(args[1]) == "RemoteEvent" then
+            if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+                if Config["Auto Farm Sea Events"] and Checkmodssea() and not CheckModPirateBoat() then
+                    args[2] = AimBotSkillPositionSea
+                    return old(unpack(args))
+                end
             end
         end
-    elseif #workspace.Boats:GetChildren() == 0 then
-        return false
     end
-    return false
-end
+    return old(...)
+end)
 spawn(function()
     while wait() do
         pcall(function()
@@ -7919,7 +7906,7 @@ spawn(function()
                                 if v.Name == checkbotf().Name then
                                     repeat
                                         wait()
-                                            PlayBoatsTween(CFrame.new(-99999999, 10.964323997497559,
+                                            PlayBoatsTweenSeaF(CFrame.new(-99999999, 10.964323997497559,
                                                 -324.4842224121094))
                                     until game:GetService("Workspace").Map:FindFirstChild("FrozenDimension") or not Config["Auto Find Frozen Dimension"] or _G.StopTweenBoat == false
                                 end
@@ -14459,6 +14446,64 @@ local Sk = row:Right():PullDownButton({
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
+ListSeaBoat = {
+  "Guardian",
+  "PirateGrandBrigade",
+  "MarineGrandBrigade",
+  "PirateBrigade",
+  "MarineBrigade",
+  "PirateSloop",
+  "MarineSloop",
+  "BeastHunter",
+}
+row = titledRow(form, "Select Boat")
+row:Right():PullDownButton({
+    Options = ListSeaBoat,
+    Label = "N/A",
+    Multi = false,
+    Selected = "Select Boat Sea Events",
+    ValueLabel = 2,
+    Value = (function()
+        for i, v in ipairs(ListSeaBoat) do
+            if v == Config["Select Boat Sea Events"] then
+                return i
+            end
+        end
+        return 1
+    end)(),
+    ValueChanged = function(self, value)
+        local names = self.Selected
+        if self.Multi then
+            if self.ValueLabel == 1 then
+                _G["selected" .. names] = {}
+                for _, i in ipairs(value) do
+                    table.insert(_G["selected" .. names], self.Options[i])
+                end
+                if #_G["selected" .. names] == 0 then
+                    self.Label = "N/A"
+                elseif #_G["selected" .. names] == 1 then
+                    self.Label = _G["selected" .. names][1]
+                else
+                    self.Label = _G["selected" .. names][1] .. ", ..."
+                end
+            else
+                _G["selected" .. names] = {}
+                for _, i in ipairs(value) do
+                    table.insert(_G["selected" .. names], self.Options[i])
+                end
+                if #_G["selected" .. names] == 0 then
+                    self.Label = "N/A"
+                else
+                    self.Label = table.concat(_G["selected" .. names], ", ")
+                end
+            end
+        else
+            self.Label = self.Options[value] or "N/A"
+        end
+        Config["Select Boat Sea Events"] = self.Options[value]
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+    end,
+})
 row = titledRow(form, "Start Farm Sea Events","After selecting a zone, activate this option to automatically farm sea events such as fighting monsters, collecting treasures, or gathering rewards that spawn in the sea.")
 row:Right():Toggle({
     Value = Config["Auto Farm Sea Events"] or false,
@@ -14495,16 +14540,6 @@ spawn(function()
         end
     end)
 end) *]]
-ListSeaBoat = {
-  "Guardian",
-  "PirateGrandBrigade",
-  "MarineGrandBrigade",
-  "PirateBrigade",
-  "MarineBrigade",
-  "PirateSloop",
-  "MarineSloop",
-  "BeastHunter",
-}
 row = titledRow(form, "Select Boat","Choose the boat you want to use before entering the Leviathan event.")
 row:Right():PullDownButton({
     Options = ListSeaBoat,
