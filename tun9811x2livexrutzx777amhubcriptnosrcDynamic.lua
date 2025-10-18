@@ -7693,62 +7693,11 @@ spawn(function()
                                 repeat
                                     task.wait()
                                     AutoHaki()
-                                    wait(2.3)
+                                    wait(1.6)
                                     if not AimBotSkillPositionSea then
                                     AimBotSkillPositionSea = v.HumanoidRootPart.Position
                                     end
                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 480, 0))
-                                    for i,v in pairs(_G.Skills) do
-                                        if not Config["Auto Farm Sea Events"] or not Checkmodssea() then break end
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                                        wait(0.1)
-                                        if v == "Z" then useSkill("Z") end
-                                        wait(0.1)
-                                        if v == "X" then useSkill("X") end
-                                        wait(0.1)
-                                        if v == "C"  then useSkill("C") end
-                                        wait(0.1)
-                                        if v == "V"  then useSkill("V") end
-                                        wait(0.1)
-                                        if v == "F"  then useSkill("F") end
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                                        wait(0.1)
-                                        if v == "Z" then useSkill("Z") end
-                                        wait(0.1)
-                                        if v == "X" then useSkill("X") end
-                                        wait(0.1)
-                                        if v == "C"  then useSkill("C") end
-                                        wait(0.1)
-                                        if v == "V"  then useSkill("V") end
-                                        wait(0.1)
-                                        if v == "F"  then useSkill("F") end
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                                        wait(0.1)
-                                        if v == "Z" then useSkill("Z") end
-                                        wait(0.1)
-                                        if v == "X" then useSkill("X") end
-                                        wait(0.1)
-                                        if v == "C"  then useSkill("C") end
-                                        wait(0.1)
-                                        if v == "V"  then useSkill("V") end
-                                        wait(0.1)
-                                        if v == "F"  then useSkill("F") end
-                                        game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                                        game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                                        wait(0.1)
-                                        if v == "Z" then useSkill("Z") end
-                                        wait(0.1)
-                                        if v == "X" then useSkill("X") end
-                                        wait(0.1)
-                                        if v == "C"  then useSkill("C") end
-                                        wait(0.1)
-                                        if v == "V"  then useSkill("V") end
-                                        wait(0.1)
-                                        if v == "F"  then useSkill("F") end
-                                    end
                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                                 until not Config["Auto Farm Sea Events"] or not v.Parent or not Checkmodssea()
                             end
@@ -7787,57 +7736,122 @@ spawn(function()
         pcall(function()
             if Config["Auto Farm Sea Events"] then
                 for i,namemodsfish in pairs(_G.SelectMonster) do
+                    if #_G.SelectMonster > 0 and Checkmodssea() and not CheckModPirateBoat() then
+                        repeat wait()
+                            for i,v in pairs(_G.Skills) do
+                                if not Config["Auto Farm Sea Events"] or not Checkmodssea() then break end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
+                                wait()
+                                if v == "Z" then useSkill("Z") end
+                                wait()
+                                if v == "X" then useSkill("X") end
+                                wait()
+                                if v == "C"  then useSkill("C") end
+                                wait()
+                                if v == "V"  then useSkill("V") end
+                                wait()
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
+                                wait()
+                                if v == "Z" then useSkill("Z") end
+                                wait()
+                                if v == "X" then useSkill("X") end
+                                wait()
+                                if v == "C"  then useSkill("C") end
+                                wait()
+                                if v == "V"  then useSkill("V") end
+                                wait()
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
+                                wait()
+                                if v == "Z" then useSkill("Z") end
+                                wait()
+                                if v == "X" then useSkill("X") end
+                                wait()
+                                if v == "C"  then useSkill("C") end
+                                wait()
+                                if v == "V"  then useSkill("V") end
+                                wait()
+                                if v == "F"  then useSkill("F") end
+                                game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
+                                game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
+                                wait()
+                                if v == "Z" then useSkill("Z") end
+                                wait()
+                                if v == "X" then useSkill("X") end
+                                wait()
+                                if v == "C"  then useSkill("C") end
+                                wait()
+                                if v == "V"  then useSkill("V") end
+                                wait()
+                                if v == "F"  then useSkill("F") end
+                            end
+                        until not v or not v.Parent or v.Health.Value <= 0 or not Checkmodssea()
+                    end
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Config["Auto Farm Sea Events"] then
+                for i,namemodsfish in pairs(_G.SelectMonster) do
                     if #_G.SelectMonster > 0 and CheckModPirateBoat() and not Checkmodsfi() then
-                        repeat
+                        repeat wait()
                             for i,v in pairs(_G.Skills) do
                                 if not Config["Auto Farm Sea Events"] or not CheckModPirateBoat() then break end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                                wait(0.1)
+                                wait()
                                 if v == "Z" then useSkill("Z") end
-                                wait(0.1)
+                                wait()
                                 if v == "X" then useSkill("X") end
-                                wait(0.1)
+                                wait()
                                 if v == "C"  then useSkill("C") end
-                                wait(0.1)
+                                wait()
                                 if v == "V"  then useSkill("V") end
-                                wait(0.1)
+                                wait()
                                 if v == "F"  then useSkill("F") end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                                wait(0.1)
+                                wait()
                                 if v == "Z" then useSkill("Z") end
-                                wait(0.1)
+                                wait()
                                 if v == "X" then useSkill("X") end
-                                wait(0.1)
+                                wait()
                                 if v == "C"  then useSkill("C") end
-                                wait(0.1)
+                                wait()
                                 if v == "V"  then useSkill("V") end
-                                wait(0.1)
+                                wait()
                                 if v == "F"  then useSkill("F") end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                                wait(0.1)
+                                wait()
                                 if v == "Z" then useSkill("Z") end
-                                wait(0.1)
+                                wait()
                                 if v == "X" then useSkill("X") end
-                                wait(0.1)
+                                wait()
                                 if v == "C"  then useSkill("C") end
-                                wait(0.1)
+                                wait()
                                 if v == "V"  then useSkill("V") end
-                                wait(0.1)
+                                wait()
                                 if v == "F"  then useSkill("F") end
                                 game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
                                 game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                                wait(0.1)
+                                wait()
                                 if v == "Z" then useSkill("Z") end
-                                wait(0.1)
+                                wait()
                                 if v == "X" then useSkill("X") end
-                                wait(0.1)
+                                wait()
                                 if v == "C"  then useSkill("C") end
-                                wait(0.1)
+                                wait()
                                 if v == "V"  then useSkill("V") end
-                                wait(0.1)
+                                wait()
                                 if v == "F"  then useSkill("F") end
                             end
                         until not v or not v.Parent or v.Health.Value <= 0 or not CheckModPirateBoat()
@@ -8000,342 +8014,6 @@ spawn(function()
             end
         end)
     end
-end)
-spawn(function()
-    pcall(function()
-        while wait() do
-            if Config["Auto Farm Sea Events"] and Config["Auto Kill Piranha"] then
-                if workspace.Enemies:FindFirstChild("Piranha") then
-                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                    StopBoatsTween()
-                else
-                    _G.StopTweenBoat = false
-                end
-            end
-        end
-    end)
-end)
-spawn(function()
-    pcall(function()
-        while wait() do
-            if Config["Auto Farm Sea Events"] and Config["Auto Kill Shark"] then
-                if workspace.Enemies:FindFirstChild("Shark") then
-                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                    StopBoatsTween()
-                else
-                    _G.StopTweenBoat = false
-                end
-            end
-        end
-    end)
-end)
-spawn(function()
-    pcall(function()
-        while wait() do
-            if Config["Auto Farm Sea Events"] and Config["Auto Kill Terrorshark"] then
-                if workspace.Enemies:FindFirstChild("Terrorshark") then
-                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                    StopBoatsTween()
-                else
-                    _G.StopTweenBoat = false
-                end
-            end
-        end
-    end)
-end)
-spawn(function()
-    pcall(function()
-        while wait() do
-            if Config["Auto Farm Sea Events"] and Config["Auto Kill Fish Crew Member"] then
-                if workspace.Enemies:FindFirstChild("Fish Crew Member") then
-                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                    StopBoatsTween()
-                else
-                    _G.StopTweenBoat = false
-                end
-            end
-        end
-    end)
-end)
-spawn(function()
-    pcall(function()
-        while wait() do
-            if Config["Auto Farm Sea Events"] and Config["Auto Kill Sea Beasts"] then
-                if game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast2") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast3") then
-                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                    StopBoatsTween()
-                else
-                    _G.StopTweenBoat = false
-                end
-            end
-        end
-    end)
-end)
-spawn(function()
-    pcall(function()
-        while wait() do
-            if Config["Auto Farm Sea Events"] and Config["Auto Kill Raid Ship"] then
-                if CheckPirateBoat() then
-                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                    StopBoatsTween()
-                else
-                    _G.StopTweenBoat = false
-                end
-            end
-        end
-    end)
-end)
-spawn(function()
-    while wait() do
-        if Config["Auto Farm Sea Events"] and Config["Auto Kill Piranha"] and L_7449423635_ then
-            pcall(function()
-                local enemies = workspace.Enemies
-                if enemies:FindFirstChild("Piranha") then
-                    for _, v in pairs(enemies:GetChildren()) do
-                        if v.Name == "Piranha" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                            local humanoid = v.Humanoid
-                            local rootPart = v.HumanoidRootPart
-                            if humanoid.Health > 0 then
-                                repeat
-                                    task.wait()
-                                    AutoHaki()
-                                    EquipWeapon(_G['Select Weapon'])
-                                    rootPart.CanCollide = false
-                                    humanoid.WalkSpeed = 0
-                                    BringMob(rootPart.CFrame) 
-                                    TP(rootPart.CFrame * Pos)
-                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                until not Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if Config["Auto Farm Sea Events"] and Config["Auto Kill Shark"] and L_7449423635_ then
-            pcall(function()
-                local enemies = workspace.Enemies
-                for _, v in pairs(enemies:GetChildren()) do
-                    if v.Name == "Shark" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                        local humanoid = v.Humanoid
-                        local rootPart = v.HumanoidRootPart
-                        if humanoid.Health > 0 then
-                            repeat
-                                task.wait()
-                                AutoHaki()
-                                EquipWeapon(_G['Select Weapon'])
-                                rootPart.CanCollide = false
-                                humanoid.WalkSpeed = 0
-                                BringMob(rootPart.CFrame) 
-                                TP(rootPart.CFrame * Pos)
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            until not Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if Config["Auto Farm Sea Events"] and Config["Auto Kill Terrorshark"] and L_7449423635_ then
-            pcall(function()
-                local enemies = workspace.Enemies
-                local player = game.Players.LocalPlayer
-                local character = player.Character
-                local humanoid = character and character:FindFirstChild("Humanoid")
-                if humanoid and humanoid.Health >= 8500 then
-                    for _, v in pairs(enemies:GetChildren()) do
-                        if v.Name == "Terrorshark" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                            local enemyHumanoid = v.Humanoid
-                            local rootPart = v.HumanoidRootPart
-                            if enemyHumanoid.Health > 0 then
-                                repeat
-                                    task.wait()
-                                    AutoHaki()
-                                    EquipWeapon(_G['Select Weapon'])
-                                    rootPart.CanCollide = false
-                                    enemyHumanoid.WalkSpeed = 0
-                                    if humanoid.Health <= 4000 then
-                                        BringMob(rootPart.CFrame) 
-                                        TP(rootPart.CFrame * CFrame.new(0, 180, 0))
-                                    elseif humanoid.Health >= 8000 then
-                                        BringMob(rootPart.CFrame) 
-                                        TP(rootPart.CFrame * Pos)
-                                    end
-                                    sethiddenproperty(player, "SimulationRadius", math.huge)
-                                until not Config["Auto Farm Sea Events"] or not v.Parent or enemyHumanoid.Health <= 0
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if Config["Auto Farm Sea Events"] and Config["Auto Kill Fish Crew Member"] and L_7449423635_ then
-            pcall(function()
-                local enemies = workspace.Enemies
-                for _, v in pairs(enemies:GetChildren()) do
-                    if v.Name == "Fish Crew Member" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                        local humanoid = v.Humanoid
-                        local rootPart = v.HumanoidRootPart
-                        if humanoid.Health > 0 then
-                            repeat
-                                task.wait()
-                                AutoHaki()
-                                EquipWeapon(_G['Select Weapon'])
-                                rootPart.CanCollide = false
-                                humanoid.WalkSpeed = 
-                                TP(rootPart.CFrame * Pos)
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            until not Config["Auto Farm Sea Events"] or not v.Parent or humanoid.Health <= 0
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if Config["Auto Farm Sea Events"] and Config["Auto Kill Sea Beasts"] and L_7449423635_ then
-            pcall(function()
-                local enemies = game:GetService("Workspace").SeaBeasts
-                local player = game.Players.LocalPlayer
-                local character = player.Character
-                local humanoid = character and character:FindFirstChild("Humanoid")
-                for _, v in pairs(enemies:GetChildren()) do
-                    if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
-                        repeat
-                            task.wait()
-                            AutoHaki()
-                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 480, 0))
-                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                        until not Config["Auto Farm Sea Events"] or not v.Parent
-                    end
-                end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if Config["Auto Farm Sea Events"] and Config["Auto Kill Sea Beasts"] and L_7449423635_ then
-            pcall(function()
-                local enemies = game:GetService("Workspace").SeaBeasts
-                local player = game.Players.LocalPlayer
-                local character = player.Character
-                local humanoid = character and character:FindFirstChild("Humanoid")
-                for _, v in pairs(enemies:GetChildren()) do
-                    if v.Name == "SeaBeast1" or v.Name == "SeaBeast2" or v.Name == "SeaBeast3" and v:FindFirstChild("HumanoidRootPart") then
-                    for i,v in pairs(_G.Skills) do
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                        if v == "Z" then useSkill("Z") end
-                        if v == "X" then useSkill("X") end
-                        if v == "C"  then useSkill("C") end
-                        if v == "V"  then useSkill("V") end
-                        if v == "F"  then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                        if v == "Z" then useSkill("Z") end
-                        if v == "X" then useSkill("X") end
-                        if v == "C"  then useSkill("C") end
-                        if v == "V"  then useSkill("V") end
-                        if v == "F"  then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                        if v == "Z" then useSkill("Z") end
-                        if v == "X" then useSkill("X") end
-                        if v == "C"  then useSkill("C") end
-                        if v == "V"  then useSkill("V") end
-                        if v == "F"  then useSkill("F") end
-                        game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                        game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                        if v == "Z" then useSkill("Z") end
-                        if v == "X" then useSkill("X") end
-                        if v == "C"  then useSkill("C") end
-                        if v == "V"  then useSkill("V") end
-                        if v == "F"  then useSkill("F") end
-                    end
-                end
-            end
-            end)
-        end
-    end
-end)
-spawn(function()
-    while wait() do
-        if Config["Auto Farm Sea Events"] and Config["Auto Kill Raid Ship"] and L_7449423635_ then
-            pcall(function()
-                if CheckPirateBoat() then
-                    local v = CheckPirateBoat()
-                    repeat
-                        wait()
-                        spawn(TP(v.Engine.CFrame * CFrame.new(0, -20, 0)), 1)
-                        AimBotSkillPositionBoat = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
-                        EquipWeaponMelee()
-                        for i,v in pairs(_G.Skills) do
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "One", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "One", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Two", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Two", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Three", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Three", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                            game:service("VirtualInputManager"):SendKeyEvent(true, "Four", false, game)
-                            game:service("VirtualInputManager"):SendKeyEvent(false, "Four", false, game)
-                            if v == "Z" then useSkill("Z") end
-                            if v == "X" then useSkill("X") end
-                            if v == "C"  then useSkill("C") end
-                            if v == "V"  then useSkill("V") end
-                            if v == "F"  then useSkill("F") end
-                        end
-                    until not v or not v.Parent or v.Health.Value <= 0 or not CheckPirateBoat()
-                end
-            end)
-        end
-    end
-end)
-local gg = getrawmetatable(game)
-local old = gg.__namecall
-setreadonly(gg, false)
-gg.__namecall = newcclosure(function(...)
-    local method = getnamecallmethod()
-    local args = { ... }
-    if tostring(method) == "FireServer" then
-        if tostring(args[1]) == "RemoteEvent" then
-            if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-                if Config["Auto Farm Kill Raid Ship"] then
-                    args[2] = AimBotSkillPositionBoat
-                    return old(unpack(args))
-                end
-            end
-        end
-    end
-    return old(...)
 end)
 spawn(function()
     while wait() do
@@ -8634,7 +8312,7 @@ end
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5661.52979, 1013.07385, -334.962189))
                 end
                 repeat
-                    wait(0.1)
+                    wait()
                     TP(posquest)
                 until not Config["Auto Dojo Quest"] or CheckBelt("Dojo Belt (White)") == true and CheckBelt("Dojo Belt (Yellow)") == false and CheckBelt("Dojo Belt (Orange)") == false and CheckBelt("Dojo Belt (Green)") == false and CheckBelt("Dojo Belt (Blue)") == false and CheckBelt("Dojo Belt (Purple)") == false and CheckBelt("Dojo Belt (Red)") == false and CheckBelt("Dojo Belt (Black)") == false or (posquest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20
                 wait(0.1)
@@ -11536,7 +11214,7 @@ end
 ImageButton.MouseButton1Click:Connect(function()
     ClickSound:Play()
     playClickFlash()
-    game:GetService("VirtualInputManager"):SendKeyEvent(false, "LeftAlt", false, game)
+    _G.Window.Minimized = not _G.Window.Minimized
 end)
 code = {}
 function code.sleep(t)
@@ -11547,6 +11225,7 @@ local window = app:Window({
     Subtitle = "Make By thanakrit0067 & khaay4997",
     Size = userInputService.TouchEnabled and UDim2.fromOffset(550, 325) or UDim2.fromOffset(850, 530),
 })
+_G.Window = window
 userInputService.InputEnded:Connect(function(input, gameProcessedEvent)
     if input.KeyCode == minimizeKeybind and not gameProcessedEvent then
         window.Minimized = not window.Minimized
