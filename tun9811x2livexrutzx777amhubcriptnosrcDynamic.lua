@@ -8148,9 +8148,8 @@ spawn(function()
                                                     AutoHaki()
                                                     EquipWeapon(_G['Select Weapon'])
                                                     obj.HumanoidRootPart.CanCollide = false
-                                                    humanoid.WalkSpeed = 0
                                                     TP(obj.HumanoidRootPart.CFrame * Pos)
-                                                    BringMob(v.HumanoidRootPart.CFrame) 
+                                                    BringMob(obj.HumanoidRootPart.CFrame) 
                                                     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",
                                                         math.huge)
                                                 until not Config["Auto Dragon Hunter"] or not obj.Parent or humanoid.Health <= 0
