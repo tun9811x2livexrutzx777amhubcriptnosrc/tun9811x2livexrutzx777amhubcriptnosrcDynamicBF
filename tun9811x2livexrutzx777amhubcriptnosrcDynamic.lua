@@ -2924,7 +2924,7 @@ function TPB2(BoatsPos)
     local Distance = (BoatsPos.Position - game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = spppp
+        Speed = Config["Boat Tween Speed"]
     end
     game:GetService("TweenService"):Create(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat,
         TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = BoatsPos }):Play()
@@ -2962,7 +2962,7 @@ function PlayBoatsTween(Target)
     local Distance = (Target.Position - game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = spppp
+        Speed = Config["Boat Tween Speed"]
     end
     game:GetService("TweenService"):Create(
         game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat,
@@ -2977,7 +2977,7 @@ function PlayBoatsTweenSeaEvent(Target)
     local Distance = (Target.Position - checkbot().VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = spppp
+        Speed = Config["Boat Tween Speed"]
     end
     game:GetService("TweenService"):Create(
         checkbot().VehicleSeat,
@@ -2992,7 +2992,7 @@ function PlayBoatsTweenSeaF(Target)
     local Distance = (Target.Position - checkbotf().VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = spppp
+        Speed = Config["Boat Tween Speed"]
     end
     game:GetService("TweenService"):Create(
         checkbotf().VehicleSeat,
