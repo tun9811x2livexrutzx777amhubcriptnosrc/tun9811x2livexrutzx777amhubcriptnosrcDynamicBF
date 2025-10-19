@@ -1140,9 +1140,6 @@ function InfAb()
     end
 end
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/tun9811/Fluent/refs/heads/main/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/tun9811/Fluent/refs/heads/main/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/tun9811/Fluent/refs/heads/main/InterfaceManager.lua"))()
 --// Anti AFK
 game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
@@ -3022,6 +3019,7 @@ function StopBoatsTween(target)
         wait(.1)
         PlayBoatsTweenSeaEvent(checkbot().VehicleSeat.CFrame)
         PlayBoatsTweenSeaF(checkbotf().VehicleSeat.CFrame)
+        PlayBoatsTween(game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame)
         wait(.1)
         _G.StopTweenBoat = false
     end
@@ -13265,6 +13263,14 @@ row:Right():Toggle({
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
+--[[ row = titledRow(form, "Auto Buy Haki Color Hop","Auto Buy Haki Color Hop")
+row:Right():Toggle({
+    Value = Config["Auto Buy Haki Color Hop"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Buy Haki Color Hop"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+    end,
+}) *]]
 form = Tabs.Sub_Farming:PageSection({ Title = "Automatic" })
 form = Tabs.Sub_Farming:Form()
 if L_2753915549_ then
