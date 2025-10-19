@@ -3360,8 +3360,9 @@ end
 function TP(Pos)
     local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     local Speed
-    if Distance <= 200 then
-        Speed = 400
+    if Distance <= 150 then
+        --[[ Speed = 400 *]]
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
     else
         Speed = Config["Tween Speed"]
     end
