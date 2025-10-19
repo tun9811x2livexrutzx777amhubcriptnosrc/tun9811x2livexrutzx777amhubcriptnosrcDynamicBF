@@ -3914,7 +3914,7 @@ Speed22 = 300
 v2 = false
 spawn(function()
     while wait() do
-        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value < 2600 then
+        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value <= 2649 then
             pcall(function()
                 local v3 = (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text)
                 if not string.find(v3, NameMon) then
