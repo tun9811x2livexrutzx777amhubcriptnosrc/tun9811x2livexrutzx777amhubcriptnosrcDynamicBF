@@ -3684,12 +3684,13 @@ local function isAutoEnabled()
         "Auto Musketeer Hat", "Auto Rainbow Haki", "Teleport to Race Door","Auto Darkbeard",
         "Auto Farm Ectoplasm", "Auto Get Cursed Dual Katana", "Auto Farm All Boss",
         "Auto Find Prehistoric Island", "Teleport to Prehistoric Island", "Auto Godhuman Full",
-        "Auto Relic Events", "Auto Collect Dinosaur Bones", "Auto Collect Dragon Egg",
+        "Auto Relic Events", "Auto Collect Dinosaur Bones", "Auto Collect Dragon Egg","Auto Rip Indra",
         "Auto Find Kitsune Island", "Teleport to Kitsune Island", "Auto Craft Volcanic Magnet", "Auto Quest Yama", "Auto Quest Tushita",
         "Auto Collect Berry", "Auto Godhuman Full", "Auto Electric Claw", "Auto Sharkman Karate", "Auto Twin Hooks",
         "Auto Soul Guitar", "Auto Kill Players", "Auto Complete Trail", "Auto Farm Chest [ Tween ]", "Auto Farm Chest [ TP ] ( Risk )",
-        "Auto Observation V2", "Auto Dough King V2", "Auto Farm Order Boss", "Auto Tyrant of the Skies","Enabled Farm Fast",
-        "Auto Farm Oni Soldier","Auto Farm Red Commander","Auto Fishing","Auto Upgrade Dragon Talon","Auto Collect Fire Flower"
+        "Auto Observation V2", "Auto Dough King", "Auto Farm Order Boss", "Auto Tyrant of the Skies","Enabled Farm Fast",
+        "Auto Farm Oni Soldier","Auto Farm Red Commander","Auto Fishing","Auto Upgrade Dragon Talon","Auto Collect Fire Flower",
+        "Auto Finish Train Quest","Auto Kill Player After Trial V4"
     }
     for _, key in ipairs(keys_G) do
         if Config[key] then return true end
@@ -11096,7 +11097,7 @@ spawn(function()
 end)
 spawn(function()
     while wait() do
-        if Config["Auto Darkbeard"] and World2 then
+        if Config["Auto Darkbeard"] and L_4442272183_ then
             pcall(function()
                 local enemies = game:GetService("Workspace").Enemies
                 local player = game:GetService("Players").LocalPlayer
@@ -11106,21 +11107,21 @@ spawn(function()
                             repeat
                                 task.wait(0.05)
                                 AutoHaki()
-                                EquipWeapon(getgenv().SelectWeapon)
+                                EquipWeapon(_G['Select Weapon'])
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Humanoid.WalkSpeed = 0           
-                                topos(v.HumanoidRootPart.CFrame * Pos)
+                                TP(v.HumanoidRootPart.CFrame * Pos)
                             until not Config["Auto Darkbeard"] or not v.Parent or v.Humanoid.Health <= 0
                         end
                     end
                 elseif player.Backpack:FindFirstChild("Fist of Darkness") or player.Character:FindFirstChild("Fist of Darkness") then
                     repeat
                         task.wait(0.1)
-                        topos(CFrame.new(3778.584, 15.791, -3499.404))
+                        TP(CFrame.new(3778.584, 15.791, -3499.404))
                         EquipWeapon("Fist of Darkness")
                     until not Config["Auto Darkbeard"]
                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard") then
-                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard").HumanoidRootPart.CFrame * Pos)
+                    TP(game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard").HumanoidRootPart.CFrame * Pos)
                 end
             end)
         end
@@ -11136,6 +11137,320 @@ spawn(function()
                 }
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
                 wait(0.148365927)
+            end)
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if Config["Auto Buy Haki Color Hop"] then
+            pcall(function()
+                task.wait(4)
+                Hop()
+            end)
+        end
+    end
+end)
+spawn(function()
+    pcall(function()
+        while wait() do
+            if Config["Auto Rip Indra"] and L_7449423635_ then
+                local enemies = game:GetService("Workspace").Enemies
+                local player = game:GetService("Players").LocalPlayer                
+                if enemies:FindFirstChild("rip_indra True Form") or enemies:FindFirstChild("rip_indra") then
+                    for _, v in pairs(enemies:GetChildren()) do
+                        if (v.Name == "rip_indra True Form" or v.Name == "rip_indra") and v.Humanoid.Health > 0 and v:IsA("Model") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+                            repeat
+                                wait()
+                                    AutoHaki()
+                                    EquipWeapon(_G['Select Weapon'])
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Humanoid.WalkSpeed = 0
+                                    TP(v.HumanoidRootPart.CFrame * Pos)
+                            until not Config["Auto Rip Indra"] or v.Humanoid.Health <= 0
+                        end
+                    end
+                elseif player.Backpack:FindFirstChild("God's Chalice") or player.Character:FindFirstChild("God's Chalice") then
+                    repeat
+                        task.wait(0.3)
+                        TP(CFrame.new(-5563.75048828125, 320.4276123046875, -2662.509521484375))
+                        EquipWeapon("God's Chalice")
+                    until not (player.Backpack:FindFirstChild("God's Chalice") or player.Character:FindFirstChild("God's Chalice"))
+                elseif game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra True Form") then
+                    local ripIndraTrueForm = game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra True Form")
+                    TP(ripIndraTrueForm.HumanoidRootPart.CFrame * Pos)
+                end
+            end
+        end
+    end)
+end)
+spawn(function()
+    while wait() do
+        if Config["Auto Pray"] and L_7449423635_ then    
+            local targetPos = CFrame.new(-8652.99707, 143.450119, 6170.50879)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - targetPos.Position).magnitude > 5 then
+                TP(targetPos)
+                wait(0.1)
+            end
+            pcall(function()
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent", 1)
+            end)
+        end
+    end
+end)
+spawn(function()
+    while wait(0.5) do
+        if Config["Auto Try Luck"] and L_7449423635_ then    
+            local targetPos = CFrame.new(-8652.99707, 143.450119, 6170.50879)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - targetPos.Position).magnitude > 5 then
+                TP(targetPos)
+                wait(0.1)
+            end
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent", 2)
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if Config["Auto Dough King"] and L_7449423635_ then
+            pcall(function()
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or 
+                   game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") then
+                    if string.find(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SweetChaliceNpc"), "Where") then
+                    else
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SweetChaliceNpc")
+                    end
+                elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Sweet Chalice") or 
+                       game.Players.LocalPlayer.Character:FindFirstChild("Sweet Chalice") then
+                    if string.find(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"), 
+                                   "Do you want to open the portal now?") then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")
+                    else
+                        if game.Workspace.Enemies:FindFirstChild("Baking Staff") or 
+                           game.Workspace.Enemies:FindFirstChild("Head Baker") or 
+                           game.Workspace.Enemies:FindFirstChild("Cake Guard") or 
+                           game.Workspace.Enemies:FindFirstChild("Cookie Crafter") then
+                            for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do  
+                                if (v.Name == "Baking Staff" or v.Name == "Head Baker" or 
+                                    v.Name == "Cake Guard" or v.Name == "Cookie Crafter") and 
+                                    v.Humanoid.Health > 0 then
+                                    repeat
+                                        wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G['Select Weapon'])
+                                        TP(v.HumanoidRootPart.CFrame * Pos)
+                                    until Config["Auto Dough King"] == false or 
+                                          game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") or 
+                                          not v.Parent or 
+                                          v.Humanoid.Health <= 0
+                                end
+                            end
+                        else
+                            TP(CFrame.new(-1820.063, 210.748, -12297.496))
+                        end
+                    end
+                elseif game.ReplicatedStorage:FindFirstChild("Dough King") or 
+                       game:GetService("Workspace").Enemies:FindFirstChild("Dough King") then
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Dough King") then
+                        for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do 
+                            if v.Name == "Dough King" then
+                                repeat
+                                    task.wait(0.05)
+                                    AutoHaki()
+                                    EquipWeapon(_G['Select Weapon'])
+                                    v.HumanoidRootPart.CanCollide = false
+                                    TP(v.HumanoidRootPart.CFrame * Pos)
+                                until Config["Auto Dough King"] == false or 
+                                      not v.Parent or 
+                                      v.Humanoid.Health <= 0
+                            end    
+                        end    
+                    else
+                        TP(CFrame.new(-2009.280, 4532.972, -14937.308))
+                    end
+                elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Red Key") or 
+                       game.Players.LocalPlayer.Character:FindFirstChild("Red Key") then
+                    local args = {
+                        [1] = "CakeScientist",
+                        [2] = "Check"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                else
+                    if (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible) == true then
+                        if (string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Urban")) then
+                            if (workspace.Enemies:FindFirstChild("Diablo") or workspace.Enemies:FindFirstChild("Deandre") or workspace.Enemies:FindFirstChild("Urban")) then
+                                for v37, v38 in pairs(workspace.Enemies:GetChildren()) do
+                                    if (v38:FindFirstChild("Humanoid") and v38:FindFirstChild("HumanoidRootPart") and v38.Humanoid.Health) > (0) then
+                                        if (v38.Name == "Diablo" or v38.Name == "Deandre" or v38.Name == "Urban") then
+                                            repeat
+                                                game:GetService("RunService").Heartbeat:wait()
+                                                EquipWeapon(_G['Select Weapon'])
+                                                TP(v38.HumanoidRootPart.CFrame * Pos)
+                                            until (Config["Auto Dough King"] == false or v38.Humanoid.Health <= (0) or not v.Parent)
+                                        end
+                                    end
+                                end
+                            else
+                                if (game:GetService("ReplicatedStorage"):FindFirstChild("Diablo")) then
+                                    if (ByPassTP) then
+                                        BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo")
+                                            .HumanoidRootPart.CFrame)
+                                    else
+                                        TP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo")
+                                            .HumanoidRootPart.CFrame)
+                                    end
+                                elseif (game:GetService("ReplicatedStorage"):FindFirstChild("Deandre")) then
+                                    if (ByPassTP) then
+                                        BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre")
+                                            .HumanoidRootPart.CFrame)
+                                    else
+                                        TP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre")
+                                            .HumanoidRootPart.CFrame)
+                                    end
+                                elseif (game:GetService("ReplicatedStorage"):FindFirstChild("Urban")) then
+                                    if (ByPassTP) then
+                                        BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban")
+                                            .HumanoidRootPart.CFrame)
+                                    else
+                                        TP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart
+                                            .CFrame)
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
+                    end
+                end
+            end)
+        end
+    end
+end)
+spawn(function()
+    pcall(function()
+        while wait() do
+            if Config["Auto Buy Gear"] and L_7449423635_ then
+                local args = {"UpgradeRace", "Buy"}
+                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+            else
+                repeat wait() until Config["Auto Buy Gear"]
+            end
+        end
+    end)
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if getgenv().Race_1 and game.Players.LocalPlayer.Character then
+                local char = game.Players.LocalPlayer.Character
+                if char:FindFirstChild("RaceTransformed") and char.RaceTransformed.Value then
+                    Config["Auto Finish Train Quest"] = false
+                    TP(CFrame.new(-9507.03125, 713.654968, 6186.39453))
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait() do 
+        pcall(function()
+            if Config["Auto Finish Train Quest"] and L_7449423635_ and game.Players.LocalPlayer.Character then
+                local enemies = workspace:FindFirstChild("Enemies")
+                if enemies then
+                    for _, v in pairs(enemies:GetChildren()) do
+                        if v:IsA("Model") and (v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy") then
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                repeat
+                                    task.wait(0.1)
+                                    AutoHaki()
+                                    EquipWeapon(_G['Select Weapon'])   
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Humanoid.WalkSpeed = 0
+                                    v.Head.CanCollide = false
+                                    TP(v.HumanoidRootPart.CFrame * Pos)
+                                    BringMob(v.HumanoidRootPart.CFrame) 
+                                until not Config["Auto Finish Train Quest"] or v.Parent == nil or v.Humanoid.Health <= 0
+                            end
+                        end
+                    end
+                end
+                if BypassTP then
+                    local playerPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                    local distance = (playerPos - BonePos.Position).Magnitude
+                    if distance > 1500 then
+                        TP(BonePos)
+                    else
+                        TP(BonePos)
+                    end
+                else
+                    TP(BonePos)
+                end
+                UnEquipWeapon(_G['Select Weapon']) 
+                TP(CFrame.new(-9507.03125, 713.654968, 6186.39453))
+                local replicated = game:GetService("ReplicatedStorage")
+                for _, v in pairs(replicated:GetChildren()) do 
+                    if v:IsA("Model") and (v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy") then
+                        if v:FindFirstChild("HumanoidRootPart") then
+                            TP(v.HumanoidRootPart.CFrame * CFrame.new(2, 20, 2))
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if getgenv().Race_1 and game.Players.LocalPlayer.Character then
+                local char = game.Players.LocalPlayer.Character
+                if char:FindFirstChild("RaceTransformed") and not char.RaceTransformed.Value then
+                    Config["Auto Finish Train Quest"] = true
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if getgenv().Race_1 and game.Players.LocalPlayer.Character then
+                local char = game.Players.LocalPlayer.Character
+                if char:FindFirstChild("RaceEnergy") and char.RaceEnergy.Value >= 1 and not char.RaceTransformed.Value then
+                    local be = game:GetService("VirtualInputManager")
+                    be:SendKeyEvent(true, "Y", false, game)
+                    task.wait(0.1)
+                    be:SendKeyEvent(false, "Y", false, game)
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        if Config["Auto Kill Player After Trial V4"] and L_7449423635_ then
+            pcall(function()
+                local player = game.Players.LocalPlayer
+                local char = player.Character
+                if not char or not char:FindFirstChild("HumanoidRootPart") then return end                
+                for _, v in pairs(game.Workspace.Characters:GetChildren()) do
+                    if v.Name ~= player.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+                        local humanoid = v.Humanoid
+                        local rootPart = v.HumanoidRootPart
+                        repeat wait()
+                        AutoHaki()
+                        EquipWeapon(_G['Select Weapon'])   
+                        TP(rootPart.CFrame * CFrame.new(1, 1, 2))
+                        rootPart.Size = Vector3.new(60, 60, 60)
+                        rootPart.CanCollide = false
+                        if v:FindFirstChild("Head") then
+                            v.Head.CanCollide = false
+                        end
+                        humanoid.WalkSpeed = 0
+                        sethiddenproperty(player, "SimulationRadius", math.huge)
+                        until not Config["Auto Kill Player After Trial V4"] or not v.Parent or humanoid.Health <= 0
+                    end
+                end
             end)
         end
     end
@@ -12580,33 +12895,7 @@ row:Right():Slider({
         end
     end,
 })
-local row = form:Row({
-    SearchIndex = "Boat Tween Speed",
-})
-local BT_D = row:Left():TitleStack({
-    Title = "Boat Tween Speed",
-})
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            BT_D.Title = "Boat Tween Speed " .. "( " .. tostring(Config["Boat Tween Speed"]) .. " )"
-        end)
-    end
-end)
-row:Right():Slider({
-    Minimum = 50,
-    Maximum = 350,
-    Value = Config["Boat Tween Speed"] or 300,
-    ValueChanged = function(self, value)
-    local num = tonumber(value)
-        if num then
-            num = math.floor(num)
-            spppp = num
-            Config["Boat Tween Speed"] = num
-            getgenv()['Update_Setting'](getgenv()['MyName'])
-        end
-    end,
-})
+Config["Boat Tween Speed"] = 275
 form = Tabs.FarmSettings:PageSection({ Title = "Settings Skills" }):Form()
 row = titledRow(form, "Skill")
 local Sk = row:Right():PullDownButton({
@@ -13180,7 +13469,7 @@ spawn(function()
         end)
     end
 end)
-row = titledRow(form, "Auto Farm Cake Prince","Automatically farms or fights the Cake Prince boss")
+row = titledRow(form, "Auto Farm Cake Prince","Automatically farms zor fights the Cake Prince boss")
 row:Right():Toggle({
     Value = Config["Auto Farm Cake Prince"] or false,
     ValueChanged = function(self, value)
@@ -13196,6 +13485,15 @@ row:Right():Toggle({
         Config["Enabled Spawn Cake Prince"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         _St(Config["Enabled Spawn Cake Prince"])
+    end,
+})
+row = titledRow(form, "Auto Dough King","Automatically tracks, locates, and fights the Dough King boss without requiring manual control. It handles spawning, approaching, and attacking to help you defeat the boss efficiently.")
+row:Right():Toggle({
+    Value = Config["Auto Dough King"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Dough King"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Dough King"])
     end,
 })
 form = Tabs.Main:PageSection({ Title = "Sea Beasts" }):Form()
@@ -13263,7 +13561,7 @@ row:Right():Toggle({
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
-row = titledRow(form, "Auto Buy Haki Color Hop","Auto Buy Haki Color Hop")
+row = titledRow(form, "Auto Buy Haki Color Hop","Automatically changes server and buys different Haki colors until a desired color is obtained.")
 row:Right():Toggle({
     Value = Config["Auto Buy Haki Color Hop"] or false,
     ValueChanged = function(self, value)
@@ -13520,6 +13818,34 @@ row:Right():Toggle({
         Config["Auto Hallow Sycthe"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         _St(Config["Auto Hallow Sycthe"])
+    end,
+})
+row = titledRow(form, "Auto Pray","Automatically performs prayers at the altar/statue to receive buffs, stat bonuses, or special rewards without manual action.")
+row:Right():Toggle({
+    Value = Config["Auto Pray"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Pray"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Pray"])
+    end,
+})
+row = titledRow(form, "Auto Try Luck","Automatically attempts the “Try Luck” feature to receive random rewards, bonuses, or buffs without manual clicking.")
+row:Right():Toggle({
+    Value = Config["Auto Try Luck"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Try Luck"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Try Luck"])
+    end,
+})
+form = Tabs.Sub_Farming:PageSection({ Title = "Rip Indra" }):Form()
+row = titledRow(form, "Auto Rip Indra","Automatically tracks, teleports to, and fights Rip Indra without any manual control.")
+row:Right():Toggle({
+    Value = Config["Auto Rip Indra"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Rip Indra"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Rip Indra"])
     end,
 })
 form = Tabs.Sub_Farming:PageSection({ Title = "Budy Sword" }):Form()
@@ -13884,7 +14210,28 @@ end)
 spawn(function()
     while wait() do
         if L_2753915549_ or L_4442272183_ then
-            Checkmoon:SetTitle("Full Moon : 0%")
+            BT_D:SetTitle("Full Moon : 0%")
+        end
+    end
+end)
+local row = form:Row({
+    SearchIndex = "Pull Lever Done",
+})
+local BT_D = row:Left():TitleStack({
+    Title = "Pull Lever Done"
+})
+spawn(function()
+    local previousStatus = ""
+    while task.wait(1) do
+        local success, result = pcall(function()
+            return game.ReplicatedStorage.Remotes.CommF_:InvokeServer("templedoorcheck")
+        end)
+        if success then
+            local currentStatus = result and "🟢" or "🔴"
+            if currentStatus ~= previousStatus then
+                BT_D.Subtitle = ("Status: " .. currentStatus)
+                previousStatus = currentStatus
+            end
         end
     end
 end)
@@ -13895,6 +14242,33 @@ row:Right():Toggle({
         Config["Auto Complete Trail"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         _St(Config["Auto Complete Trail"])
+    end,
+})
+row = titledRow(form, "Auto Buy Gear")
+row:Right():Toggle({
+    Value = Config["Auto Buy Gear"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Buy Gear"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+    end,
+})
+row = titledRow(form, "Auto Kill Player After Trial V4")
+row:Right():Toggle({
+    Value = Config["Auto Kill Player After Trial V4"] or false,
+    ValueChanged = function(self, value)
+        Config["Auto Kill Player After Trial V4"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Kill Player After Trial V4"])
+    end,
+})
+row = titledRow(form, "Auto Finish Train Quest")
+row:Right():Toggle({
+    Value = Config["Auto Finish Train Quest"] or false,
+    ValueChanged = function(self, value)
+        getgenv().Race_1 = value
+        Config["Auto Finish Train Quest"] = value
+        getgenv()['Update_Setting'](getgenv()['MyName'])
+        _St(Config["Auto Finish Train Quest"])
     end,
 })
 row = titledRow(form, "Teleport to Race Door")
@@ -14510,6 +14884,57 @@ row:Right():Toggle({
         Config["Auto Collect Blaze Ember"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
         _St(Config["Auto Collect Blaze Ember"])
+    end,
+})
+row = titledRow(
+    form,
+    "Craft Volcanic Magnet",
+    "Need 15 Blaze Ember + 10 Iron"
+)
+row:Right():Button({
+    Label = "Click here!",
+    State = "Primary",
+    Pushed = function(self)
+        local args = {
+            [1]="CraftItem",
+            [2]="Craft",
+            [3]="Volcanic Magnet"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end,
+})
+row = titledRow(
+    form,
+    "Craft Dino Hood",
+    "Need 25 Dinosaur Bones + 10 Mini Tusk"
+)
+row:Right():Button({
+    Label = "Click here!",
+    State = "Primary",
+    Pushed = function(self)
+        local args = {
+            [1]="CraftItem",
+            [2]="Craft",
+            [3]="DinoHood"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end,
+})
+row = titledRow(
+    form,
+    "Craft T-Rex Skull",
+    "Need 8 Dinosaur Bones + 5 Dragon Scale"
+)
+row:Right():Button({
+    Label = "Click here!",
+    State = "Primary",
+    Pushed = function(self)
+        local args = {
+            [1]="CraftItem",
+            [2]="Craft",
+            [3]="TRexSkull"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end,
 })
 form = Tabs.VolcanoEvents:PageSection({ Title = "Dragon Talon" }):Form()
