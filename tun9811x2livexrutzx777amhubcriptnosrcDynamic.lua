@@ -3017,9 +3017,9 @@ function StopBoatsTween(target)
     if not target then
         _G.StopTweenBoat = true
         wait(.1)
+        PlayBoatsTween(game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame)
         PlayBoatsTweenSeaEvent(checkbot().VehicleSeat.CFrame)
         PlayBoatsTweenSeaF(checkbotf().VehicleSeat.CFrame)
-        PlayBoatsTween(game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame)
         wait(.1)
         _G.StopTweenBoat = false
     end
@@ -3760,7 +3760,7 @@ end)
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
             if Config["Auto Farm Sea Events"] or Config["Auto Find Mirage Island"] or Config["Auto Find Kitsune Island"] or Config["Auto Find Prehistoric Island"] or Config["Auto Dojo Quest"] or Config["Auto Find Frozen Dimension"] or Config["Auto Farm Sea Beasts"] then
-                local BoatsTarget = checkbot() or checkbotf()
+                local BoatsTarget = checkbot() or checkbotf() or game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
                 for _, v in pairs(BoatsTarget:GetDescendants()) do
                     if v:IsA("BasePart") then
                         v.CanCollide = false
@@ -3774,7 +3774,7 @@ spawn(function()
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
             if not Config["Auto Farm Sea Events"] or Config["Auto Find Mirage Island"] or Config["Auto Find Kitsune Island"] or Config["Auto Find Prehistoric Island"] or Config["Auto Dojo Quest"] or Config["Auto Find Frozen Dimension"] or Config["Auto Farm Sea Beasts"] then
-                local BoatsTarget = checkbot() or checkbotf()
+                local BoatsTarget = checkbot() or checkbotf() or game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
                 for _, v in pairs(BoatsTarget:GetDescendants()) do
                     if v:IsA("BasePart") then
                         v.CanCollide = true
@@ -13263,14 +13263,14 @@ row:Right():Toggle({
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
 })
---[[ row = titledRow(form, "Auto Buy Haki Color Hop","Auto Buy Haki Color Hop")
+row = titledRow(form, "Auto Buy Haki Color Hop","Auto Buy Haki Color Hop")
 row:Right():Toggle({
     Value = Config["Auto Buy Haki Color Hop"] or false,
     ValueChanged = function(self, value)
         Config["Auto Buy Haki Color Hop"] = value
         getgenv()['Update_Setting'](getgenv()['MyName'])
     end,
-}) *]]
+})
 form = Tabs.Sub_Farming:PageSection({ Title = "Automatic" })
 form = Tabs.Sub_Farming:Form()
 if L_2753915549_ then
