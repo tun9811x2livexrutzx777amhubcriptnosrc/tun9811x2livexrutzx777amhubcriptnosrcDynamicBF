@@ -1777,19 +1777,17 @@ function CheckQuest()
             CFrameQuest = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0,
                 0.308980465, 0, 0.951068401)
         elseif MyLevel == 2600 or MyLevel <= 2624 then
-            Mon = "Skull Slayer"
-            NameQuest = "TikiQuest3"
-            LevelQuest = 2
-            NameMon = "Skull Slayer"
-            CFrameQuest = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0,
-                0.308980465, 0, 0.951068401)
+            Mon = "Reef Bandit"
+            NameQuest = "SubmergedQuest1"
+            LevelQuest = 1
+            NameMon = "Reef Bandit"
+            CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
         elseif MyLevel == 2625 or MyLevel <= 2649 then
-            Mon = "Skull Slayer"
-            NameQuest = "TikiQuest3"
+            Mon = "Coral Pirate"
+            NameQuest = "SubmergedQuest1"
             LevelQuest = 2
-            NameMon = "Skull Slayer"
-            CFrameQuest = CFrame.new(-16665.1914, 104.596405, 1579.69434, 0.951068401, -0, -0.308980465, 0, 1, -0,
-                0.308980465, 0, 0.951068401)
+            NameMon = "Coral Pirate"
+            CFrameQuest = CFrame.new(10780.6396, -2088.41406, 9260.4541, -0.953751206, 0, 0.300598353, 0, 1, 0, -0.300598353, 0, -0.953751206)
         elseif MyLevel == 2650 or MyLevel <= 2674 then
             Mon = "Sea Chanter"
             NameQuest = "SubmergedQuest2"
@@ -2250,15 +2248,11 @@ function CheckMon()
             CFrameMon3 = CFrame.new(-16818, 219, 1752)
             CFrameMon4 = nil
         elseif MyLevel == 2600 or MyLevel <= 2624 then
-            CFrameMon1 = CFrame.new(-16806, 134, 1534)
-            CFrameMon2 = CFrame.new(-16966, 241, 1643)
-            CFrameMon3 = CFrame.new(-16818, 219, 1752)
-            CFrameMon4 = nil
+            CFrameMon1 = CFrame.new(10920.552734375, -2120.7587890625, 9267.6513671875)
+            CFrameMon2 = CFrame.new(11034.779296875, -2128.155517578125, 9118.48046875)
         elseif MyLevel == 2625 or MyLevel <= 2649 then
-            CFrameMon1 = CFrame.new(-16806, 134, 1534)
-            CFrameMon2 = CFrame.new(-16966, 241, 1643)
-            CFrameMon3 = CFrame.new(-16818, 219, 1752)
-            CFrameMon4 = nil
+            CFrameMon1 = CFrame.new(10662.7822265625, -2064.858642578125, 9303.939453125)
+            CFrameMon2 = CFrame.new(10835.505859375, -2050.79541015625, 9438.0458984375)
         elseif MyLevel == 2650 or MyLevel <= 2674 then
             CFrameMon1 = CFrame.new(10626.7861328125, -2035.5662841796875, 10000.9775390625)
             CFrameMon2 = CFrame.new(10641.978515625, -2058.716064453125, 10174.470703125)
@@ -2930,7 +2924,7 @@ function TPB2(BoatsPos)
     local Distance = (BoatsPos.Position - game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = Config["Boat Tween Speed"]
+        Speed = spppp
     end
     game:GetService("TweenService"):Create(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat,
         TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear), { CFrame = BoatsPos }):Play()
@@ -2968,7 +2962,7 @@ function PlayBoatsTween(Target)
     local Distance = (Target.Position - game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = Config["Boat Tween Speed"]
+        Speed = spppp
     end
     game:GetService("TweenService"):Create(
         game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade").VehicleSeat,
@@ -2983,7 +2977,7 @@ function PlayBoatsTweenSeaEvent(Target)
     local Distance = (Target.Position - checkbot().VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = Config["Boat Tween Speed"]
+        Speed = spppp
     end
     game:GetService("TweenService"):Create(
         checkbot().VehicleSeat,
@@ -2998,7 +2992,7 @@ function PlayBoatsTweenSeaF(Target)
     local Distance = (Target.Position - checkbotf().VehicleSeat.Position)
         .Magnitude
     if Distance > 1 then
-        Speed = Config["Boat Tween Speed"]
+        Speed = spppp
     end
     game:GetService("TweenService"):Create(
         checkbotf().VehicleSeat,
@@ -3366,9 +3360,8 @@ end
 function TP(Pos)
     local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     local Speed
-    if Distance <= 150 then
-        --[[ Speed = 400 *]]
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+    if Distance <= 200 then
+        Speed = 400
     else
         Speed = Config["Tween Speed"]
     end
@@ -3914,7 +3907,7 @@ Speed22 = 300
 v2 = false
 spawn(function()
     while wait() do
-        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value <= 2649 then
+        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value < 2600 then
             pcall(function()
                 local v3 = (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text)
                 if not string.find(v3, NameMon) then
@@ -3981,7 +3974,7 @@ local pos_fatm_lel = CFrame.new(-16070.9297, 54.770813, 1051.46118, 0.999156058,
     -0.0410757065, 0, 0.999156058)
 spawn(function()
     while task.wait() do
-        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value >= 2650 and game:GetService("Players").LocalPlayer.Data.Level.Value < 2700 then
+        if Config["Auto Farm Level"] and game:GetService("Players").LocalPlayer.Data.Level.Value >= 2600 and game:GetService("Players").LocalPlayer.Data.Level.Value < 2700 then
             print("Farm 2")
             pcall(function()
                 local v3 = (game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text)
@@ -12902,7 +12895,33 @@ row:Right():Slider({
         end
     end,
 })
-Config["Boat Tween Speed"] = 275
+local row = form:Row({
+    SearchIndex = "Boat Tween Speed",
+})
+local T_D = row:Left():TitleStack({
+    Title = "Boat Tween Speed",
+})
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            T_D.Title = "Boat Tween Speed " .. "( " .. tostring(Config["Boat Tween Speed"]) .. " )"
+        end)
+    end
+end)
+row:Right():Slider({
+    Minimum = 50,
+    Maximum = 300,
+    Value = Config["Boat Tween Speed"] or 275,
+    ValueChanged = function(self, value)
+    local num = tonumber(value)
+        if num then
+            num = math.floor(num)
+            spppp = num
+            Config["Boat Tween Speed"] = num
+            getgenv()['Update_Setting'](getgenv()['MyName'])
+        end
+    end,
+})
 form = Tabs.FarmSettings:PageSection({ Title = "Settings Skills" }):Form()
 row = titledRow(form, "Skill")
 local Sk = row:Right():PullDownButton({
