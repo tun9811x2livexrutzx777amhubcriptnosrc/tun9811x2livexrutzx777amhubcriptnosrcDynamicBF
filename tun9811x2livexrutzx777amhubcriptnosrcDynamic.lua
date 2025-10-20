@@ -3360,12 +3360,10 @@ end
 function TP(Pos)
     local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     local Speed
-    if Distance <= 200 then
-        Speed = 400
-    else
-        Speed = Config["Tween Speed"]
+    if Distance <= 130 then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
     end
-    local tweenInfo = TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear)
+    local tweenInfo = TweenInfo.new(Distance / Config["Tween Speed"], Enum.EasingStyle.Linear)
     local tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,
         tweenInfo, {
             CFrame = Pos
