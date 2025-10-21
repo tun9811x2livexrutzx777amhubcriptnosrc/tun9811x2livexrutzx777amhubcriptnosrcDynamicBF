@@ -4820,43 +4820,35 @@ spawn(function()
     while wait() do
         if Config["Auto Farm Cake Prince"] and L_7449423635_ then
             pcall(function()
-                if (game.ReplicatedStorage:FindFirstChild("Cake Prince") or workspace.Enemies:FindFirstChild("Cake Prince")) then
-                    if (workspace.workspace.Enemies:FindFirstChild("Cake Prince")) then
-                        for v28, v29 in pairs(Workspace.Enemies:GetChildren()) do
-                            if (Config["Auto Farm Cake Prince"] and v29.Name == "Cake Prince" and v29:FindFirstChild("HumanoidRootPart") and v29:FindFirstChild("Humanoid") and v29.Humanoid.Health) > (0) then
+                if game.ReplicatedStorage:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") or game.ReplicatedStorage:FindFirstChild("Dough King") or game:GetService("Workspace").Enemies:FindFirstChild("Dough King") then
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Dough King") then
+                        for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Cake Prince" or v.Name == "Dough King" then
                                 repeat
-                                    game:GetService("RunService").Heartbeat:wait()
-                                    EquipWeapon(_G['Select Weapon'])
-                                    TP(v29.HumanoidRootPart.CFrame * Pos)
-                                until not Config["Auto Farm Cake Prince"] or not v29.Parent or v29.Humanoid.Health <= 0
-                            end
-                        end
+                                    wait(y)  
+                                    AutoHaki()  
+                                    EquipWeapon(_G['Select Weapon'])  
+                                    TP(v.HumanoidRootPart.CFrame * Pos)  
+                                until not Config["Auto Farm Cake Prince"] or not v.Parent or v.Humanoid.Health <= 0
+                            end    
+                        end    
                     else
-                        if (game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == (0) and (CFrame.new(-1990.672607421875, 4532.99951171875, -14973.6748046875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position)).Magnitude >= (1000) then
-                            TP(CFrame.new(-2151.82153, 149.315704, -12404.9053))
-                        end
+                        TP(CFrame.new(-2009.2802734375, 4532.97216796875, -14937.3076171875)) 
                     end
                 else
-                    if (workspace.Enemies:FindFirstChild("Cookie Crafter") or workspace.Enemies:FindFirstChild("Cake Guard") or workspace.Enemies:FindFirstChild("Baking Staff") or workspace.Enemies:FindFirstChild("Head Baker")) then
-                        for v30, v31 in pairs(Workspace.Enemies:GetChildren()) do
-                            if (v31:FindFirstChild("Humanoid") and v31:FindFirstChild("HumanoidRootPart") and v31.Humanoid.Health) > (0) then
-                                if (v31.Name == "Cookie Crafter" or v31.Name == "Cake Guard" or v31.Name == "Baking Staff" or v31.Name == "Head Baker") and v31:FindFirstChild("HumanoidRootPart") and v31:FindFirstChild("Humanoid") and v31.Humanoid.Health > (0) then
-                                    repeat
-                                        wait()
-                                        --BringMob(v31.HumanoidRootPart.CFrame)
-                                        EquipWeapon(_G['Select Weapon'])
-                                        TP(v31.HumanoidRootPart.CFrame * Pos)
-                                        BringMob(v31.HumanoidRootPart.CFrame) 
-                                    until not Config["Auto Farm Cake Prince"] or not v31.Parent or v31.Humanoid.Health <= 0
-                                end
+                    if game.Workspace.Enemies:FindFirstChild("Baking Staff") or game.Workspace.Enemies:FindFirstChild("Head Baker") or game.Workspace.Enemies:FindFirstChild("Cake Guard") or game.Workspace.Enemies:FindFirstChild("Cookie Crafter") then
+                        for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if (v.Name == "Baking Staff" or v.Name == "Head Baker" or v.Name == "Cake Guard" or v.Name == "Cookie Crafter") and v.Humanoid.Health > 0 then
+                                repeat
+                                    wait()  
+                                    AutoHaki()  
+                                    EquipWeapon(_G['Select Weapon'])  
+                                    TP(v.HumanoidRootPart.CFrame * Pos)  
+                                until not Config["Auto Farm Cake Prince"] or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") or game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
                     else
-                        if (ByPassTP) then
-                            BTP(CFrame.new(-2077, 252, -12373))
-                        else
-                            TP(CFrame.new(-2077, 252, -12373))
-                        end
+                        TP(CFrame.new(-1579.9111328125, 329.7358703613281, -12310.365234375)) 
                     end
                 end
             end)
@@ -13789,7 +13781,7 @@ local BT_D = row:Left():TitleStack({
 })
 spawn(function()
     while task.wait() do
-        if L_4442272183_ then
+        if L_7449423635_ then
         BT_D.Subtitle = ("Already Kill Elite Hunter : " ..
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter", "Progress"))
         else
