@@ -3760,9 +3760,11 @@ end)
         game:GetService("RunService").Stepped:Connect(function()
             if Config["Auto Farm Sea Events"] or Config["Auto Find Mirage Island"] or Config["Auto Find Kitsune Island"] or Config["Auto Find Prehistoric Island"] or Config["Auto Dojo Quest"] or Config["Auto Find Frozen Dimension"] or Config["Auto Farm Sea Beasts"] then
                 local BoatsTarget = checkbot() or checkbotf() or game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                for _, v in pairs(BoatsTarget:GetDescendants()) do
-                    if v:IsA("BasePart") then
-                        v.CanCollide = false
+                if BoatsTarget then
+                    for _, v in pairs(BoatsTarget:GetDescendants()) do
+                        if v:IsA("BasePart") then
+                            v.CanCollide = false
+                        end
                     end
                 end
             end
@@ -3774,9 +3776,11 @@ spawn(function()
         if not Config["Auto Farm Sea Events"] or Config["Auto Find Mirage Island"] or Config["Auto Find Kitsune Island"] or Config["Auto Find Prehistoric Island"] or Config["Auto Dojo Quest"] or Config["Auto Find Frozen Dimension"] or Config["Auto Farm Sea Beasts"] then
             pcall(function()
                 local BoatsTarget = checkbot() or checkbotf() or game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade")
-                for _, v in pairs(BoatsTarget:GetDescendants()) do
-                    if v:IsA("BasePart") then
-                        v.CanCollide = true
+                if BoatsTarget then
+                    for _, v in pairs(BoatsTarget:GetDescendants()) do
+                        if v:IsA("BasePart") then
+                            v.CanCollide = true
+                        end
                     end
                 end
             end)
