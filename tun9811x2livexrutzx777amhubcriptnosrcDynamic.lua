@@ -15856,7 +15856,7 @@ spawn(function()
         if tick() - lastCheckTime > 1 then
             lastCheckTime = tick()
             local foundFruit = false
-            for _, v in pairs(game.workspace:GetDescendants()) do
+            for _, v in pairs(game.workspace:GetChildren()) do
                 if string.find(v.Name, "Fruit") and v:FindFirstChild("Fruit") and v:FindFirstChild("RootPart") then
                     foundFruit = true
                     break
