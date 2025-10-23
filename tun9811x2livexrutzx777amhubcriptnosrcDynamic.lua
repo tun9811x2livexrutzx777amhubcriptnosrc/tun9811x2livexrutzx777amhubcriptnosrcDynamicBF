@@ -11022,7 +11022,7 @@ spawn(function()
         if Config["Teleport to Fruit"] then
             pcall(function()
                 for i, v in pairs(workspace:GetChildren()) do
-                    if v:IsA("Tool") and string.find(v.Name,"Fruit") then
+                    if v:IsA("Tool") or v:IsA("Model") and string.find(v.Name,"Fruit") then
                         TP(v.Handle.CFrame)
                     end
                 end
@@ -15857,7 +15857,7 @@ spawn(function()
             lastCheckTime = tick()
             local foundFruit = false
             for _, v in pairs(game.workspace:GetChildren()) do
-                if string.find(v.Name, "Fruit") and v:FindFirstChild("Fruit") and v:FindFirstChild("RootPart") then
+                if string.find(v.Name, "Fruit") and v:FindFirstChild("Fruit") then
                     foundFruit = true
                     break
                 end
