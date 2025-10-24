@@ -12432,7 +12432,7 @@ function BringMob(pos)
                 if not table.find(BlacklistMob, v.Name) then
                     local p = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
                     local m = v.HumanoidRootPart.Position
-                    if (m - p).Magnitude <= 100 then
+                    if (m - p).Magnitude <= 175 then
                         wait(0.3)
                         v.HumanoidRootPart.CFrame = pos
                         v.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
